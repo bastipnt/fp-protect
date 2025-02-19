@@ -47,9 +47,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-build-
       - name: Install dependencies
-        run: bun --filter "frontend" install
+        run: bun install
       - name: Build with Bun
-        run: bun --filter run build
+        run: bun run build --filter "frontend"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
