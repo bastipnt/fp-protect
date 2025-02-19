@@ -1,1 +1,43 @@
 @import "tailwindcss";
+
+@theme {
+  --color-*: initial;
+  --color-stroke: #5e3135;
+  --color-default: var(--color-stroke);
+  --color-surface: #feede3;
+  --color-surface-darker: #c3ac9d;
+
+  --color-details: #5e4a5b;
+
+  --color-primary: #6bc9c9;
+  --color-primary-darker: #47b0ab;
+
+  --font-heading: "Digibats";
+
+  /* --default-font-family: var(--font-heading); */
+}
+
+@font-face {
+  font-family: Digibats;
+  src:
+    local("Digibats-m2Zpm"),
+    url("assets/fonts/digibats-font/Digibats-m2Zpm.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Digibats;
+  src:
+    local("DigibatsItalic-7OjpK"),
+    url("assets/fonts/digibats-font/DigibatsItalic-7OjpK.otf") format("opentype");
+  font-style: italic;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+}
+
+body {
+  color: var(--color-default);
+}
