@@ -43,8 +43,6 @@ const Info: React.FC = () => {
     const strokeColor = getComputedStyle(document.body).getPropertyValue("--color-stroke");
     const dangerColor = getComputedStyle(document.body).getPropertyValue("--color-danger");
 
-    console.log("draw", strokeColor, dangerColor);
-
     ctx.lineWidth = 4;
 
     ctx.strokeStyle = strokeColor;
