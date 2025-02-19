@@ -13,7 +13,7 @@ const Layout: React.FC<Props> = ({ children }) => {
           to="/"
           className={(active) => `${active ? "bg-surface-darker" : "bg-surface"} border-4 px-2`}
         >
-          <h3 className="text-3xl">Home</h3>
+          <h3 className="text-3xl">Web Tracking</h3>
         </Link>{" "}
         <Link
           to="/mitigation-strategies"
@@ -28,7 +28,7 @@ const Layout: React.FC<Props> = ({ children }) => {
           <h3 className="text-3xl">Test your browser</h3>
         </Link>
       </nav>
-      <main className="box-border flex h-screen w-screen flex-col items-center gap-8 pt-14">
+      <main className="box-border flex h-screen w-screen flex-col items-center justify-center gap-8 pt-14">
         {children}
       </main>
     </>
