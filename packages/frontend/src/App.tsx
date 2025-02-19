@@ -1,10 +1,15 @@
+import { Route, Switch } from "wouter";
 import "./App.css";
+import Layout from "./Layout";
+import Info from "./pages/Info";
 
 function App() {
   return (
-    <>
-      <div className="text-2xl">Bla</div>
-    </>
+    <Layout>
+      <Switch>
+        <Route path="/" component={Info} />
+      </Switch>
+    </Layout>
   );
 }
 
