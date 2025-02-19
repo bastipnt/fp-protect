@@ -54,6 +54,7 @@ export const drawLineToElement = (
     endX = el.offsetLeft;
   }
 
+  ctx.beginPath();
   ctx.moveTo(x, y);
   ctx.lineTo(endX, endY);
   ctx.stroke();
