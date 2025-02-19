@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "module": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "build": "NODE_ENV=production bun build --compile --minify-whitespace --minify-syntax --target bun --outfile ./build/server ./src/index.ts",
+    "start": "NODE_ENV=production ./build/server"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "^1.2.0",
+    "@elysiajs/static": "^1.2.0",
+    "edgedb": "^1.5.12",
+    "elysia": "^1.2.14"
+  }
+}
