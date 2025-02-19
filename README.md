@@ -1,15 +1,26 @@
-# fp-protect
+# Fingerprint Protect (fp-protect)
 
-To install dependencies:
+Project for my master thesis about `web tracking`.
+
+Check how good you are protected against tracking and get some useful tipps.
+
+## How to run locally:
+
+install dependencies:
 
 ```bash
 bun install
 ```
 
-To run:
+run:
 
 ```bash
-bun run index.ts
+bun run dev
 ```
 
-This project was created using `bun init` in bun v1.1.42. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+## Structure:
+
+This is a monorepo for frontend and backend.
+
+- Frontend code can be found in the `packages/frontend` folder
+- Backend code can be found in the `packages/backend` folder
