@@ -150,7 +150,7 @@ const Info: React.FC = () => {
             <p>Luckily there are some things you can still do...</p>
             <Link
               to="/mitigation-strategies"
-              className="bg-surface-darker text-bold cursor-pointer self-end rounded-md border-4 px-4 py-2"
+              className="bg-surface-darker text-bold font-heading cursor-pointer self-end border-4 px-2 text-lg"
             >
               Show me how to protect →
             </Link>
