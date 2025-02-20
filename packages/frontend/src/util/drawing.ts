@@ -42,6 +42,11 @@ export const scaleImage = (img: HTMLImageElement, newSize: number, height = fals
   img.height = imgNewHeight;
 };
 
+export const scaleImageFactor = (img: HTMLImageElement, factor: number) => {
+  img.width = img.width * factor;
+  img.height = img.height * factor;
+};
+
 export const drawImageCenter = (ctx: CanvasRenderingContext2D, img: HTMLImageElement) => {
   const width = ctx.canvas.width;
   const height = ctx.canvas.height;

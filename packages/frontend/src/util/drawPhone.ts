@@ -3,11 +3,10 @@ import {
   drawImageCenter,
   drawLineToElement,
   getDimensions,
-  getScale,
   loadImage,
-  scaleImage,
+  scaleImageFactor,
 } from "./drawing";
-import { computerIconSpecs, PHONE_HEIGHT_SCALE } from "./iconSpecs";
+import { computerIconSpecs, getPhoneScale } from "./iconSpecs";
 
 type Elements = {
   ipTrackingEl: HTMLDivElement | null;
@@ -17,9 +16,8 @@ type Elements = {
 };
 
 export const drawPhone = async (ctx: CanvasRenderingContext2D): Promise<HTMLImageElement> => {
-  const { height } = getDimensions();
   const phoneImg = await loadImage(phoneIcon);
-  scaleImage(phoneImg, height * PHONE_HEIGHT_SCALE, true);
+  scaleImageFactor(phoneImg, getPhoneScale());
   drawImageCenter(ctx, phoneImg);
   return phoneImg;
 };
@@ -44,7 +42,7 @@ export const drawPhoneLines = (
   const elementsLeft = [elements.ipTrackingEl, elements.pixelTrackingEl, elements.cookieTrackingEl];
 
   const { width, height } = getDimensions();
-  const scale = getScale(computerIconSpecs.W, width * PHONE_HEIGHT_SCALE);
+  const scale = getPhoneScale();
 
   const iconH = computerIconSpecs.browserH * scale;
 

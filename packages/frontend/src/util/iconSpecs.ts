@@ -1,7 +1,7 @@
 import { getScale } from "./drawing";
 
 export const COMPUTER_WIDTH_SCALE = 0.17;
-export const PHONE_HEIGHT_SCALE = 0.8;
+const PHONE_SCALE = 0.9;
 
 export const computerIconSpecs = {
   W: 83,
@@ -27,13 +27,21 @@ export const phoneIconSpecs = {
   browserY: 3,
 };
 
-const getMobileScale = () => {
-  const newHeight = window.innerHeight * PHONE_HEIGHT_SCALE;
-  return getScale(phoneIconSpecs.h, newHeight);
+const getPhoneAspecRatio = () => phoneIconSpecs.w / phoneIconSpecs.h;
+const getWindowAspecRatio = () => window.innerWidth / window.innerHeight;
+
+export const getPhoneScale = () => {
+  if (getPhoneAspecRatio() < getWindowAspecRatio()) {
+    const newHeight = window.innerHeight * PHONE_SCALE;
+    return getScale(phoneIconSpecs.h, newHeight);
+  }
+
+  const newWidth = window.innerWidth * PHONE_SCALE;
+  return getScale(phoneIconSpecs.w, newWidth);
 };
 
 export const calculateMobileTop = () => {
-  const scale = getMobileScale();
+  const scale = getPhoneScale();
   return (
     (window.innerHeight - phoneIconSpecs.h * scale) / 2 +
     phoneIconSpecs.browserY * scale +
@@ -42,17 +50,17 @@ export const calculateMobileTop = () => {
 };
 
 export const calculateMobileLeft = () => {
-  const scale = getMobileScale();
+  const scale = getPhoneScale();
   return (window.innerWidth - phoneIconSpecs.w * scale) / 2 + phoneIconSpecs.browserX * scale;
 };
 
 export const calculateMobileWidth = () => {
-  const scale = getMobileScale();
+  const scale = getPhoneScale();
   return phoneIconSpecs.browserW * scale;
 };
 
 export const calculateMobileHeight = () => {
-  const scale = getMobileScale();
+  const scale = getPhoneScale();
   return phoneIconSpecs.browserH * scale;
 };
 
