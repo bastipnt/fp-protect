@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 type Props = {
   children: ReactNode;
   title: string;
-  closeCallback: () => void;
+  closeCallback?: () => void;
 };
 
 const PhoneInfoOverlay: React.FC<Props> = ({ children, title, closeCallback }) => {

@@ -58,3 +58,9 @@ h3 {
 body {
   color: var(--color-default);
 }
+
+@supports (-webkit-touch-callout: none) {
+  .h-screen {
+    height: -webkit-fill-available;
+  }
+}
