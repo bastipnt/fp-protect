@@ -5,7 +5,6 @@ import useCanvas from "../hooks/useCanvas";
 import { ResponsivenessContext } from "../providers/responsivenessProvider";
 import { drawComputer, drawComputerLines } from "../util/drawComputer";
 import { getDimensions } from "../util/drawing";
-import { drawPhone } from "../util/drawPhone";
 import { calcIsMobileSize } from "../util/responsiveHelper";
 
 const Info: React.FC = () => {
@@ -17,33 +16,27 @@ const Info: React.FC = () => {
   const { isMobileSize } = useContext(ResponsivenessContext);
 
   drawRef.current = async (ctx: CanvasRenderingContext2D) => {
+    if (calcIsMobileSize()) return;
+
     const { width, height } = getDimensions();
     ctx.clearRect(0, 0, width, height);
 
-    if (calcIsMobileSize()) {
-      await drawPhone(ctx);
+    const computerImg = await drawComputer(ctx);
 
-      // drawPhoneLines(ctx, phoneImg, {
-      //   ipTrackingEl: ipTrackingRef.current,
-      //   pixelTrackingEl: pixelTrackingRef.current,
-      //   cookieTrackingEl: cookieTrackingRef.current,
-      //   fpTrackingEl: fpTrackingRef.current,
-      // });
-    } else {
-      const computerImg = await drawComputer(ctx);
-
-      drawComputerLines(ctx, computerImg, {
-        ipTrackingEl: ipTrackingRef.current,
-        pixelTrackingEl: pixelTrackingRef.current,
-        cookieTrackingEl: cookieTrackingRef.current,
-        fpTrackingEl: fpTrackingRef.current,
-      });
-    }
+    drawComputerLines(ctx, computerImg, {
+      ipTrackingEl: ipTrackingRef.current,
+      pixelTrackingEl: pixelTrackingRef.current,
+      cookieTrackingEl: cookieTrackingRef.current,
+      fpTrackingEl: fpTrackingRef.current,
+    });
   };
 
   return (
     <>
-      <canvas ref={canvasRef} className="fixed top-0 left-0 -z-10 h-screen w-screen"></canvas>
+      <canvas
+        ref={canvasRef}
+        className="fixed top-0 left-0 -z-10 hidden h-screen w-screen sm:block"
+      ></canvas>
       <section className="fixed top-(--phone-browser-top) left-(--phone-browser-left) flex h-(--phone-browser-h) w-(--phone-browser-w) flex-col justify-stretch gap-4 overflow-hidden p-4 sm:static sm:grid sm:h-full sm:w-full sm:grid-cols-[30vw_1fr_30vw] sm:grid-rows-[100px_1fr_100px] sm:p-8 lg:max-h-[700px]">
         <div className="flex flex-col justify-between gap-4 sm:row-span-3">
           <Card titleRef={ipTrackingRef} title="IP Tracking">

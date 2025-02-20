@@ -1,6 +1,10 @@
 import { useContext, type ReactNode } from "react";
 import { Link } from "wouter";
+import useCanvas from "./hooks/useCanvas";
 import { ResponsivenessContext } from "./providers/responsivenessProvider";
+import { getDimensions } from "./util/drawing";
+import { drawPhone } from "./util/drawPhone";
+import { calcIsMobileSize } from "./util/responsiveHelper";
 
 type Props = {
   children: ReactNode;
@@ -8,9 +12,24 @@ type Props = {
 
 const Layout: React.FC<Props> = ({ children }) => {
   const { isMobileSize } = useContext(ResponsivenessContext);
+  const { canvasRef, drawRef } = useCanvas();
+
+  drawRef.current = async (ctx: CanvasRenderingContext2D) => {
+    if (!calcIsMobileSize()) return;
+
+    const { width, height } = getDimensions();
+    ctx.clearRect(0, 0, width, height);
+
+    await drawPhone(ctx);
+  };
 
   return (
     <>
+      <canvas
+        ref={canvasRef}
+        className="fixed top-0 left-0 -z-10 h-screen w-screen sm:hidden"
+      ></canvas>
+
       <nav className="fixed top-(--phone-nav-top) left-(--phone-nav-left) flex h-(--phone-nav-h) w-(--phone-nav-w) flex-row justify-center gap-2 p-2 py-3 sm:top-0 sm:left-0 sm:h-auto sm:w-screen sm:gap-4 sm:p-4">
         <Link
           to="/"

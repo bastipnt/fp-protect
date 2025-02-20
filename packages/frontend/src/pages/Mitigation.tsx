@@ -1,15 +1,17 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useContext, useState } from "react";
 import { Link } from "wouter";
+import { ResponsivenessContext } from "../providers/responsivenessProvider";
 
 enum Tabs {
-  BROWSERS = "browsers",
-  AD_BLOCKERS = "adBlockers",
-  VPN = "VPN",
-  OTHER = "otherTools",
+  BROWSERS = "Browsers",
+  AD_BLOCKERS = "Ad Blockers",
+  VPN = "VPNs",
+  OTHER = "Other Tools",
 }
 
 const Mitigation: React.FC = () => {
   const [currentTab, setCurrentTab] = useState<Tabs>(Tabs.BROWSERS);
+  const { isMobileSize } = useContext(ResponsivenessContext);
 
   const tabs: { [key in Tabs]: ReactNode } = {
     [Tabs.BROWSERS]: (
@@ -29,24 +31,15 @@ const Mitigation: React.FC = () => {
         </p>
         <p>Luckily there are other browsers, that are focued on your privacy.</p>
         <p>My recommendations are the following:</p>
-        <div className="flex flex-row items-end justify-center gap-12 p-4">
+        <div className="flex flex-row justify-center gap-8 p-4 sm:items-end sm:gap-12">
           <a
             className="flex cursor-pointer flex-col items-center gap-2 align-middle"
             href="https://www.mozilla.org/en-US/firefox/new/"
             referrerPolicy="no-referrer"
             target="_blank"
           >
-            <img className="w-12" src="/img/browsers/firefox.png" alt="firefox" />
-            <p className="text-2xl">Firefox</p>
-          </a>
-          <a
-            className="flex cursor-pointer flex-col items-center gap-2 align-middle"
-            href="https://brave.com/download/"
-            referrerPolicy="no-referrer"
-            target="_blank"
-          >
-            <img className="w-10" src="/img/browsers/brave.png" alt="brave" />
-            <p className="text-2xl">Brave</p>
+            <img className="w-8 sm:w-12" src="/img/browsers/firefox.png" alt="firefox" />
+            <p className="text-lg sm:text-2xl">Firefox</p>
           </a>
           <a
             className="flex cursor-pointer flex-col items-center gap-2 align-middle"
@@ -54,10 +47,8 @@ const Mitigation: React.FC = () => {
             referrerPolicy="no-referrer"
             target="_blank"
           >
-            <img className="w-12" src="/img/browsers/librewolff.png" alt="librewolff" />
-            <p className="text-2xl">
-              LibreWolff <small>*best</small>
-            </p>
+            <img className="w-8 sm:w-12" src="/img/browsers/librewolff.png" alt="librewolff" />
+            <p className="text-lg sm:text-2xl">LibreWolff</p>
           </a>
         </div>
       </>
@@ -75,16 +66,20 @@ const Mitigation: React.FC = () => {
           There are a lot of different ad blocker extensions. Some are free and some cost money.
         </p>
         <p>Luckily the best ones are for free:</p>
-        <div className="flex flex-row items-end justify-center gap-12 p-4">
+        <div className="flex flex-row justify-center gap-8 p-4 sm:items-end sm:gap-12">
           <a
             className="flex cursor-pointer flex-col items-center gap-2 align-middle"
             href="https://ublockorigin.com/"
             referrerPolicy="no-referrer"
             target="_blank"
           >
-            <img className="w-12" src="/img/adblockers/ublockorigin.png" alt="ublockorigin" />
-            <p className="text-2xl">
-              uBlock Origin <small>*best</small>
+            <img
+              className="w-8 sm:w-12"
+              src="/img/adblockers/ublockorigin.png"
+              alt="ublockorigin"
+            />
+            <p className="text-lg sm:text-2xl">
+              uBlock Origin <small className="hidden sm:inline">*best</small>
             </p>
           </a>
           <a
@@ -93,8 +88,12 @@ const Mitigation: React.FC = () => {
             referrerPolicy="no-referrer"
             target="_blank"
           >
-            <img className="w-18" src="/img/adblockers/privacy-badger.png" alt="privacy-badger" />
-            <p className="text-2xl">Privacy Badger</p>
+            <img
+              className="w-12 sm:w-18"
+              src="/img/adblockers/privacy-badger.png"
+              alt="privacy-badger"
+            />
+            <p className="text-lg sm:text-2xl">Privacy Badger</p>
           </a>
           <a
             className="flex cursor-pointer flex-col items-center gap-2 align-middle"
@@ -102,8 +101,8 @@ const Mitigation: React.FC = () => {
             referrerPolicy="no-referrer"
             target="_blank"
           >
-            <img className="w-12" src="/img/adblockers/ghostery.png" alt="ghostery" />
-            <p className="text-2xl">Ghostery</p>
+            <img className="w-8 sm:w-12" src="/img/adblockers/ghostery.png" alt="ghostery" />
+            <p className="text-lg sm:text-2xl">Ghostery</p>
           </a>
         </div>
       </>
@@ -132,16 +131,16 @@ const Mitigation: React.FC = () => {
           I did some research on that and here are my two recommendations for VPN providers, that
           don't save any data about you:
         </p>
-        <div className="flex flex-row items-end justify-center gap-12 p-4">
+        <div className="flex flex-row items-end justify-center gap-8 p-4 sm:gap-12">
           <a
             className="flex cursor-pointer flex-col items-center gap-2 align-middle"
             href="https://mullvad.net/"
             referrerPolicy="no-referrer"
             target="_blank"
           >
-            <img className="w-12" src="/img/vpns/mullvad-vpn.svg" alt="mullvad" />
-            <p className="text-2xl">
-              Mullvad VPN <small>*best</small>
+            <img className="w-8 sm:w-12" src="/img/vpns/mullvad-vpn.svg" alt="mullvad" />
+            <p className="text-lg sm:text-2xl">
+              Mullvad VPN <small className="hidden sm:inline">*best</small>
             </p>
           </a>
           <a
@@ -150,8 +149,8 @@ const Mitigation: React.FC = () => {
             referrerPolicy="no-referrer"
             target="_blank"
           >
-            <img className="w-12" src="/img/vpns/proton-vpn.svg" alt="proton-vpn" />
-            <p className="text-2xl">Proton VPN</p>
+            <img className="w-8 sm:w-12" src="/img/vpns/proton-vpn.svg" alt="proton-vpn" />
+            <p className="text-lg sm:text-2xl">Proton VPN</p>
           </a>
         </div>
       </>
@@ -208,46 +207,64 @@ const Mitigation: React.FC = () => {
           contexts separated.
         </p>
 
-        <p className="mt-4">Now, that you know more about tracking and how to protect yourself:</p>
-        <Link
-          to="/test"
-          className="bg-surface-darker text-bold font-heading cursor-pointer self-end border-4 px-2 text-lg"
-        >
-          Are you ready to test your browser? →
-        </Link>
+        {!isMobileSize && (
+          <>
+            <p className="mt-4">
+              Now, that you know more about tracking and how to protect yourself:
+            </p>
+
+            <Link
+              to="/test"
+              className="bg-surface-darker text-bold font-heading cursor-pointer self-end border-4 px-2 text-lg"
+            >
+              Are you ready to test your browser? →
+            </Link>
+          </>
+        )}
       </>
     ),
   };
 
   return (
-    <section className="bg-surface flex min-h-[50vh] w-full max-w-[900px] flex-col border-4">
-      <div className="bg-surface-darker flex flex-row justify-between gap-8 border-b-4 p-2 px-4">
-        <button
-          className={`font-heading cursor-pointer ${currentTab === Tabs.BROWSERS ? "bg-surface" : ""} p-2 text-2xl`}
-          onClick={() => setCurrentTab(Tabs.BROWSERS)}
-        >
-          Browsers
-        </button>
-        <button
-          className={`font-heading cursor-pointer ${currentTab === Tabs.AD_BLOCKERS ? "bg-surface" : ""} p-2 text-2xl`}
-          onClick={() => setCurrentTab(Tabs.AD_BLOCKERS)}
-        >
-          Ad Blockers
-        </button>
-        <button
-          className={`font-heading cursor-pointer ${currentTab === Tabs.VPN ? "bg-surface" : ""} p-2 text-2xl`}
-          onClick={() => setCurrentTab(Tabs.VPN)}
-        >
-          VPNs
-        </button>
-        <button
-          className={`font-heading cursor-pointer ${currentTab === Tabs.OTHER ? "bg-surface" : ""} p-2 text-2xl`}
-          onClick={() => setCurrentTab(Tabs.OTHER)}
-        >
-          Other Tools
-        </button>
-      </div>
-      <div className="flex flex-col gap-2 p-4">{tabs[currentTab]}</div>
+    <section className="sm:bg-surface fixed top-(--phone-browser-top) left-(--phone-browser-left) flex h-(--phone-browser-h) w-(--phone-browser-w) flex-col gap-8 overflow-scroll sm:static sm:h-auto sm:min-h-[50vh] sm:w-full sm:max-w-[900px] sm:gap-0 sm:overflow-hidden sm:border-4">
+      {isMobileSize ? (
+        Object.entries(tabs).map(([name, content]) => (
+          <div className="flex flex-col gap-2 p-4" key={name}>
+            <h2 className="text-2xl">{name}</h2>
+            {content}
+          </div>
+        ))
+      ) : (
+        <>
+          <div className="bg-surface-darker flex flex-row justify-between gap-8 border-b-4 p-2 px-4">
+            <button
+              className={`font-heading cursor-pointer ${currentTab === Tabs.BROWSERS ? "bg-surface" : ""} p-2 text-2xl`}
+              onClick={() => setCurrentTab(Tabs.BROWSERS)}
+            >
+              Browsers
+            </button>
+            <button
+              className={`font-heading cursor-pointer ${currentTab === Tabs.AD_BLOCKERS ? "bg-surface" : ""} p-2 text-2xl`}
+              onClick={() => setCurrentTab(Tabs.AD_BLOCKERS)}
+            >
+              Ad Blockers
+            </button>
+            <button
+              className={`font-heading cursor-pointer ${currentTab === Tabs.VPN ? "bg-surface" : ""} p-2 text-2xl`}
+              onClick={() => setCurrentTab(Tabs.VPN)}
+            >
+              VPNs
+            </button>
+            <button
+              className={`font-heading cursor-pointer ${currentTab === Tabs.OTHER ? "bg-surface" : ""} p-2 text-2xl`}
+              onClick={() => setCurrentTab(Tabs.OTHER)}
+            >
+              Other Tools
+            </button>
+          </div>
+          <div className="flex flex-col gap-2 p-4">{tabs[currentTab]}</div>
+        </>
+      )}
     </section>
   );
 };
