@@ -124,12 +124,13 @@ const Testing: React.FC = () => {
           <p>How did you like this test?</p>
           <p>Did you learn anything new?</p>
           <p>I prepared a very short survey, it would mean a lot if you could make it :)</p>
-          <Link
-            to="/survey"
+          <a
+            href="https://tracking-survey.bastipnt.de/?ref=test"
+            target="_blank"
             className="bg-surface-darker text-bold font-heading cursor-pointer self-end border-4 px-2 text-lg"
           >
             Take the survey
-          </Link>
+          </a>
         </Card>
       </section>
     </>
