@@ -18,10 +18,15 @@
 
   --default-font-family: "Righteous";
 
-  --phone-browser-w: 52;
+  --phone-browser-w: 54;
   --phone-browser-h: 89;
   --phone-browser-top: 4;
-  --phone-browser-left: 3;
+  --phone-browser-left: 4;
+
+  --phone-nav-w: 54;
+  --phone-nav-h: 15;
+  --phone-nav-top: 102;
+  --phone-nav-left: 3;
 }
 
 @font-face {

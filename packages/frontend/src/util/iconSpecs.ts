@@ -1,4 +1,4 @@
-import { getScale } from "./drawing";
+import { getDimensions, getScale } from "./drawing";
 
 export const COMPUTER_WIDTH_SCALE = 0.17;
 const PHONE_SCALE = 0.9;
@@ -20,7 +20,10 @@ export const phoneIconSpecs = {
   w: 61,
   h: 120,
   cameraH: 8,
-  browserMenuH: 17,
+  browserNavW: 52,
+  browserNavH: 15,
+  browserNavY: 102,
+  browserNavX: 4,
   browserW: 52,
   browserH: 114 - 17 - 8,
   browserX: 4,
@@ -76,4 +79,19 @@ export const setPhoneBrowserDimensions = () => {
   document.documentElement.style.setProperty("--phone-browser-h", `${calculateMobileHeight()}px`);
   document.documentElement.style.setProperty("--phone-browser-top", `${calculateMobileTop()}px`);
   document.documentElement.style.setProperty("--phone-browser-left", `${calculateMobileLeft()}px`);
+};
+
+export const setPhoneNavDimensions = () => {
+  const { width, height } = getDimensions();
+  const scale = getPhoneScale();
+
+  const navTop = (height - phoneIconSpecs.h * scale) / 2 + phoneIconSpecs.browserNavY * scale;
+  const navLeft = (width - phoneIconSpecs.w * scale) / 2 + phoneIconSpecs.browserNavX * scale;
+  const navW = phoneIconSpecs.browserNavW * scale;
+  const navH = phoneIconSpecs.browserNavH * scale;
+
+  document.documentElement.style.setProperty("--phone-nav-w", `${navW}px`);
+  document.documentElement.style.setProperty("--phone-nav-h", `${navH}px`);
+  document.documentElement.style.setProperty("--phone-nav-top", `${navTop}px`);
+  document.documentElement.style.setProperty("--phone-nav-left", `${navLeft}px`);
 };

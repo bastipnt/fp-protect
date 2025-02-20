@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
-import { setPhoneBrowserDimensions } from "../util/iconSpecs";
+import { setPhoneBrowserDimensions, setPhoneNavDimensions } from "../util/iconSpecs";
 import { calcIsMobileSize, detectMobileDevice } from "../util/responsiveHelper";
 
 export const ResponsivenessContext = createContext<{
@@ -21,6 +21,7 @@ const ResponsivenessProvider: React.FC<Props> = ({ children }) => {
   const handleResize = () => {
     setIsMobileSize(calcIsMobileSize());
     setPhoneBrowserDimensions();
+    setPhoneNavDimensions();
   };
 
   useEffect(() => {
