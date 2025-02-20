@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import DeviceDetectionProvider from "./DeviceDetectionProvider";
+import DeviceDetectionProvider from "./deviceDetectionProvider";
 
 type Props = {
   children: ReactNode;

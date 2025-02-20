@@ -4,7 +4,7 @@ import computerIcon from "../assets/illustrations/Computer-Icon.svg";
 import phoneIcon from "../assets/illustrations/Phone-Icon.svg";
 import Card from "../components/Card";
 import useCanvas from "../hooks/useCanvas";
-import { DeviceDetectionContext } from "../providers/DeviceDetectionProvider";
+import { DeviceDetectionContext } from "../providers/deviceDetectionProvider";
 import {
   drawImageCenter,
   drawLineToElement,
