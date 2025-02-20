@@ -4,16 +4,19 @@ import Layout from "./Layout";
 import Info from "./pages/Info";
 import Mitigation from "./pages/Mitigation";
 import Testing from "./pages/Testing";
+import Provider from "./providers";
 
 function App() {
   return (
-    <Layout>
-      <Switch>
-        <Route path="/" component={Info} />
-        <Route path="/mitigation-strategies" component={Mitigation} />
-        <Route path="/test" component={Testing} />
-      </Switch>
-    </Layout>
+    <Provider>
+      <Layout>
+        <Switch>
+          <Route path="/" component={Info} />
+          <Route path="/mitigation-strategies" component={Mitigation} />
+          <Route path="/test" component={Testing} />
+        </Switch>
+      </Layout>
+    </Provider>
   );
 }
 

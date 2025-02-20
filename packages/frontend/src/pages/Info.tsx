@@ -1,8 +1,10 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { Link } from "wouter";
 import computerIcon from "../assets/illustrations/Computer-Icon.svg";
+import phoneIcon from "../assets/illustrations/Phone-Icon.svg";
 import Card from "../components/Card";
 import useCanvas from "../hooks/useCanvas";
+import { DeviceDetectionContext } from "../providers/DeviceDetectionProvider";
 import {
   drawImageCenter,
   drawLineToElement,
@@ -33,6 +35,7 @@ const Info: React.FC = () => {
   const pixelTrackingRef = useRef<HTMLDivElement>(null);
   const cookieTrackingRef = useRef<HTMLDivElement>(null);
   const fpTrackingRef = useRef<HTMLDivElement>(null);
+  const { isMobile } = useContext(DeviceDetectionContext);
 
   const drawLines = (ctx: CanvasRenderingContext2D, img: HTMLImageElement) => {
     if (ipTrackingRef.current === null) return;
@@ -98,7 +101,8 @@ const Info: React.FC = () => {
   drawRef.current = async (ctx: CanvasRenderingContext2D) => {
     const { width, height } = getDimensions();
 
-    const computerImg = await loadImage(computerIcon);
+    const icon = isMobile ? phoneIcon : computerIcon;
+    const computerImg = await loadImage(icon);
     ctx.clearRect(0, 0, width, height);
 
     scaleImage(computerImg, width / ICON_WIDTH_SCALE);
