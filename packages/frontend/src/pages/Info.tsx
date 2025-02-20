@@ -12,7 +12,7 @@ import {
   scaleImage,
 } from "../util/drawing";
 
-const ICON_WIDTH_SCALE = 4;
+const ICON_WIDTH_SCALE = 6;
 const COMPUTER_ICON_ORIG_W = 83;
 
 const COMPUTER_ICON_BROWSER_ORIG_W = 36;
@@ -110,7 +110,7 @@ const Info: React.FC = () => {
   return (
     <>
       <canvas ref={canvasRef} className="fixed top-0 left-0 -z-10 h-screen w-screen"></canvas>
-      <section className="grid h-full w-full grid-cols-[30vw_1fr_30vw] grid-rows-[100px_1fr_100px] p-8">
+      <section className="grid h-full max-h-[700px] w-full grid-cols-[30vw_1fr_30vw] grid-rows-[100px_1fr_100px] p-8">
         <div className="row-span-3 flex flex-col justify-between">
           <Card titleRef={ipTrackingRef} title="IP Tracking">
             <p>Your IP-Address can be used to determine your aproximate geo location.</p>

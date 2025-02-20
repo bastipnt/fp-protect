@@ -56,6 +56,6 @@ export const drawLineToElement = (
 
   ctx.beginPath();
   ctx.moveTo(x, y);
-  ctx.lineTo(endX, endY);
+  ctx.bezierCurveTo(x + ((endX - x) * 2) / 3, y, x, endY, endX, endY);
   ctx.stroke();
 };
