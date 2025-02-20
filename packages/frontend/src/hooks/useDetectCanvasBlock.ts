@@ -33,7 +33,6 @@ export const useDetectCanvasBlock = () => {
     for (let i = 0; i < size; i++) {
       for (let j = 0; j < size; j++) {
         const imgData = ctx.getImageData(i, j, i + 1, j + 1).data;
-        console.log(imgData);
 
         const notWhite = imgData.find((val) => {
           return val > 2 && val < 253;

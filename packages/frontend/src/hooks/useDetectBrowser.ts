@@ -13,12 +13,17 @@ export const useDetectBrowser = () => {
   useEffect(() => {
     const userAgentString = navigator.userAgent;
 
-    if (userAgentString.indexOf(Browsers.FIREFOX) > -1) setBrowser(Browsers.FIREFOX);
-    else if (userAgentString.indexOf(Browsers.CHROME) > -1) setBrowser(Browsers.CHROME);
+    const matches = Object.values(Browsers).reduce<{ [key in Browsers]: boolean }>(
+      (prevMatches, currBrowser) => {
+        return { ...prevMatches, [currBrowser]: userAgentString.indexOf(currBrowser) > -1 };
+      },
+      {} as { [key in Browsers]: boolean },
+    );
 
-    if (userAgentString.indexOf(Browsers.SAFARI) > -1) setBrowser(Browsers.SAFARI);
-    if (userAgentString.indexOf(Browsers.OPERA) > -1 && browser === Browsers.CHROME)
-      setBrowser(Browsers.SAFARI);
+    if (matches.Firefox) setBrowser(Browsers.FIREFOX);
+    else if (matches.Chrome && !matches.OP) setBrowser(Browsers.CHROME);
+    else if (matches.Safari && !matches.Chrome) setBrowser(Browsers.SAFARI);
+    else if (matches.OP) setBrowser(Browsers.OPERA);
   });
 
   return { browser };
