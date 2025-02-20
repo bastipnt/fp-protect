@@ -83,8 +83,9 @@ const Testing: React.FC = () => {
     <>
       <canvas className="fixed -top-1000 -left-1000" ref={canvas2dRef}></canvas>
       <canvas className="fixed -top-1000 -left-1000" ref={canvasWebGlRef}></canvas>
-      <section className="grid grid-cols-2 gap-8">
-        <Card title={getTitle(protectionState)} className="col-span-2">
+
+      <section className="smp:p-0 fixed top-(--phone-browser-top) left-(--phone-browser-left) grid h-(--phone-browser-h) w-(--phone-browser-w) grid-cols-1 gap-8 overflow-scroll p-4 sm:static sm:h-auto sm:w-auto sm:grid-cols-2 sm:overflow-hidden">
+        <Card title={getTitle(protectionState)} className="sm:col-span-2" responsive={false}>
           {getContent(protectionState)}
         </Card>
 
@@ -120,7 +121,7 @@ const Testing: React.FC = () => {
           <p>Canvas WebGl Blocked:</p>
         </TestCard>
 
-        <Card title="Survey">
+        <Card title="Survey" responsive={false}>
           <p>How did you like this test?</p>
           <p>Did you learn anything new?</p>
           <p>I prepared a very short survey, it would mean a lot if you could make it :)</p>

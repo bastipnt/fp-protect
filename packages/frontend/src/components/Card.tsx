@@ -28,7 +28,7 @@ const Card: React.FC<Props> = ({ children, title, titleRef, className, responsiv
   return (
     <div className={`border-stroke bg-surface border-4 ${className}`}>
       <h2
-        className={`bg-surface-darker ${applyMobile() ? "cursor-pointer" : "border-b-4"} p-2 text-lg sm:py-0 sm:text-3xl`}
+        className={`bg-surface-darker ${applyMobile() ? "cursor-pointer" : "border-b-4"} p-2 text-xl sm:py-0 sm:text-3xl`}
         ref={titleRef}
         onClick={handleClick}
       >
