@@ -3,6 +3,7 @@ import "./App.css";
 import Layout from "./Layout";
 import Info from "./pages/Info";
 import Mitigation from "./pages/Mitigation";
+import Survey from "./pages/Survey";
 import Testing from "./pages/Testing";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" component={Info} />
         <Route path="/mitigation-strategies" component={Mitigation} />
         <Route path="/test" component={Testing} />
+        <Route path="/survey" component={Survey} />
       </Switch>
     </Layout>
   );
