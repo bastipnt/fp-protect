@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-enum Browsers {
+export enum Browsers {
   CHROME = "Chrome",
   FIREFOX = "Firefox",
   SAFARI = "Safari",

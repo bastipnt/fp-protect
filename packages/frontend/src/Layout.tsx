@@ -28,7 +28,7 @@ const Layout: React.FC<Props> = ({ children }) => {
           <h3 className="text-3xl">Test your browser</h3>
         </Link>
       </nav>
-      <main className="box-border flex h-screen w-screen flex-col items-center justify-center gap-8 pt-14">
+      <main className="box-border flex h-screen w-screen flex-col items-center justify-center gap-8 p-8 pt-14">
         {children}
       </main>
     </>
