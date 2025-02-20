@@ -1,33 +1,11 @@
 import { useContext, useRef } from "react";
 import { Link } from "wouter";
-import computerIcon from "../assets/illustrations/Computer-Icon.svg";
-import phoneIcon from "../assets/illustrations/Phone-Icon.svg";
 import Card from "../components/Card";
 import useCanvas from "../hooks/useCanvas";
 import { DeviceDetectionContext } from "../providers/deviceDetectionProvider";
-import {
-  drawImageCenter,
-  drawLineToElement,
-  getDimensions,
-  getScale,
-  loadImage,
-  scaleImage,
-} from "../util/drawing";
-
-const ICON_WIDTH_SCALE = 6;
-const COMPUTER_ICON_ORIG_W = 83;
-
-const COMPUTER_ICON_BROWSER_ORIG_W = 36;
-const COMPUTER_ICON_BROWSER_ORIG_H = 24;
-const COMPUTER_ICON_BROWSER_ORIG_X = 29;
-const COMPUTER_ICON_BROWSER_ORIG_Y = 12;
-
-const COMPUTER_ICON_WINDOW_ORIG_X_RIGHT = 8;
-const COMPUTER_ICON_WINDOW_ORIG_Y = 5;
-const COMPUTER_ICON_WINDOW_ORIG_H = 38;
-
-const COMPUTER_ICON_BOX_ORIG_Y = 53;
-const COMPUTER_ICON_BOX_ORIG_H = 23;
+import { drawComputer, drawComputerLines } from "../util/drawComputer";
+import { getDimensions } from "../util/drawing";
+import { drawPhone, drawPhoneLines } from "../util/drawPhone";
 
 const Info: React.FC = () => {
   const { canvasRef, drawRef } = useCanvas();
@@ -37,78 +15,29 @@ const Info: React.FC = () => {
   const fpTrackingRef = useRef<HTMLDivElement>(null);
   const { isMobile } = useContext(DeviceDetectionContext);
 
-  const drawLines = (ctx: CanvasRenderingContext2D, img: HTMLImageElement) => {
-    if (ipTrackingRef.current === null) return;
-    if (pixelTrackingRef.current === null) return;
-    if (cookieTrackingRef.current === null) return;
-    if (fpTrackingRef.current === null) return;
-
-    const strokeColor = getComputedStyle(document.body).getPropertyValue("--color-stroke");
-    const dangerColor = getComputedStyle(document.body).getPropertyValue("--color-danger");
-
-    ctx.lineWidth = 4;
-
-    ctx.strokeStyle = strokeColor;
-
-    const elementsLeft = [
-      ipTrackingRef.current,
-      pixelTrackingRef.current,
-      cookieTrackingRef.current,
-    ];
-
-    const { width, height } = getDimensions();
-    const scale = getScale(COMPUTER_ICON_ORIG_W, width / ICON_WIDTH_SCALE);
-
-    const iconH = COMPUTER_ICON_BROWSER_ORIG_H * scale;
-
-    const x = (width - img.width) / 2 + COMPUTER_ICON_BROWSER_ORIG_X * scale + 2;
-    const y = (height - img.height) / 2 + COMPUTER_ICON_BROWSER_ORIG_Y * scale;
-
-    const numLeft = elementsLeft.length;
-
-    elementsLeft.forEach((el, i) => {
-      const startY = y + (iconH / (numLeft + 1)) * (i + 1);
-      drawLineToElement(ctx, x, startY, el);
-    });
-
-    const rightX1 =
-      (width - img.width) / 2 +
-      (COMPUTER_ICON_BROWSER_ORIG_X + COMPUTER_ICON_BROWSER_ORIG_W) * scale -
-      1;
-    const rightY1 = y + 8;
-
-    drawLineToElement(ctx, rightX1, rightY1, fpTrackingRef.current, "left");
-
-    ctx.strokeStyle = dangerColor;
-
-    const rightX2 = (width + img.width) / 2 - COMPUTER_ICON_WINDOW_ORIG_X_RIGHT * scale;
-    const rightY2 =
-      (height - img.height) / 2 +
-      COMPUTER_ICON_WINDOW_ORIG_Y * scale +
-      (COMPUTER_ICON_WINDOW_ORIG_H * scale) / 1.3;
-
-    drawLineToElement(ctx, rightX2, rightY2, fpTrackingRef.current, "left");
-
-    const rightX3 = (width + img.width) / 2 - 1;
-    const rightY3 =
-      (height - img.height) / 2 +
-      COMPUTER_ICON_BOX_ORIG_Y * scale +
-      (COMPUTER_ICON_BOX_ORIG_H * scale) / 2;
-
-    drawLineToElement(ctx, rightX3, rightY3, fpTrackingRef.current, "left");
-  };
-
   drawRef.current = async (ctx: CanvasRenderingContext2D) => {
     const { width, height } = getDimensions();
-
-    const icon = isMobile ? phoneIcon : computerIcon;
-    const computerImg = await loadImage(icon);
     ctx.clearRect(0, 0, width, height);
 
-    scaleImage(computerImg, width / ICON_WIDTH_SCALE);
-    drawImageCenter(ctx, computerImg);
+    if (isMobile) {
+      const phoneImg = await drawPhone(ctx);
 
-    drawLines(ctx, computerImg);
+      drawPhoneLines(ctx, phoneImg, {
+        ipTrackingEl: ipTrackingRef.current,
+        pixelTrackingEl: pixelTrackingRef.current,
+        cookieTrackingEl: cookieTrackingRef.current,
+        fpTrackingEl: fpTrackingRef.current,
+      });
+    } else {
+      const computerImg = await drawComputer(ctx);
+
+      drawComputerLines(ctx, computerImg, {
+        ipTrackingEl: ipTrackingRef.current,
+        pixelTrackingEl: pixelTrackingRef.current,
+        cookieTrackingEl: cookieTrackingRef.current,
+        fpTrackingEl: fpTrackingRef.current,
+      });
+    }
   };
 
   return (
