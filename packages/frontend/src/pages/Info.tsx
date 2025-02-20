@@ -1,11 +1,12 @@
-import { useContext, useRef } from "react";
+import { useCallback, useContext, useRef } from "react";
 import { Link } from "wouter";
 import Card from "../components/Card";
 import useCanvas from "../hooks/useCanvas";
 import { DeviceDetectionContext } from "../providers/deviceDetectionProvider";
 import { drawComputer, drawComputerLines } from "../util/drawComputer";
 import { getDimensions } from "../util/drawing";
-import { drawPhone, drawPhoneLines } from "../util/drawPhone";
+import { drawPhone } from "../util/drawPhone";
+import { getPhoneBrowserDimensions } from "../util/iconSpecs";
 
 const Info: React.FC = () => {
   const { canvasRef, drawRef } = useCanvas();
@@ -20,14 +21,14 @@ const Info: React.FC = () => {
     ctx.clearRect(0, 0, width, height);
 
     if (isMobile) {
-      const phoneImg = await drawPhone(ctx);
+      await drawPhone(ctx);
 
-      drawPhoneLines(ctx, phoneImg, {
-        ipTrackingEl: ipTrackingRef.current,
-        pixelTrackingEl: pixelTrackingRef.current,
-        cookieTrackingEl: cookieTrackingRef.current,
-        fpTrackingEl: fpTrackingRef.current,
-      });
+      // drawPhoneLines(ctx, phoneImg, {
+      //   ipTrackingEl: ipTrackingRef.current,
+      //   pixelTrackingEl: pixelTrackingRef.current,
+      //   cookieTrackingEl: cookieTrackingRef.current,
+      //   fpTrackingEl: fpTrackingRef.current,
+      // });
     } else {
       const computerImg = await drawComputer(ctx);
 
@@ -40,11 +41,19 @@ const Info: React.FC = () => {
     }
   };
 
+  const getMobileStyle = useCallback(
+    () => (isMobile ? getPhoneBrowserDimensions() : {}),
+    [isMobile],
+  );
+
   return (
     <>
       <canvas ref={canvasRef} className="fixed top-0 left-0 -z-10 h-screen w-screen"></canvas>
-      <section className="grid h-full max-h-[700px] w-full grid-cols-[30vw_1fr_30vw] grid-rows-[100px_1fr_100px] p-8">
-        <div className="row-span-3 flex flex-col justify-between">
+      <section
+        className="fixed flex flex-col justify-stretch gap-4 overflow-hidden p-4 sm:static sm:grid sm:h-full sm:max-h-[700px] sm:w-full sm:grid-cols-[30vw_1fr_30vw] sm:grid-rows-[100px_1fr_100px] sm:p-8"
+        style={getMobileStyle()}
+      >
+        <div className="flex flex-col justify-between gap-4 sm:row-span-3">
           <Card titleRef={ipTrackingRef} title="IP Tracking">
             <p>Your IP-Address can be used to determine your aproximate geo location.</p>
             <p>Advertisers can use this to show you ads, that are relevant for your region.</p>
@@ -64,7 +73,7 @@ const Info: React.FC = () => {
           </Card>
         </div>
 
-        <div className="col-start-3 row-start-2 flex flex-col items-end justify-center">
+        <div className="flex flex-col items-end justify-center sm:col-start-3 sm:row-start-2">
           <Card titleRef={fpTrackingRef} title="Device Fingerprint">
             <p>
               Device fingerprinting, or also called browser fingerprinting, can identify you by
@@ -79,12 +88,14 @@ const Info: React.FC = () => {
             </ul>
             <p>This tracking method is very effective, because it is not easy to protect from.</p>
             <p>Luckily there are some things you can still do...</p>
-            <Link
-              to="/mitigation-strategies"
-              className="bg-surface-darker text-bold font-heading cursor-pointer self-end border-4 px-2 text-lg"
-            >
-              Show me how to protect →
-            </Link>
+            {!isMobile && (
+              <Link
+                to="/mitigation-strategies"
+                className="bg-surface-darker text-bold font-heading cursor-pointer self-end border-4 px-2 text-lg"
+              >
+                Show me how to protect →
+              </Link>
+            )}
           </Card>
         </div>
       </section>

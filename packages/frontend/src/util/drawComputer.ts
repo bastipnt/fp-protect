@@ -7,7 +7,7 @@ import {
   loadImage,
   scaleImage,
 } from "./drawing";
-import { computerIconSpecs, ICON_WIDTH_SCALE } from "./iconSpecs";
+import { COMPUTER_WIDTH_SCALE, computerIconSpecs } from "./iconSpecs";
 
 type Elements = {
   ipTrackingEl: HTMLDivElement | null;
@@ -19,8 +19,9 @@ type Elements = {
 export const drawComputer = async (ctx: CanvasRenderingContext2D): Promise<HTMLImageElement> => {
   const { width } = getDimensions();
   const computerImg = await loadImage(computerIcon);
-  scaleImage(computerImg, width / ICON_WIDTH_SCALE);
+  scaleImage(computerImg, width * COMPUTER_WIDTH_SCALE);
   drawImageCenter(ctx, computerImg);
+
   return computerImg;
 };
 
@@ -44,7 +45,7 @@ export const drawComputerLines = (
   const elementsLeft = [elements.ipTrackingEl, elements.pixelTrackingEl, elements.cookieTrackingEl];
 
   const { width, height } = getDimensions();
-  const scale = getScale(computerIconSpecs.W, width / ICON_WIDTH_SCALE);
+  const scale = getScale(computerIconSpecs.W, width * COMPUTER_WIDTH_SCALE);
 
   const iconH = computerIconSpecs.browserH * scale;
 

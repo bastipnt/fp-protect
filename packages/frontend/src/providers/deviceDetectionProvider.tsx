@@ -1,9 +1,13 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 
+const BREAKPOINT_SM = 640; // 40rem (640px)
+
 export const DeviceDetectionContext = createContext<{
   isMobile: boolean;
+  isMobileSize: boolean;
 }>({
   isMobile: false,
+  isMobileSize: false,
 });
 
 type Props = {
@@ -12,6 +16,7 @@ type Props = {
 
 const DeviceDetectionProvider: React.FC<Props> = ({ children }) => {
   const [isMobile, setIsMobile] = useState(false);
+  const [isMobileSize, setIsMobileSize] = useState(false);
 
   const mobileCheck = (agentString: string) => {
     return (
@@ -32,10 +37,19 @@ const DeviceDetectionProvider: React.FC<Props> = ({ children }) => {
           ("opera" in window ? (window.opera as string) : ""),
       ),
     );
+
+    const resize = () => {
+      setIsMobileSize(window.innerWidth < BREAKPOINT_SM);
+    };
+
+    window.addEventListener("resize", resize);
+    resize();
+
+    return () => window.removeEventListener("resize", resize);
   }, []);
 
   return (
-    <DeviceDetectionContext.Provider value={{ isMobile }}>
+    <DeviceDetectionContext.Provider value={{ isMobile, isMobileSize }}>
       {children}
     </DeviceDetectionContext.Provider>
   );

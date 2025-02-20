@@ -5,6 +5,8 @@ export const getDimensions = () => ({
 
 export const getAspecRatio = (img: HTMLImageElement) => img.height / img.width;
 
+export const getAspecRatioWH = (w: number, h: number) => h / w;
+
 export const getScale = (origW: number, newW: number) => newW / origW;
 
 export const resizeCanvas = (canvasEl: HTMLCanvasElement | null) => {
@@ -21,9 +23,21 @@ export const loadImage = async (src: string): Promise<HTMLImageElement> =>
     computerImg.src = src;
   });
 
-export const scaleImage = (img: HTMLImageElement, newWidth: number) => {
-  const imgNewWidth = newWidth;
-  const imgNewHeight = getAspecRatio(img) * imgNewWidth;
+export const scaleImage = (img: HTMLImageElement, newSize: number, height = false) => {
+  const aspecRatio = getAspecRatio(img);
+
+  let imgNewWidth = newSize;
+  let imgNewHeight = aspecRatio * imgNewWidth;
+
+  if (height) {
+    console.log("using height", { imgNewWidth, imgNewHeight });
+
+    imgNewHeight = newSize;
+    imgNewWidth = imgNewHeight / aspecRatio;
+
+    console.log("using height after", { imgNewWidth, imgNewHeight });
+  }
+
   img.width = imgNewWidth;
   img.height = imgNewHeight;
 };

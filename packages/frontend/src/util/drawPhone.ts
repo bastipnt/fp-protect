@@ -1,4 +1,4 @@
-import phoneIcon from "../assets/illustrations/Phone-Icon.svg";
+import phoneIcon from "../assets/illustrations/Phone-Icon-2.svg";
 import {
   drawImageCenter,
   drawLineToElement,
@@ -7,7 +7,7 @@ import {
   loadImage,
   scaleImage,
 } from "./drawing";
-import { computerIconSpecs, ICON_WIDTH_SCALE } from "./iconSpecs";
+import { computerIconSpecs, PHONE_HEIGHT_SCALE } from "./iconSpecs";
 
 type Elements = {
   ipTrackingEl: HTMLDivElement | null;
@@ -17,9 +17,9 @@ type Elements = {
 };
 
 export const drawPhone = async (ctx: CanvasRenderingContext2D): Promise<HTMLImageElement> => {
-  const { width } = getDimensions();
+  const { height } = getDimensions();
   const phoneImg = await loadImage(phoneIcon);
-  scaleImage(phoneImg, width / ICON_WIDTH_SCALE);
+  scaleImage(phoneImg, height * PHONE_HEIGHT_SCALE, true);
   drawImageCenter(ctx, phoneImg);
   return phoneImg;
 };
@@ -44,7 +44,7 @@ export const drawPhoneLines = (
   const elementsLeft = [elements.ipTrackingEl, elements.pixelTrackingEl, elements.cookieTrackingEl];
 
   const { width, height } = getDimensions();
-  const scale = getScale(computerIconSpecs.W, width / ICON_WIDTH_SCALE);
+  const scale = getScale(computerIconSpecs.W, width * PHONE_HEIGHT_SCALE);
 
   const iconH = computerIconSpecs.browserH * scale;
 
