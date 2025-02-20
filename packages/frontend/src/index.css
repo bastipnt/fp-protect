@@ -17,37 +17,31 @@
   --font-heading: "DroidLover";
 
   --default-font-family: "Righteous";
-}
 
-/* @font-face {
-  font-family: Digibats;
-  src:
-    local("Digibats-m2Zpm"),
-    url("assets/fonts/digibats-font/Digibats-m2Zpm.otf") format("opentype");
+  --phone-browser-w: 52;
+  --phone-browser-h: 89;
+  --phone-browser-top: 4;
+  --phone-browser-left: 3;
 }
-
-@font-face {
-  font-family: Digibats;
-  src:
-    local("DigibatsItalic-7OjpK"),
-    url("assets/fonts/digibats-font/DigibatsItalic-7OjpK.otf") format("opentype");
-  font-style: italic;
-} */
 
 @font-face {
   font-family: Righteous;
   src:
-    local("Righteous-j7av"),
+    url("assets/fonts/righteous-font/Righteous-j7av.eot?#iefix") format("embedded-opentype"),
+    url("assets/fonts/righteous-font/Righteous-j7av.woff") format("woff"),
     url("assets/fonts/righteous-font/Righteous-j7av.ttf") format("truetype");
-  font-style: italic;
+  font-style: normal;
+  font-weight: normal;
 }
 
 @font-face {
   font-family: DroidLover;
   src:
-    local("DroidLover-M6Ox"),
+    url("assets/fonts/droid-lover-font/DroidLover-M6Ox.eot?#iefix") format("embedded-opentype"),
+    url("assets/fonts/droid-lover-font/DroidLover-M6Ox.woff") format("woff"),
     url("assets/fonts/droid-lover-font/DroidLover-M6Ox.ttf") format("truetype");
-  font-style: italic;
+  font-style: normal;
+  font-weight: normal;
 }
 
 h1,

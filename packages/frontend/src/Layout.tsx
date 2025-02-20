@@ -1,16 +1,16 @@
 import { useContext, type ReactNode } from "react";
 import { Link } from "wouter";
-import { DeviceDetectionContext } from "./providers/deviceDetectionProvider";
+import { ResponsivenessContext } from "./providers/responsivenessProvider";
 
 type Props = {
   children: ReactNode;
 };
 
 const Layout: React.FC<Props> = ({ children }) => {
-  const { isMobile } = useContext(DeviceDetectionContext);
+  const { isMobileSize } = useContext(ResponsivenessContext);
   return (
     <>
-      {!isMobile && (
+      {!isMobileSize && (
         <nav className="fixed top-0 left-0 flex w-screen flex-row justify-center gap-4 p-4">
           <Link
             to="/"

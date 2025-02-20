@@ -1,5 +1,5 @@
 import { ReactNode, Ref, useCallback, useContext, useEffect, useState } from "react";
-import { DeviceDetectionContext } from "../providers/deviceDetectionProvider";
+import { ResponsivenessContext } from "../providers/responsivenessProvider";
 import PhoneInfoOverlay from "./PhoneInfoOverlay";
 
 type Props = {
@@ -11,22 +11,19 @@ type Props = {
 };
 
 const Card: React.FC<Props> = ({ children, title, titleRef, className, responsive = true }) => {
-  const { isMobile, isMobileSize } = useContext(DeviceDetectionContext);
+  const { isMobileSize } = useContext(ResponsivenessContext);
   const [show, setShow] = useState(false);
 
-  const applyMobile = useCallback(
-    () => responsive && (isMobile || isMobileSize),
-    [responsive, isMobile, isMobileSize],
-  );
+  const applyMobile = useCallback(() => responsive && isMobileSize, [responsive, isMobileSize]);
 
   const handleClick = useCallback(() => {
-    if (!isMobile) return setShow(false);
+    if (!isMobileSize) return setShow(false);
     setShow((showing) => !showing);
-  }, [isMobile]);
+  }, [isMobileSize]);
 
   useEffect(() => {
-    if (!isMobile) setShow(false);
-  }, [isMobile]);
+    if (!isMobileSize) setShow(false);
+  }, [isMobileSize]);
 
   return (
     <div className={`border-stroke bg-surface border-4 ${className}`}>

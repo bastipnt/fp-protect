@@ -62,3 +62,10 @@ export const getPhoneBrowserDimensions = () => ({
   width: calculateMobileWidth(),
   height: calculateMobileHeight(),
 });
+
+export const setPhoneBrowserDimensions = () => {
+  document.documentElement.style.setProperty("--phone-browser-w", `${calculateMobileWidth()}px`);
+  document.documentElement.style.setProperty("--phone-browser-h", `${calculateMobileHeight()}px`);
+  document.documentElement.style.setProperty("--phone-browser-top", `${calculateMobileTop()}px`);
+  document.documentElement.style.setProperty("--phone-browser-left", `${calculateMobileLeft()}px`);
+};
