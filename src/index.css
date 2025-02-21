@@ -21,6 +21,7 @@
   --color-primary-darker: #47b0ab;
 
   --color-danger: #e16371;
+  --color-danger-lighter: hsl(353 68 75 / 100%);
 
   --font-heading: "GamePaused";
 

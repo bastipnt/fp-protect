@@ -1,24 +1,18 @@
-import { ReactNode, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
-import Card from "../components/Card";
+import PageSection from "../components/PageSection";
+import SectionTitle from "../components/SectionTitle";
 import TestCard from "../components/TestCard";
 import { useDetectAdblock } from "../hooks/useDetectAdBlock";
 import { Browsers, useDetectBrowser } from "../hooks/useDetectBrowser";
 import { useDetectCanvasBlock } from "../hooks/useDetectCanvasBlock";
-
-enum ProtectionState {
-  GOOD = "good",
-  OK = "ok",
-  BAD = "bad",
-}
 
 const Testing: React.FC = () => {
   const { adBlockDetected } = useDetectAdblock();
   const { browser } = useDetectBrowser();
   const { canvas2dBlocked, canvasWebGlBlocked, canvas2dRef, canvasWebGlRef } =
     useDetectCanvasBlock();
-
-  const [protectionState, setProtectionState] = useState<ProtectionState>(ProtectionState.BAD);
+  const [scoreNum, setScoreNum] = useState<number>(0);
 
   useEffect(() => {
     const requirements = [
@@ -28,112 +22,119 @@ const Testing: React.FC = () => {
       canvasWebGlBlocked,
     ];
 
-    const numFullfilled = requirements.reduce((num, requirementVal) => {
-      return num + (requirementVal ? 1 : 0);
-    }, 0);
-
-    if (numFullfilled === 4) setProtectionState(ProtectionState.GOOD);
-    else if (numFullfilled === 3) setProtectionState(ProtectionState.OK);
-    else setProtectionState(ProtectionState.BAD);
+    setScoreNum(
+      requirements.reduce((num, requirementVal) => {
+        return num + (requirementVal ? 1 : 0);
+      }, 0),
+    );
   }, [browser, adBlockDetected, canvas2dBlocked, canvasWebGlBlocked]);
 
-  const getTimeZone = (): string => {
-    const DateTimeFormat = window.Intl?.DateTimeFormat;
-    let timezone = "Unknown";
-    if (DateTimeFormat) timezone = new DateTimeFormat().resolvedOptions().timeZone || "Unknown";
+  // const getTimeZone = (): string => {
+  //   const DateTimeFormat = window.Intl?.DateTimeFormat;
+  //   let timezone = "Unknown";
+  //   if (DateTimeFormat) timezone = new DateTimeFormat().resolvedOptions().timeZone || "Unknown";
 
-    return timezone;
-  };
-
-  const getTitle = (state: ProtectionState): string => {
-    switch (state) {
-      case ProtectionState.GOOD:
-        return "Congrats!";
-      case ProtectionState.OK:
-        return "Almost there!";
-
-      default:
-        return "Your protection is not good :(";
-    }
-  };
-
-  const getContent = (state: ProtectionState): ReactNode => {
-    switch (state) {
-      case ProtectionState.GOOD:
-        return <p>You are very good protected.</p>;
-      case ProtectionState.OK:
-        return <p>Your protection is ok, but could be better.</p>;
-
-      default:
-        return (
-          <>
-            <p>Learn, how you can protect yourself better:</p>
-            <Link
-              to="/mitigation-strategies"
-              className="bg-surface-darker text-bold font-heading cursor-pointer self-end border-4 px-2 text-lg"
-            >
-              Show me how to protect
-            </Link>
-          </>
-        );
-    }
-  };
+  //   return timezone;
+  // };
 
   return (
     <>
-      <canvas className="fixed -top-1000 -left-1000" ref={canvas2dRef}></canvas>
-      <canvas className="fixed -top-1000 -left-1000" ref={canvasWebGlRef}></canvas>
+      <canvas className="pointer-events-none fixed -top-1000 -left-1000" ref={canvas2dRef}></canvas>
+      <canvas
+        className="pointer-events-none fixed -top-1000 -left-1000"
+        ref={canvasWebGlRef}
+      ></canvas>
 
-      <section className="smp:p-0 fixed top-(--phone-browser-top) left-(--phone-browser-left) grid h-(--phone-browser-h) w-(--phone-browser-w) grid-cols-1 gap-8 overflow-scroll p-4 sm:static sm:h-auto sm:w-auto sm:grid-cols-2 sm:overflow-hidden">
-        <Card title={getTitle(protectionState)} className="sm:col-span-2" responsive={false}>
-          {getContent(protectionState)}
-        </Card>
+      <PageSection>
+        <p>
+          This <SectionTitle>Browser Privacy Evaluation</SectionTitle> tests, how well your browser
+          protects your data when navigating the web.
+        </p>
+        <div className="bg-surface-darker-half mt-8 flex flex-col rounded-2xl border-2 border-dashed px-4 py-8">
+          <h2 className="text-center text-3xl">Your score:</h2>
+          <p className="text-center text-4xl">{scoreNum}/4</p>
+        </div>
+      </PageSection>
 
-        <TestCard
-          title="Browser"
-          danger={browser !== Browsers.FIREFOX}
-          result={browser === Browsers.FIREFOX ? `Yes: ${browser}` : `No: ${browser}`}
-        >
-          <p>Privacy focused browser:</p>
-        </TestCard>
-        <TestCard title="Timezone" result={getTimeZone()}>
-          <p>Your current timezone:</p>
-        </TestCard>
-        <TestCard
-          title="Ad Blocker"
-          danger={!adBlockDetected}
-          result={adBlockDetected ? "Yes" : "No"}
-        >
-          <p>Adblock detected:</p>
-        </TestCard>
-        <TestCard
-          title="Canvas 2D"
-          danger={!canvas2dBlocked}
-          result={canvas2dBlocked ? "Yes" : "No"}
-        >
-          <p>Canvas 2D faked or blocked:</p>
-        </TestCard>
-        <TestCard
-          title="Canvas WebGl"
-          danger={!canvasWebGlBlocked}
-          result={canvasWebGlBlocked ? "Yes" : "No"}
-        >
-          <p>Canvas WebGl Blocked:</p>
-        </TestCard>
+      <PageSection bg>
+        <ul className="grid gap-4 sm:grid-cols-2">
+          <li>
+            <TestCard
+              title="Browser"
+              danger={browser !== Browsers.FIREFOX}
+              result={browser === Browsers.FIREFOX ? `Yes (${browser})` : `No (${browser})`}
+            >
+              <p>Privacy focused browser:</p>
+            </TestCard>
+          </li>
+          {/* <li>
+            <TestCard title="Timezone" result={getTimeZone()}>
+              <p>Your current timezone:</p>
+            </TestCard>
+          </li> */}
+          <li>
+            <TestCard
+              title="Ad Blocker"
+              danger={!adBlockDetected}
+              result={adBlockDetected ? "Yes" : "No"}
+            >
+              <p>Adblock detected:</p>
+            </TestCard>
+          </li>
+          <li>
+            <TestCard
+              title="Canvas"
+              danger={!canvas2dBlocked}
+              result={canvas2dBlocked ? "Yes" : "No"}
+            >
+              <p>Canvas 2D faked or blocked:</p>
+            </TestCard>
+          </li>
+          <li>
+            <TestCard
+              title="Canvas WebGl"
+              danger={!canvasWebGlBlocked}
+              result={canvasWebGlBlocked ? "Yes" : "No"}
+            >
+              <p>Canvas WebGl Blocked:</p>
+            </TestCard>
+          </li>
+        </ul>
+      </PageSection>
 
-        <Card title="Survey" responsive={false}>
-          <p>How did you like this test?</p>
-          <p>Did you learn anything new?</p>
-          <p>I prepared a very short survey, it would mean a lot if you could make it :)</p>
-          <a
-            href="https://tracking-survey.bastipnt.de/?ref=test"
-            target="_blank"
-            className="bg-surface-darker text-bold font-heading cursor-pointer self-end border-4 px-2 text-lg"
-          >
-            Take the survey
-          </a>
-        </Card>
-      </section>
+      <PageSection>
+        <p>
+          <SectionTitle>Happy</SectionTitle> with the results?
+        </p>
+        <p>
+          If not then maybe follow the tips on{" "}
+          <Link to="/mitigation-strategies" className="link">
+            this
+          </Link>{" "}
+          page.
+        </p>
+      </PageSection>
+
+      <PageSection bg>
+        <p>
+          <SectionTitle>Survey</SectionTitle>
+        </p>
+        <p>Thanks for taking your time and looking at this webpage!</p>
+        <p>It originated as a project from my masters thesis.</p>
+        <p>
+          If you liked it (or not), it would help me to take my survey on targeted ads and web
+          tracking.
+        </p>
+        <p>It is very short and will take you only ~2mins. Thanks! 💜✨</p>
+      </PageSection>
+
+      <a
+        href="https://tracking-survey.bastipnt.de/?ref=test"
+        target="_blank"
+        className="font-heading bg-surface-darker-half m-4 my-8 rounded-2xl border-2 border-dashed p-4 text-center text-2xl"
+      >
+        Take the Survey
+      </a>
     </>
   );
 };
