@@ -1,6 +1,8 @@
-export const getDimensions = () => ({
-  width: window.innerWidth,
-  height: window.innerHeight,
+import { OFFSET } from "./iconSpecs";
+
+export const getParentDimentions = (canvas: HTMLCanvasElement) => ({
+  width: canvas.parentElement?.offsetWidth || window.innerWidth,
+  height: canvas.parentElement?.offsetHeight || window.innerHeight,
 });
 
 export const getAspecRatioFromImg = (img: HTMLImageElement) => img.height / img.width;
@@ -11,7 +13,7 @@ export const getScale = (origSize: number, newSize: number) => newSize / origSiz
 
 export const resizeCanvas = (canvasEl: HTMLCanvasElement | null) => {
   if (canvasEl === null) return;
-  const { width, height } = getDimensions();
+  const { width, height } = getParentDimentions(canvasEl);
   canvasEl.width = width;
   canvasEl.height = height;
 };
@@ -59,18 +61,28 @@ export const drawImageCenter = (ctx: CanvasRenderingContext2D, img: HTMLImageEle
   ctx.restore();
 };
 
+export const drawImageLeft = (ctx: CanvasRenderingContext2D, img: HTMLImageElement) => {
+  const height = ctx.canvas.height;
+  const imgWidth = img.width;
+  const imgHeight = img.height;
+
+  ctx.save();
+  ctx.translate(OFFSET, (height - imgHeight) / 2);
+  ctx.drawImage(img, 0, 0, imgWidth, imgHeight);
+  ctx.restore();
+};
+
 export const drawLineToElement = (
   ctx: CanvasRenderingContext2D,
   x: number,
   y: number,
   el: HTMLElement,
-  side: "left" | "right" = "right",
 ) => {
-  let endX = el.offsetLeft + el.offsetWidth;
+  let endX = el.offsetLeft;
   const endY = el.offsetTop + el.offsetHeight / 2;
 
-  if (side === "left") {
-    endX = el.offsetLeft;
+  if (ctx.canvas.offsetWidth / 2 > el.offsetLeft) {
+    endX = el.offsetLeft + el.offsetWidth;
   }
 
   ctx.beginPath();

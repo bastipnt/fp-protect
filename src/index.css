@@ -3,9 +3,12 @@
 @theme {
   --color-*: initial;
   --color-stroke: #5e3135;
+  --color-stroke-light: hsl(355 31 28 / 80%);
   --color-default: var(--color-stroke);
   --color-surface: #feede3;
+  --color-surface-darker-half: hsl(24 24 69 / 50%);
   --color-surface-darker: #c3ac9d;
+  --color-neutral: #ffffff;
 
   --color-details: #5e4a5b;
 
@@ -63,8 +66,28 @@ body {
 }
 
 .glow:hover {
-  text-shadow:
+  /* text-shadow:
     0 0 7px var(--color-surface-darker),
     0 0 10px var(--color-surface-darker),
-    0 0 21px var(--color-surface-darker);
+    0 0 21px var(--color-surface-darker); */
+
+  /* transform: scale(1.1); */
+  text-decoration: underline;
+}
+
+code {
+  font-family: var(--default-font-family);
+  font-size: 85%;
+  background-color: var(--color-surface-darker-half);
+  padding: 0.05rem 0.2rem;
+}
+
+a.link {
+  text-decoration: underline;
+  cursor: pointer;
+  color: var(--color-primary-darker);
+
+  &.text-danger {
+    color: var(--color-danger);
+  }
 }

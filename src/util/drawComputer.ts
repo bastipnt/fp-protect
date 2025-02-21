@@ -1,23 +1,17 @@
 import computerIcon from "../assets/illustrations/Computer-Icon.svg";
+import { Elements } from "../pages/Info";
 import {
   drawImageCenter,
   drawLineToElement,
-  getDimensions,
+  getParentDimentions,
   getScale,
   loadImage,
   scaleImage,
 } from "./drawing";
 import { COMPUTER_WIDTH_SCALE, computerIconSpecs } from "./iconSpecs";
 
-type Elements = {
-  ipTrackingEl: HTMLDivElement | null;
-  pixelTrackingEl: HTMLDivElement | null;
-  cookieTrackingEl: HTMLDivElement | null;
-  fpTrackingEl: HTMLDivElement | null;
-};
-
 export const drawComputer = async (ctx: CanvasRenderingContext2D): Promise<HTMLImageElement> => {
-  const { width } = getDimensions();
+  const { width } = getParentDimentions(ctx.canvas);
   const computerImg = await loadImage(computerIcon);
   scaleImage(computerImg, width * COMPUTER_WIDTH_SCALE);
   drawImageCenter(ctx, computerImg);
@@ -39,12 +33,11 @@ export const drawComputerLines = (
   const dangerColor = getComputedStyle(document.body).getPropertyValue("--color-danger");
 
   ctx.lineWidth = 4;
-
   ctx.strokeStyle = strokeColor;
 
   const elementsLeft = [elements.ipTrackingEl, elements.pixelTrackingEl, elements.cookieTrackingEl];
 
-  const { width, height } = getDimensions();
+  const { width, height } = getParentDimentions(ctx.canvas);
   const scale = getScale(computerIconSpecs.W, width * COMPUTER_WIDTH_SCALE);
 
   const iconH = computerIconSpecs.browserH * scale;
@@ -63,7 +56,7 @@ export const drawComputerLines = (
     (width - img.width) / 2 + (computerIconSpecs.browserX + computerIconSpecs.browserW) * scale - 1;
   const rightY1 = y + 8;
 
-  drawLineToElement(ctx, rightX1, rightY1, elements.fpTrackingEl, "left");
+  drawLineToElement(ctx, rightX1, rightY1, elements.fpTrackingEl);
 
   ctx.strokeStyle = dangerColor;
 
@@ -73,7 +66,7 @@ export const drawComputerLines = (
     computerIconSpecs.windowY * scale +
     (computerIconSpecs.windowH * scale) / 1.3;
 
-  drawLineToElement(ctx, rightX2, rightY2, elements.fpTrackingEl, "left");
+  drawLineToElement(ctx, rightX2, rightY2, elements.fpTrackingEl);
 
   const rightX3 = (width + img.width) / 2 - 1;
   const rightY3 =
@@ -81,5 +74,5 @@ export const drawComputerLines = (
     computerIconSpecs.boxY * scale +
     (computerIconSpecs.boxH * scale) / 2;
 
-  drawLineToElement(ctx, rightX3, rightY3, elements.fpTrackingEl, "left");
+  drawLineToElement(ctx, rightX3, rightY3, elements.fpTrackingEl);
 };
