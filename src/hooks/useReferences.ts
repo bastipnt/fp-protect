@@ -5,6 +5,7 @@ export type ReferenceName = keyof typeof refs;
 
 export type References = {
   name: ReferenceName;
+  index: number;
   block?: string;
 }[];
 

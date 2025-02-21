@@ -3,7 +3,7 @@ import { Elements } from "../pages/Info";
 import {
   drawImageLeft,
   drawLineToElement,
-  getParentDimentions,
+  getParentDimensions,
   loadImage,
   scaleImageFactor,
 } from "./drawing";
@@ -27,7 +27,7 @@ export const drawPhoneLines = (
   ctx.lineWidth = 4;
   ctx.strokeStyle = strokeColor;
 
-  const { height } = getParentDimentions(ctx.canvas);
+  const { height } = getParentDimensions(ctx.canvas);
 
   const phoneHeight = img.height;
 

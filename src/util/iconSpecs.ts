@@ -83,7 +83,7 @@ export const getPhoneScale = (canvas: HTMLCanvasElement) => {
 // };
 
 // export const setPhoneNavDimensions = () => {
-//   const { width, height } = getParentDimentions();
+//   const { width, height } = getParentDimensions();
 //   const scale = getPhoneScale();
 
 //   const navTop = (height - phoneIconSpecs.h * scale) / 2 + phoneIconSpecs.browserNavY * scale;

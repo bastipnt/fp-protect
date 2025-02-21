@@ -1,6 +1,6 @@
 import { OFFSET } from "./iconSpecs";
 
-export const getParentDimentions = (canvas: HTMLCanvasElement) => ({
+export const getParentDimensions = (canvas: HTMLCanvasElement) => ({
   width: canvas.parentElement?.offsetWidth || window.innerWidth,
   height: canvas.parentElement?.offsetHeight || window.innerHeight,
 });
@@ -13,7 +13,7 @@ export const getScale = (origSize: number, newSize: number) => newSize / origSiz
 
 export const resizeCanvas = (canvasEl: HTMLCanvasElement | null) => {
   if (canvasEl === null) return;
-  const { width, height } = getParentDimentions(canvasEl);
+  const { width, height } = getParentDimensions(canvasEl);
   canvasEl.width = width;
   canvasEl.height = height;
 };

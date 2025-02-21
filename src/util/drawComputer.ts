@@ -3,7 +3,7 @@ import { Elements } from "../pages/Info";
 import {
   drawImageCenter,
   drawLineToElement,
-  getParentDimentions,
+  getParentDimensions,
   getScale,
   loadImage,
   scaleImage,
@@ -11,7 +11,7 @@ import {
 import { COMPUTER_WIDTH_SCALE, computerIconSpecs } from "./iconSpecs";
 
 export const drawComputer = async (ctx: CanvasRenderingContext2D): Promise<HTMLImageElement> => {
-  const { width } = getParentDimentions(ctx.canvas);
+  const { width } = getParentDimensions(ctx.canvas);
   const computerImg = await loadImage(computerIcon);
   scaleImage(computerImg, width * COMPUTER_WIDTH_SCALE);
   drawImageCenter(ctx, computerImg);
@@ -37,7 +37,7 @@ export const drawComputerLines = (
 
   const elementsLeft = [elements.ipTrackingEl, elements.pixelTrackingEl, elements.cookieTrackingEl];
 
-  const { width, height } = getParentDimentions(ctx.canvas);
+  const { width, height } = getParentDimensions(ctx.canvas);
   const scale = getScale(computerIconSpecs.W, width * COMPUTER_WIDTH_SCALE);
 
   const iconH = computerIconSpecs.browserH * scale;
