@@ -1,14 +1,14 @@
 import { Link } from "wouter";
 import ImgLink from "../components/ImgLink";
 import PageSection from "../components/PageSection";
+import SectionTitle from "../components/SectionTitle";
 
 const Mitigation: React.FC = () => {
   return (
     <>
       <PageSection>
         <p>
-          <span className="font-heading text-xl">Mitigating web tracking</span> doesn't need to be
-          that hard.
+          <SectionTitle>Mitigating web tracking</SectionTitle> doesn't need to be that hard.
         </p>
         <p>This guide is designed to show you some tools and tricks to gain more online privacy!</p>
         <p>
@@ -19,7 +19,7 @@ const Mitigation: React.FC = () => {
 
       <PageSection bg>
         <p>
-          <span className="font-heading text-xl">tldr;</span> these are my top recommendations:
+          <SectionTitle>tldr;</SectionTitle> these are my top recommendations:
         </p>
 
         <ul className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -68,8 +68,8 @@ const Mitigation: React.FC = () => {
 
       <PageSection>
         <p>
-          <span className="font-heading text-xl">Browsers</span> can make a huge difference when it
-          comes to tracking! Did you know that?
+          <SectionTitle>Browsers</SectionTitle> can make a huge difference when it comes to
+          tracking! Did you know that?
         </p>
         <p>Not all browsers treat your privacy with the same respect.</p>
         <p>
@@ -103,8 +103,7 @@ const Mitigation: React.FC = () => {
 
       <PageSection bg>
         <p>
-          <span className="font-heading text-xl">Ad Blockers</span> Can also protect your personal
-          data online.
+          <SectionTitle>Ad Blockers</SectionTitle> Can also protect your personal data online.
         </p>
         <p>Did you know that most ad blockers not only block ads, but also web tracking?</p>
         <p>
@@ -148,8 +147,8 @@ const Mitigation: React.FC = () => {
 
       <PageSection id="vpn">
         <p>
-          Virtual Private Networks or VPNs are tools to make your connection to the internet more
-          secure.
+          <SectionTitle>Virtual Private Networks</SectionTitle> or VPNs are tools to make your
+          connection to the internet more secure.
         </p>
         <p>Using a VPN can have multiple advantages:</p>
 
@@ -191,9 +190,9 @@ const Mitigation: React.FC = () => {
 
       <PageSection bg>
         <p>
-          <span className="font-heading text-xl">Search Engines</span> know a lot about you.
-          Everything you search for is stored and used to deliver you ads, that match your profile.
-          Especially Google knows a lot, as it is the most used search engine in the world.
+          <SectionTitle>Search Engines</SectionTitle> know a lot about you. Everything you search
+          for is stored and used to deliver you ads, that match your profile. Especially Google
+          knows a lot, as it is the most used search engine in the world.
         </p>
         <p>
           But there are also search engines that protect you privacy and don't use your data for
@@ -222,8 +221,8 @@ const Mitigation: React.FC = () => {
 
       <PageSection>
         <p>
-          Especially <span className="font-heading text-xl">Fingerprint Protection</span> can be
-          hard. If you are using a privacy focused browser like LibreWolff you are good.
+          Especially <SectionTitle>Fingerprint Protection</SectionTitle> can be hard. If you are
+          using a privacy focused browser like LibreWolff you are good.
         </p>
         <p>But what if you want to use a different browser?</p>
         <p>The Canvas Blocker extension adds fingerprint protection also to other browsers:</p>
@@ -250,7 +249,7 @@ const Mitigation: React.FC = () => {
         <p>There is even more, that can be done!</p>
 
         <p>
-          <span className="font-heading text-xl">Changing your online behavior</span> can also help.
+          <SectionTitle>Changing your online behavior</SectionTitle> can also help.
         </p>
         <p>
           Not using the same browser for everything can also mitigate tracking, as tracking someone

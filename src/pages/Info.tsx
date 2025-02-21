@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Link } from "wouter";
 import PageSection from "../components/PageSection";
 import Reference from "../components/Reference";
+import SectionTitle from "../components/SectionTitle";
 import useCanvas from "../hooks/useCanvas";
 import { useReferences } from "../hooks/useReferences";
 import { drawComputer, drawComputerLines } from "../util/drawComputer";
@@ -65,8 +66,8 @@ const Info: React.FC = () => {
     <>
       <PageSection references={getReferencesForBlock("1")}>
         <p>
-          <span className="font-heading text-xl">Web Tracking</span> refers to the practice of
-          monitoring and recording your online activities
+          <SectionTitle>Web Tracking</SectionTitle> refers to the practice of monitoring and
+          recording your online activities
           <Reference referenceName="WebTrackingWikipedia" references={references.current} />.
         </p>
         <p>
@@ -89,8 +90,7 @@ const Info: React.FC = () => {
       <section className="bg-primary flex w-full flex-col items-center gap-8 border-y-4 border-dashed py-8 sm:gap-12 sm:py-12">
         <div className="flex w-150 max-w-screen flex-col gap-2 px-4 sm:px-8">
           <p>
-            There are multiple different{" "}
-            <span className="font-heading text-xl">Tracking Methods</span>.
+            There are multiple different <SectionTitle>Tracking Methods</SectionTitle>.
           </p>
           <p>Some you may already have heard of, some are maybe new to you.</p>
           <p>The most common ones are:</p>
@@ -132,7 +132,7 @@ const Info: React.FC = () => {
 
       <PageSection references={getReferencesForBlock("ip-tracking")}>
         <p>
-          <span className="font-heading text-xl">IP Tracking</span> works as follows:
+          <SectionTitle>IP Tracking</SectionTitle> works as follows:
         </p>
         <p>
           Every time you visit a webpage you are sending your IP Address, so the website's server
@@ -152,8 +152,8 @@ const Info: React.FC = () => {
 
       <PageSection bg references={getReferencesForBlock("tracking-pixel")}>
         <p>
-          <span className="font-heading text-xl">Tracking Pixels</span> are small images — often
-          only one pixel in size — that are embedded on a website
+          <SectionTitle>Tracking Pixels</SectionTitle> are small images — often only one pixel in
+          size — that are embedded on a website
           <Reference referenceName="teamWhatAreTracking" references={references.current} />. These
           images are normally invisible to you.
         </p>
@@ -170,8 +170,8 @@ const Info: React.FC = () => {
 
       <PageSection references={getReferencesForBlock("cookies")}>
         <p>
-          <span className="font-heading text-xl">Cookies</span> are small data files stored on your
-          browser when you visit a website
+          <SectionTitle>Cookies</SectionTitle> are small data files stored on your browser when you
+          visit a website
           <Reference
             referenceName={["kristolHTTPCookiesStandards2001", "HTTPCookie2025"]}
             references={references.current}
@@ -194,9 +194,9 @@ const Info: React.FC = () => {
 
       <PageSection bg references={getReferencesForBlock("fp")}>
         <p>
-          <span className="font-heading text-xl">Device Fingerprinting</span> — also called browser
-          fingerprinting — can identify you by combining different attributes from your browser and
-          the device you are using
+          <SectionTitle>Device Fingerprinting</SectionTitle> — also called browser fingerprinting —
+          can identify you by combining different attributes from your browser and the device you
+          are using
           <Reference referenceName="DeviceFingerprint2025" references={references.current} />.
         </p>
         <p>
