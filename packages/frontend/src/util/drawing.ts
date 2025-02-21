@@ -3,11 +3,11 @@ export const getDimensions = () => ({
   height: window.innerHeight,
 });
 
-export const getAspecRatio = (img: HTMLImageElement) => img.height / img.width;
+export const getAspecRatioFromImg = (img: HTMLImageElement) => img.height / img.width;
 
-export const getAspecRatioWH = (w: number, h: number) => h / w;
+export const getAspecRatio = (w: number, h: number) => h / w;
 
-export const getScale = (origW: number, newW: number) => newW / origW;
+export const getScale = (origSize: number, newSize: number) => newSize / origSize;
 
 export const resizeCanvas = (canvasEl: HTMLCanvasElement | null) => {
   if (canvasEl === null) return;
@@ -24,7 +24,7 @@ export const loadImage = async (src: string): Promise<HTMLImageElement> =>
   });
 
 export const scaleImage = (img: HTMLImageElement, newSize: number, height = false) => {
-  const aspecRatio = getAspecRatio(img);
+  const aspecRatio = getAspecRatioFromImg(img);
 
   let imgNewWidth = newSize;
   let imgNewHeight = aspecRatio * imgNewWidth;
