@@ -1,11 +1,23 @@
-import { type ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
+import { useLocation } from "wouter";
+import { useHashLocation } from "wouter/use-hash-location";
 import NavLink from "./components/NavLink";
+import { scrollTopOrHash } from "./util/windowHelper";
 
 type Props = {
   children: ReactNode;
 };
 
 const Layout: React.FC<Props> = ({ children }) => {
+  const [location] = useLocation();
+  const [hashLocation] = useHashLocation();
+
+  useEffect(() => {
+    const hash = hashLocation.substring(1);
+
+    scrollTopOrHash(hash);
+  }, [location, hashLocation]);
+
   return (
     <>
       <nav className="bg-surface justify-left fixed top-0 left-0 z-50 flex w-screen flex-row gap-2 p-2 py-3 align-middle sm:gap-8 sm:px-8">

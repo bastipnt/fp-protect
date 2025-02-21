@@ -146,12 +146,13 @@ const Mitigation: React.FC = () => {
         </ul>
       </PageSection>
 
-      <PageSection>
+      <PageSection id="vpn">
         <p>
           Virtual Private Networks or VPNs are tools to make your connection to the internet more
           secure.
         </p>
         <p>Using a VPN can have multiple advantages:</p>
+
         <ol className="ml-4 list-decimal">
           <li>Your Internet Service Provider (ISP) can not see what you are doing online.</li>
           <li>Websites can not see your real IP address, which makes it harder to track you.</li>
@@ -163,7 +164,7 @@ const Mitigation: React.FC = () => {
         </ol>
         <p>
           The only downside of using a VPN provider is, that you need to trust them to not track you
-          themself.
+          them self.
         </p>
         <p>
           I did some research on that and here are my two recommendations for VPN providers, that
@@ -257,12 +258,18 @@ const Mitigation: React.FC = () => {
           media and another for searching, can help keep contexts separated.
         </p>
 
-        <p className="mt-4">Now, that you know more about tracking and how to protect yourself:</p>
-
-        <Link to="/test" className="link text-danger">
-          Are you ready to test your browser?
-        </Link>
+        <p>
+          Now, that you know more about tracking and how to protect yourself, you can make the test!
+          How good are you protected?
+        </p>
       </PageSection>
+
+      <Link
+        to="/test"
+        className="font-heading bg-surface-darker-half m-4 my-8 rounded-2xl border-2 border-dashed p-4 text-center text-2xl"
+      >
+        I want to test my browser
+      </Link>
     </>
   );
 };

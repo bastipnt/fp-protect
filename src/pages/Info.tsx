@@ -219,13 +219,16 @@ const Info: React.FC = () => {
         </p>
         <p>
           Luckily there are some things you can do to protect your privacy. The next page will give
-          you some practical advise:{" "}
-          <Link to="/mitigation-strategies" className="link text-danger">
-            How to mitigate web tracking
-          </Link>
-          .
+          you some practical advise.
         </p>
       </PageSection>
+
+      <Link
+        to="/mitigation-strategies"
+        className="font-heading bg-surface-darker-half m-4 my-8 rounded-2xl border-2 border-dashed p-4 text-center text-2xl"
+      >
+        How to protect myself
+      </Link>
     </>
   );
 };
