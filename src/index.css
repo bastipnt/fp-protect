@@ -14,7 +14,7 @@
 
   --color-danger: #e16371;
 
-  --font-heading: "DroidLover";
+  --font-heading: "GamePaused";
 
   --default-font-family: "Righteous";
 
@@ -40,11 +40,8 @@
 }
 
 @font-face {
-  font-family: DroidLover;
-  src:
-    url("assets/fonts/droid-lover-font/DroidLover-M6Ox.eot?#iefix") format("embedded-opentype"),
-    url("assets/fonts/droid-lover-font/DroidLover-M6Ox.woff") format("woff"),
-    url("assets/fonts/droid-lover-font/DroidLover-M6Ox.ttf") format("truetype");
+  font-family: GamePaused;
+  src: url("assets/fonts/game-paused/Game-Paused.otf") format("opentype");
   font-style: normal;
   font-weight: normal;
 }
@@ -63,4 +60,11 @@ body {
   .h-screen {
     height: -webkit-fill-available;
   }
+}
+
+.glow:hover {
+  text-shadow:
+    0 0 7px var(--color-surface-darker),
+    0 0 10px var(--color-surface-darker),
+    0 0 21px var(--color-surface-darker);
 }
