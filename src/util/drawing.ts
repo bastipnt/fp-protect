@@ -81,7 +81,7 @@ export const drawLineToElement = (
   let endX = el.offsetLeft;
   const endY = el.offsetTop + el.offsetHeight / 2;
 
-  if (ctx.canvas.offsetWidth / 2 > el.offsetLeft) {
+  if (ctx.canvas.offsetWidth / 3 > el.offsetLeft) {
     endX = el.offsetLeft + el.offsetWidth;
   }
 
