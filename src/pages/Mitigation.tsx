@@ -21,12 +21,14 @@ const Mitigation: React.FC = () => {
         <p>
           <span className="font-heading text-xl">tldr;</span> these are my top recommendations:
         </p>
+
         <ul className="mt-8 grid gap-4 sm:grid-cols-3">
           <li>
             <ImgLink
               title="LibreWolff Browser"
               href="https://librewolf.net/"
               imgUrl="/img/browsers/librewolff.png"
+              bg
             />
           </li>
           <li>
@@ -34,6 +36,7 @@ const Mitigation: React.FC = () => {
               title="uBlock Origin Ad Blocker"
               href="https://ublockorigin.com/"
               imgUrl="/img/adblockers/ublockorigin.png"
+              bg
             />
           </li>
           <li>
@@ -41,6 +44,7 @@ const Mitigation: React.FC = () => {
               title="Mullvad VPN"
               href="https://mullvad.net/"
               imgUrl="/img/vpns/mullvad-vpn.svg"
+              bg
             />
           </li>
           <li>
@@ -48,6 +52,7 @@ const Mitigation: React.FC = () => {
               title="DuckDuckGo Search Engine"
               href="https://duckduckgo.com/"
               imgUrl="/img/searchEngines/duckduckgo.svg"
+              bg
             />
           </li>
           <li className="sm:col-span-2">
@@ -55,6 +60,7 @@ const Mitigation: React.FC = () => {
               title="CanvasBlocker Extension"
               href="https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/"
               imgUrl="/img/other/canvas-blocker.png"
+              bg
             />
           </li>
         </ul>
@@ -72,35 +78,35 @@ const Mitigation: React.FC = () => {
         </p>
         <p>
           The reason for that is, that Google makes billions of dollars each year with targeted
-          advertisement. So it is in ther interes to track you even more.
+          advertisement. So it is in their interest to track you even more.
         </p>
-        <p>Luckily there are other browsers, that are focued on your privacy.</p>
+        <p>Luckily there are other browsers, that are more focused on your privacy.</p>
         <p>My recommendations are the following:</p>
-        <div className="flex flex-row justify-center gap-8 p-4 sm:items-end sm:gap-12">
-          <a
-            className="flex cursor-pointer flex-col items-center gap-2 align-middle"
-            href="https://www.mozilla.org/en-US/firefox/new/"
-            referrerPolicy="no-referrer"
-            target="_blank"
-          >
-            <img className="w-8 sm:w-12" src="/img/browsers/firefox.png" alt="firefox" />
-            <p className="text-lg sm:text-2xl">Firefox</p>
-          </a>
-          <a
-            className="flex cursor-pointer flex-col items-center gap-2 align-middle"
-            href="https://librewolf.net/"
-            referrerPolicy="no-referrer"
-            target="_blank"
-          >
-            <img className="w-8 sm:w-12" src="/img/browsers/librewolff.png" alt="librewolff" />
-            <p className="text-lg sm:text-2xl">LibreWolff</p>
-          </a>
-        </div>
+
+        <ul className="mt-8 grid grid-cols-2 gap-4">
+          <li>
+            <ImgLink
+              title="LibreWolff"
+              href="https://librewolf.net/"
+              imgUrl="/img/browsers/librewolff.png"
+            />
+          </li>
+          <li>
+            <ImgLink
+              title="Firefox"
+              href="https://www.mozilla.org/en-US/firefox/new/"
+              imgUrl="/img/browsers/firefox.png"
+            />
+          </li>
+        </ul>
       </PageSection>
 
       <PageSection bg>
-        <p>Are you already using an Ad Blocker?</p>
-        <p>Most ad blockers not only block ads, but also web tracking!</p>
+        <p>
+          <span className="font-heading text-xl">Ad Blockers</span> Can also protect your personal
+          data online.
+        </p>
+        <p>Did you know that most ad blockers not only block ads, but also web tracking?</p>
         <p>
           This works with so called filter lists. These include many urls of known advertisers and
           trackers.
@@ -110,45 +116,34 @@ const Mitigation: React.FC = () => {
           There are a lot of different ad blocker extensions. Some are free and some cost money.
         </p>
         <p>Luckily the best ones are for free:</p>
-        <div className="flex flex-row justify-center gap-8 p-4 sm:items-end sm:gap-12">
-          <a
-            className="flex cursor-pointer flex-col items-center gap-2 align-middle"
-            href="https://ublockorigin.com/"
-            referrerPolicy="no-referrer"
-            target="_blank"
-          >
-            <img
-              className="w-8 sm:w-12"
-              src="/img/adblockers/ublockorigin.png"
-              alt="ublockorigin"
+
+        <ul className="mt-8 grid gap-4 sm:grid-cols-3">
+          <li>
+            <ImgLink
+              title="
+              uBlock Origin"
+              href="https://ublockorigin.com/"
+              imgUrl="/img/adblockers/ublockorigin.png"
+              bg
             />
-            <p className="text-lg sm:text-2xl">
-              uBlock Origin <small className="hidden sm:inline">*best</small>
-            </p>
-          </a>
-          <a
-            className="flex cursor-pointer flex-col items-center gap-2 align-middle"
-            href="https://privacybadger.org/"
-            referrerPolicy="no-referrer"
-            target="_blank"
-          >
-            <img
-              className="w-12 sm:w-18"
-              src="/img/adblockers/privacy-badger.png"
-              alt="privacy-badger"
+          </li>
+          <li>
+            <ImgLink
+              title="Privacy Badger"
+              href="https://privacybadger.org/"
+              imgUrl="/img/adblockers/privacy-badger.png"
+              bg
             />
-            <p className="text-lg sm:text-2xl">Privacy Badger</p>
-          </a>
-          <a
-            className="flex cursor-pointer flex-col items-center gap-2 align-middle"
-            href="https://www.ghostery.com/"
-            referrerPolicy="no-referrer"
-            target="_blank"
-          >
-            <img className="w-8 sm:w-12" src="/img/adblockers/ghostery.png" alt="ghostery" />
-            <p className="text-lg sm:text-2xl">Ghostery</p>
-          </a>
-        </div>
+          </li>
+          <li>
+            <ImgLink
+              title="Ghostery"
+              href="https://www.ghostery.com/"
+              imgUrl="/img/adblockers/ghostery.png"
+              bg
+            />
+          </li>
+        </ul>
       </PageSection>
 
       <PageSection>
@@ -174,88 +169,98 @@ const Mitigation: React.FC = () => {
           I did some research on that and here are my two recommendations for VPN providers, that
           don't save any data about you:
         </p>
-        <div className="flex flex-row items-end justify-center gap-8 p-4 sm:gap-12">
-          <a
-            className="flex cursor-pointer flex-col items-center gap-2 align-middle"
-            href="https://mullvad.net/"
-            referrerPolicy="no-referrer"
-            target="_blank"
-          >
-            <img className="w-8 sm:w-12" src="/img/vpns/mullvad-vpn.svg" alt="mullvad" />
-            <p className="text-lg sm:text-2xl">
-              Mullvad VPN <small className="hidden sm:inline">*best</small>
-            </p>
-          </a>
-          <a
-            className="flex cursor-pointer flex-col items-center gap-2 align-middle"
-            href="https://protonvpn.com/"
-            referrerPolicy="no-referrer"
-            target="_blank"
-          >
-            <img className="w-8 sm:w-12" src="/img/vpns/proton-vpn.svg" alt="proton-vpn" />
-            <p className="text-lg sm:text-2xl">Proton VPN</p>
-          </a>
-        </div>
+
+        <ul className="mt-8 grid grid-cols-2 gap-4">
+          <li>
+            <ImgLink
+              title="Mullvad VPN"
+              href="https://mullvad.net/"
+              imgUrl="/img/vpns/mullvad-vpn.svg"
+            />
+          </li>
+          <li>
+            <ImgLink
+              title="Proton VPN"
+              href="https://protonvpn.com/"
+              imgUrl="/img/vpns/proton-vpn.svg"
+            />
+          </li>
+        </ul>
+      </PageSection>
+
+      <PageSection bg>
+        <p>
+          <span className="font-heading text-xl">Search Engines</span> know a lot about you.
+          Everything you search for is stored and used to deliver you ads, that match your profile.
+          Especially Google knows a lot, as it is the most used search engine in the world.
+        </p>
+        <p>
+          But there are also search engines that protect you privacy and don't use your data for
+          advertisement. Two of them are:
+        </p>
+
+        <ul className="mt-8 grid grid-cols-2 gap-4">
+          <li>
+            <ImgLink
+              title="DuckDuckGo"
+              href="https://duckduckgo.com/"
+              imgUrl="/img/searchEngines/duckduckgo.svg"
+              bg
+            />
+          </li>
+          <li>
+            <ImgLink
+              title="StartPage"
+              href="https://www.startpage.com/"
+              imgUrl="/img/searchEngines/startpage.svg"
+              bg
+            />
+          </li>
+        </ul>
+      </PageSection>
+
+      <PageSection>
+        <p>
+          Especially <span className="font-heading text-xl">Fingerprint Protection</span> can be
+          hard. If you are using a privacy focused browser like LibreWolff you are good.
+        </p>
+        <p>But what if you want to use a different browser?</p>
+        <p>The Canvas Blocker extension adds fingerprint protection also to other browsers:</p>
+
+        <ul className="mt-8 grid grid-cols-2 gap-4">
+          <li>
+            <ImgLink
+              title="CanvasBlocker (Firefox)"
+              href="https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/"
+              imgUrl="/img/other/canvas-blocker.png"
+            />
+          </li>
+          <li>
+            <ImgLink
+              title="CanvasBlocker (Chrome)"
+              href="https://chromewebstore.google.com/detail/canvas-blocker-fingerprin/nomnklagbgmgghhjidfhnoelnjfndfpd"
+              imgUrl="/img/other/canvas-blocker.png"
+            />
+          </li>
+        </ul>
       </PageSection>
 
       <PageSection bg>
         <p>There is even more, that can be done!</p>
-        <h3 className="mt-2">Search Engines:</h3>
-        <p>It is very important to use a search engine, that does not track you.</p>
-        <p>Using Google is really bad, because they use all your data for advertisement.</p>
-        <p>
-          Really good alternatives are{" "}
-          <a
-            className="cursor-pointer underline"
-            href="https://duckduckgo.com/"
-            target="_blank"
-            referrerPolicy="no-referrer"
-          >
-            DuckDuckGo
-          </a>{" "}
-          or{" "}
-          <a
-            className="cursor-pointer underline"
-            href="https://www.startpage.com/"
-            target="_blank"
-            referrerPolicy="no-referrer"
-          >
-            Startpage
-          </a>
-          . They even somtimes give better search results!
-        </p>
 
-        <h3 className="mt-2">Canvas Blocker Ad-On:</h3>
         <p>
-          There is a really good ad-on called{" "}
-          <a
-            className="cursor-pointer underline"
-            href="https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/"
-            target="_blank"
-            referrerPolicy="no-referrer"
-          >
-            Canvas Blocker
-          </a>{" "}
-          that can help protecting your browser from fingerprinting.
-        </p>
-
-        <h3 className="mt-2">Change your online behaviour:</h3>
-        <p>
-          Not using the same browser for everything can also help, as tracking someone across
-          browsers is more difficult.
+          <span className="font-heading text-xl">Changing your online behavior</span> can also help.
         </p>
         <p>
-          For example: using one browser for social media and another for searching, can help keep
-          contexts separated.
+          Not using the same browser for everything can also mitigate tracking, as tracking someone
+          across different browsers is more difficult. For example: using one browser for social
+          media and another for searching, can help keep contexts separated.
         </p>
 
         <p className="mt-4">Now, that you know more about tracking and how to protect yourself:</p>
 
-        <Link
-          to="/test"
-          className="bg-surface-darker text-bold font-heading cursor-pointer self-end border-4 px-2 text-lg"
-        >
-          Are you ready to test your browser? →
+        <Link to="/test" className="link text-danger">
+          Are you ready to test your browser?
         </Link>
       </PageSection>
     </>
