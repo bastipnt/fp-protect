@@ -20,7 +20,4 @@ bun run dev
 
 ## Structure:
 
-This is a monorepo for frontend and backend.
-
-- Frontend code can be found in the `packages/frontend` folder
-- Backend code can be found in the `packages/backend` folder
+All code can be found in the `src` folder
