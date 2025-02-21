@@ -9,6 +9,8 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
+*.log
+pnpm-debug.log*
 
 # Caches
 
@@ -58,6 +60,10 @@ build/Release
 
 node_modules/
 jspm_packages/
+node_modules
+
+dist-ssr
+*.local
 
 # Snowpack dependency directory (https://snowpack.dev/)
 
@@ -173,3 +179,13 @@ dist
 
 # Finder (MacOS) folder config
 .DS_Store
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
