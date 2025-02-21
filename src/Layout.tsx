@@ -20,7 +20,10 @@ const Layout: React.FC<Props> = ({ children }) => {
 
   return (
     <>
-      <nav className="bg-surface justify-left fixed top-0 left-0 z-50 flex w-screen flex-row gap-2 p-2 py-3 align-middle sm:gap-8 sm:px-8">
+      <nav
+        id="page-header"
+        className="bg-surface justify-left fixed top-0 left-0 z-50 flex w-screen flex-row gap-2 p-2 py-3 align-middle sm:gap-8 sm:px-8"
+      >
         <NavLink to="/">Web Tracking</NavLink>{" "}
         <NavLink to="/mitigation-strategies">Protect yourself</NavLink>{" "}
         <NavLink to="/test">Test your browser</NavLink>{" "}
