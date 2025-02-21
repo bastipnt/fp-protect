@@ -3,7 +3,7 @@
 @theme {
   --color-*: initial;
   --color-stroke: #5e3135;
-  --color-stroke-light: hsl(355 31 28 / 80%);
+  --color-stroke-light: hsl(355 31 28 / 60%);
   --color-default: var(--color-stroke);
   --color-surface: #feede3;
   --color-surface-darker-half: hsl(24 24 69 / 50%);

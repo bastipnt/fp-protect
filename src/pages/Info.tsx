@@ -1,6 +1,9 @@
 import { useRef } from "react";
 import { Link } from "wouter";
+import Reference from "../components/Reference";
+import ReferenceList from "../components/ReferenceList";
 import useCanvas from "../hooks/useCanvas";
+import { useReferences } from "../hooks/useReferences";
 import { drawComputer, drawComputerLines } from "../util/drawComputer";
 import { getParentDimentions } from "../util/drawing";
 import { drawPhone, drawPhoneLines } from "../util/drawPhone";
@@ -19,6 +22,13 @@ const Info: React.FC = () => {
   const pixelTrackingRef = useRef<HTMLLIElement>(null);
   const cookieTrackingRef = useRef<HTMLLIElement>(null);
   const fpTrackingRef = useRef<HTMLLIElement>(null);
+
+  const { references, getReferencesForBlock } = useReferences();
+
+  references.current = [
+    { name: "WebTrackingWikipedia", block: "1" },
+    { name: "DigitalAdvertisingRevenue", block: "1" },
+  ];
 
   drawRef.current = async (ctx: CanvasRenderingContext2D) => {
     const { width, height } = getParentDimentions(ctx.canvas);
@@ -51,11 +61,13 @@ const Info: React.FC = () => {
       <section className="flex w-150 max-w-screen flex-col gap-2 px-4 py-8 sm:px-8 sm:py-12">
         <p>
           <span className="font-heading text-xl">Web Tracking</span> refers to the practice of
-          monitoring and recording your online activities. {/* WebTrackingWikipedia */}
+          monitoring and recording your online activities
+          <Reference referenceName="WebTrackingWikipedia" references={references.current} />.
         </p>
         <p>
           Advertising companies like <code>Google</code> or <code>Meta</code> gain billions of
-          dollars by using your data for targeted advertisement. {/* DigitalAdvertisingRevenue */}
+          dollars by using your data for targeted advertisement
+          <Reference referenceName="DigitalAdvertisingRevenue" references={references.current} />.
         </p>
         <p>Lukily there are things you can do to protect your data.</p>
         <p>This website aims to help you learn more about web tracking and how to mitigate it.</p>
@@ -67,6 +79,7 @@ const Info: React.FC = () => {
           </a>{" "}
           for my masters thesis. Thanks!!!
         </p>
+        <ReferenceList references={getReferencesForBlock("1")} />
       </section>
 
       <section className="bg-primary flex w-full flex-col items-center gap-8 border-y-4 border-dashed py-8 sm:gap-12 sm:py-12">
@@ -80,7 +93,10 @@ const Info: React.FC = () => {
         </div>
 
         <div className="felx-col relative flex min-h-80 w-screen max-w-250 justify-items-stretch p-4 sm:p-8">
-          <canvas ref={canvasRef} className="absolute top-0 left-0 h-full w-full"></canvas>
+          <canvas
+            ref={canvasRef}
+            className="pointer-events-none absolute top-0 left-0 h-full w-full"
+          ></canvas>
           <ul className="flex w-full flex-col items-end justify-between gap-4 sm:grid sm:grid-cols-3 sm:grid-rows-3 sm:justify-items-start">
             <li
               className="font-heading col-start-2 w-fit p-2 text-right sm:col-start-1 sm:row-start-1 sm:text-left sm:text-2xl"
