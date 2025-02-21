@@ -9,8 +9,15 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "cSpell.words": [
+    "adblockers",
+    "duckduckgo",
     "kristol",
+    "librewolff",
+    "Mullvad",
+    "tldr",
+    "ublockorigin",
     "urldate",
+    "vpns",
     "wouter"
   ],
 }

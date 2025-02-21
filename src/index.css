@@ -2,17 +2,22 @@
 
 @theme {
   --color-*: initial;
+
   --color-stroke: #5e3135;
   --color-stroke-light: hsl(355 31 28 / 60%);
+
   --color-default: var(--color-stroke);
+
   --color-surface: #feede3;
   --color-surface-darker-half: hsl(24 24 69 / 50%);
   --color-surface-darker: #c3ac9d;
+
   --color-neutral: #ffffff;
 
   --color-details: #5e4a5b;
 
   --color-primary: #6bc9c9;
+  --color-primary-lighter: hsl(180 47 70 / 100%);
   --color-primary-darker: #47b0ab;
 
   --color-danger: #e16371;

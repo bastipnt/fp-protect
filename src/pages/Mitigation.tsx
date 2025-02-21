@@ -1,24 +1,69 @@
-import { ReactNode, useContext, useState } from "react";
 import { Link } from "wouter";
-import { ResponsivenessContext } from "../providers/responsivenessProvider";
-
-enum Tabs {
-  BROWSERS = "Browsers",
-  AD_BLOCKERS = "Ad Blockers",
-  VPN = "VPNs",
-  OTHER = "Other Tools",
-}
+import ImgLink from "../components/ImgLink";
+import PageSection from "../components/PageSection";
 
 const Mitigation: React.FC = () => {
-  const [currentTab, setCurrentTab] = useState<Tabs>(Tabs.BROWSERS);
-  const { isMobileSize } = useContext(ResponsivenessContext);
-
-  const tabs: { [key in Tabs]: ReactNode } = {
-    [Tabs.BROWSERS]: (
-      <>
+  return (
+    <>
+      <PageSection>
         <p>
-          Did you know, that it can make a huge difference which browser you are using, when it
-          comes to tracking?
+          <span className="font-heading text-xl">Mitigating web tracking</span> doesn't need to be
+          that hard.
+        </p>
+        <p>This guide is designed to show you some tools and tricks to gain more online privacy!</p>
+        <p>
+          From choosing the right browser, using a privacy focused search engine, to installing ad
+          blocking extensions, there are many things that can be done.
+        </p>
+      </PageSection>
+
+      <PageSection bg>
+        <p>
+          <span className="font-heading text-xl">tldr;</span> these are my top recommendations:
+        </p>
+        <ul className="mt-8 grid gap-4 sm:grid-cols-3">
+          <li>
+            <ImgLink
+              title="LibreWolff Browser"
+              href="https://librewolf.net/"
+              imgUrl="/img/browsers/librewolff.png"
+            />
+          </li>
+          <li>
+            <ImgLink
+              title="uBlock Origin Ad Blocker"
+              href="https://ublockorigin.com/"
+              imgUrl="/img/adblockers/ublockorigin.png"
+            />
+          </li>
+          <li>
+            <ImgLink
+              title="Mullvad VPN"
+              href="https://mullvad.net/"
+              imgUrl="/img/vpns/mullvad-vpn.svg"
+            />
+          </li>
+          <li>
+            <ImgLink
+              title="DuckDuckGo Search Engine"
+              href="https://duckduckgo.com/"
+              imgUrl="/img/searchEngines/duckduckgo.svg"
+            />
+          </li>
+          <li className="sm:col-span-2">
+            <ImgLink
+              title="CanvasBlocker Extension"
+              href="https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/"
+              imgUrl="/img/other/canvas-blocker.png"
+            />
+          </li>
+        </ul>
+      </PageSection>
+
+      <PageSection>
+        <p>
+          <span className="font-heading text-xl">Browsers</span> can make a huge difference when it
+          comes to tracking! Did you know that?
         </p>
         <p>Not all browsers treat your privacy with the same respect.</p>
         <p>
@@ -51,10 +96,9 @@ const Mitigation: React.FC = () => {
             <p className="text-lg sm:text-2xl">LibreWolff</p>
           </a>
         </div>
-      </>
-    ),
-    [Tabs.AD_BLOCKERS]: (
-      <>
+      </PageSection>
+
+      <PageSection bg>
         <p>Are you already using an Ad Blocker?</p>
         <p>Most ad blockers not only block ads, but also web tracking!</p>
         <p>
@@ -105,10 +149,9 @@ const Mitigation: React.FC = () => {
             <p className="text-lg sm:text-2xl">Ghostery</p>
           </a>
         </div>
-      </>
-    ),
-    [Tabs.VPN]: (
-      <>
+      </PageSection>
+
+      <PageSection>
         <p>
           Virtual Private Networks or VPNs are tools to make your connection to the internet more
           secure.
@@ -153,10 +196,9 @@ const Mitigation: React.FC = () => {
             <p className="text-lg sm:text-2xl">Proton VPN</p>
           </a>
         </div>
-      </>
-    ),
-    [Tabs.OTHER]: (
-      <>
+      </PageSection>
+
+      <PageSection bg>
         <p>There is even more, that can be done!</p>
         <h3 className="mt-2">Search Engines:</h3>
         <p>It is very important to use a search engine, that does not track you.</p>
@@ -207,65 +249,16 @@ const Mitigation: React.FC = () => {
           contexts separated.
         </p>
 
-        {!isMobileSize && (
-          <>
-            <p className="mt-4">
-              Now, that you know more about tracking and how to protect yourself:
-            </p>
+        <p className="mt-4">Now, that you know more about tracking and how to protect yourself:</p>
 
-            <Link
-              to="/test"
-              className="bg-surface-darker text-bold font-heading cursor-pointer self-end border-4 px-2 text-lg"
-            >
-              Are you ready to test your browser? →
-            </Link>
-          </>
-        )}
-      </>
-    ),
-  };
-
-  return (
-    <section className="sm:bg-surface fixed top-(--phone-browser-top) left-(--phone-browser-left) flex h-(--phone-browser-h) w-(--phone-browser-w) flex-col gap-8 overflow-scroll sm:static sm:h-auto sm:min-h-[50vh] sm:w-full sm:max-w-[900px] sm:gap-0 sm:overflow-hidden sm:border-4">
-      {isMobileSize ? (
-        Object.entries(tabs).map(([name, content]) => (
-          <div className="flex flex-col gap-2 p-4" key={name}>
-            <h2 className="text-2xl">{name}</h2>
-            {content}
-          </div>
-        ))
-      ) : (
-        <>
-          <div className="bg-surface-darker flex flex-row justify-between gap-8 border-b-4 p-2 px-4">
-            <button
-              className={`font-heading cursor-pointer ${currentTab === Tabs.BROWSERS ? "bg-surface" : ""} p-2 text-2xl`}
-              onClick={() => setCurrentTab(Tabs.BROWSERS)}
-            >
-              Browsers
-            </button>
-            <button
-              className={`font-heading cursor-pointer ${currentTab === Tabs.AD_BLOCKERS ? "bg-surface" : ""} p-2 text-2xl`}
-              onClick={() => setCurrentTab(Tabs.AD_BLOCKERS)}
-            >
-              Ad Blockers
-            </button>
-            <button
-              className={`font-heading cursor-pointer ${currentTab === Tabs.VPN ? "bg-surface" : ""} p-2 text-2xl`}
-              onClick={() => setCurrentTab(Tabs.VPN)}
-            >
-              VPNs
-            </button>
-            <button
-              className={`font-heading cursor-pointer ${currentTab === Tabs.OTHER ? "bg-surface" : ""} p-2 text-2xl`}
-              onClick={() => setCurrentTab(Tabs.OTHER)}
-            >
-              Other Tools
-            </button>
-          </div>
-          <div className="flex flex-col gap-2 p-4">{tabs[currentTab]}</div>
-        </>
-      )}
-    </section>
+        <Link
+          to="/test"
+          className="bg-surface-darker text-bold font-heading cursor-pointer self-end border-4 px-2 text-lg"
+        >
+          Are you ready to test your browser? →
+        </Link>
+      </PageSection>
+    </>
   );
 };
 
