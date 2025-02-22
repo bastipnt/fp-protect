@@ -52,34 +52,57 @@ const Info: React.FC = () => {
     <>
       <PageSection references={getReferencesForBlock("1")}>
         <p>
-          <SectionTitle>Web Tracking</SectionTitle> refers to the practice of monitoring and
-          recording your online activities
+          <SectionTitle>Web Tracking</SectionTitle> is the practice of monitoring and recording your
+          online activities, allowing companies to gather insights about your behavior online
           <Reference referenceName="WebTrackingWikipedia" references={references.current} />.
         </p>
         <p>
-          Advertising companies like <code>Google</code> or <code>Meta</code> gain billions of
-          dollars by using your data for targeted advertisement
+          Major advertising firms, such as <strong>Google</strong> and <strong>Meta</strong>,
+          generate billions in revenue by leveraging your data for{" "}
+          <strong>targeted advertising</strong>
           <Reference referenceName="DigitalAdvertisingRevenue" references={references.current} />.
         </p>
-        <p>Luckily there are things you can do to protect your data.</p>
-        <p>This website aims to help you learn more about web tracking and how to mitigate it.</p>
-        <p>There is also a self test, to see how well you are protected.</p>
         <p>
-          If you like this website, please consider taking part in this short{" "}
-          <a className="link" href="https://tracking-survey.bastipnt.de/?ref=test" target="_blank">
-            survey
+          Fortunately, there are effective measures you can take to safeguard your{" "}
+          <strong>personal information</strong>.
+        </p>
+        <p>
+          This website is designed to empower you with knowledge about <strong>web tracking</strong>{" "}
+          and provide strategies to mitigate its impact.
+        </p>
+        <p>
+          Additionally, you can take a <strong>self-assessment</strong> to evaluate how well your
+          data is protected.
+        </p>
+        <p>
+          This website is part of my <strong>master's thesis</strong>, aimed at exploring the
+          implications of web tracking and enhancing user awareness.
+        </p>
+        <p>
+          If you find this website helpful, please consider participating in this brief{" "}
+          <a
+            className="link"
+            href="https://tracking-survey.bastipnt.de/?ref=test"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <strong>survey</strong>
           </a>{" "}
-          for my masters thesis. Thank you! 💜
+          for my master's thesis. Thank you for your support! 💜
         </p>
       </PageSection>
 
       <section className="bg-primary flex w-full flex-col items-center gap-8 border-y-4 border-dashed py-8 sm:gap-12 sm:py-12">
         <div className="flex w-150 max-w-screen flex-col gap-2 px-4 sm:px-8">
           <p>
-            There are multiple different <SectionTitle>Tracking Methods</SectionTitle>.
+            There are several <SectionTitle>Tracking Methods</SectionTitle> employed by companies to
+            monitor online behavior.
           </p>
-          <p>Some you may already have heard of, some are maybe new to you.</p>
-          <p>The most common ones are:</p>
+          <p>
+            Some of these methods you may already be familiar with, while others might be new to
+            you.
+          </p>
+          <p>Here are the most common tracking methods:</p>
         </div>
 
         <div className="relative flex min-h-80 w-screen max-w-100 justify-items-stretch p-4 sm:max-w-250 sm:p-8">
@@ -122,17 +145,30 @@ const Info: React.FC = () => {
 
       <PageSection references={getReferencesForBlock("ip-tracking")}>
         <p>
-          <SectionTitle>IP Tracking</SectionTitle> works as follows:
+          <SectionTitle>IP Tracking</SectionTitle> functions as follows:
         </p>
         <p>
-          Every time you visit a webpage you are sending your IP Address, so the website's server
-          knows where to send the webpage to
+          Each time you visit a webpage, your <strong>IP address</strong> is transmitted, allowing
+          the website's server to know where to send the requested content
           <Reference referenceName="fisherWhatPublicIP2022" references={references.current} />.
         </p>
-        <p>Your IP-Address can be used to determine your approximate geo location.</p>
-        <p>Advertisers can use this to show you ads, that are relevant for your region.</p>
         <p>
-          <code>VPNs</code> can help you to protect your IP Address. More on that{" "}
+          Your IP address can be utilized to determine your approximate <strong>geolocation</strong>
+          .
+        </p>
+        <p>
+          Advertisers leverage this information to display ads that are relevant to your specific
+          region.
+        </p>
+        <p>
+          Additionally, many <strong>streaming services</strong> use IP tracking for{" "}
+          <strong>geo-blocking</strong>. This practice restricts access to content based on the
+          user's geographical location. For example, certain shows or movies may only be available
+          in specific countries due to licensing agreements.
+        </p>
+        <p>
+          Using a <strong>VPN</strong> can help protect your IP address and enhance your online
+          privacy. You can learn more about this{" "}
           <Link to="/mitigation-strategies#vpn" className="link">
             here
           </Link>
@@ -142,26 +178,26 @@ const Info: React.FC = () => {
 
       <PageSection bg references={getReferencesForBlock("tracking-pixel")}>
         <p>
-          <SectionTitle>Tracking Pixels</SectionTitle> are small images — often only one pixel in
-          size — that are embedded on a website
+          <SectionTitle>Tracking Pixels</SectionTitle> are tiny images — often just a single pixel
+          in size — that are embedded within a website
           <Reference referenceName="teamWhatAreTracking" references={references.current} />. These
-          images are normally invisible to you.
+          images are typically invisible to users.
         </p>
         <p>
-          The whole purpose of it is, that the image is loaded from a remote server. For loading
-          your browser needs to make a request to this server. So the server knows, that you
-          visited, that specific web page.
+          The primary purpose of a tracking pixel is to load an image from a remote server. When
+          this image is requested, your browser sends a request to the server, allowing it to know
+          that you have visited that specific webpage.
         </p>
         <p>
-          This is particularly effective when included in emails. By including tracking pixels in
-          emails, senders can see that you looked at the email.
+          Tracking pixels are particularly effective when included in emails. By embedding these
+          pixels in emails, senders can determine whether you have opened and viewed the message.
         </p>
       </PageSection>
 
       <PageSection references={getReferencesForBlock("cookies")}>
         <p>
-          <SectionTitle>Cookies</SectionTitle> are small data files stored on your browser when you
-          visit a website
+          <SectionTitle>Cookies</SectionTitle> are small data files that are stored in your browser
+          when you visit a website
           <Reference
             referenceName={["kristolHTTPCookiesStandards2001", "HTTPCookie2025"]}
             references={references.current}
@@ -169,47 +205,51 @@ const Info: React.FC = () => {
           .
         </p>
         <p>
-          These are often used to remember your preferences or login details, allowing to avoid
-          re-entering your username and password each time you revisit a site.
+          Cookies are commonly used to remember your preferences and login details, allowing you to
+          avoid re-entering your username and password each time you revisit a site.
         </p>
         <p>
-          But there are also different cookies: <code>Third Party Cookies</code>
+          However, there are different types of cookies, including{" "}
+          <strong>Third-Party Cookies</strong>.
         </p>
         <p>
-          These cookies originate mostly from tracking companies and are used to follow you around
-          the web, and collect data about the websites you visited.
+          These cookies are primarily set by tracking companies and are used to monitor your
+          activity across the web, collecting data about the websites you visit.
         </p>
-        <p>Regularly clearing the cookies stored in your browser can help to protect yourself.</p>
+        <p>
+          Regularly clearing the cookies stored in your browser can help enhance your privacy and
+          protect your personal information.
+        </p>
       </PageSection>
 
       <PageSection bg references={getReferencesForBlock("fp")}>
         <p>
-          <SectionTitle>Device Fingerprinting</SectionTitle> — also called browser fingerprinting —
-          can identify you by combining different attributes from your browser and the device you
-          are using
+          <SectionTitle>Device Fingerprinting</SectionTitle> — also known as{" "}
+          <strong>browser fingerprinting</strong> — is a technique that can identify you by
+          combining various attributes from your browser and the device you are using
           <Reference referenceName="DeviceFingerprint2025" references={references.current} />.
         </p>
         <p>
-          This works, because different browsers and hardware return different values for these
-          attributes.
+          This method works because different browsers and hardware configurations return different
+          values for these attributes.
         </p>
-        <p>Some of the attributes commonly used are:</p>
+        <p>Some of the commonly used attributes include:</p>
         <ul className="ml-4 list-disc">
           <li>Your screen size</li>
           <li>Your timezone</li>
           <li>The browser you are using</li>
-          <li>Your geo location</li>
-          <li>Hardware specifications (HTML Canvas and Web Audio)</li>
+          <li>Your geolocation</li>
+          <li>Hardware specifications (such as HTML Canvas and Web Audio)</li>
           <li>And many more...</li>
         </ul>
         <p>
-          This tracking method is very effective, because it is not easy to protect from. Unlike
-          with cookies you can not simply delete the data on your computer, because your computer
-          itself is the data.
+          This tracking method is particularly effective because it is challenging to protect
+          against. Unlike cookies, you cannot simply delete the data on your computer, as your
+          computer itself serves as the data.
         </p>
         <p>
-          Luckily there are some things you can do to protect your privacy. The next page will give
-          you some practical advise.
+          Fortunately, there are steps you can take to safeguard your privacy. The next page will
+          provide you with practical advice.
         </p>
       </PageSection>
 
