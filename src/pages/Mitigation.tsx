@@ -12,18 +12,23 @@ const Mitigation: React.FC = () => {
     <>
       <PageSection>
         <p>
-          <SectionTitle>Mitigating web tracking</SectionTitle> doesn't need to be that hard.
-        </p>
-        <p>This guide is designed to show you some tools and tricks to gain more online privacy!</p>
-        <p>
-          From choosing the right browser, using a privacy focused search engine, to installing ad
-          blocking extensions, there are many things that can be done.
+          <SectionTitle>Mitigating Web Tracking</SectionTitle> doesn't have to be complicated.
         </p>
         <p>
-          Since it makes a difference which device you are using (phone or desktop — android or ios)
-          this guide shows you different suggestions based on your current environment. Go open this
-          page on another device to see the differences.
+          This guide is designed to provide you with tools and strategies to enhance your online
+          privacy!
         </p>
+        <p>
+          From selecting the right browser and using a privacy-focused search engine to installing
+          ad-blocking extensions, there are numerous steps you can take to protect yourself.
+        </p>
+        <p>
+          Since the effectiveness of these measures can vary depending on the device you are using
+          (whether it's a phone or desktop, Android or iOS), this guide offers tailored suggestions
+          based on your current environment. Feel free to open this page on another device to
+          explore the differences.
+        </p>
+
         <Card className="mt-8 sm:mt-12">
           <p className="text-center text-xl">Currently seeing content for:</p>
           <h2 className="text-center text-2xl">
@@ -42,65 +47,72 @@ const Mitigation: React.FC = () => {
 
       <PageSection>
         <p>
-          <SectionTitle>Browsers</SectionTitle> can make a huge difference when it comes to
-          tracking! Did you know that?
+          <SectionTitle>Browsers</SectionTitle> can significantly impact your online tracking
+          experience! Did you know that?
         </p>
-        <p>Not all browsers treat your privacy with the same respect.</p>
+        <p>Not all browsers prioritize your privacy equally.</p>
         <p>
-          Most people are using the Google Chrome Browser, but it is actually the worst browser you
-          can use, when you don't want to be tracked.
+          While many people use <strong>Google Chrome</strong>, it is actually one of the least
+          privacy-friendly options available if you want to minimize tracking.
         </p>
         <p>
-          The reason for that is, that Google makes billions of dollars each year with targeted
-          advertisement. So it is in their interest to track you even more.
+          The reason for this is that Google generates billions of dollars each year from targeted
+          advertising, making it in their interest to track your online behavior extensively.
         </p>
-        <p>Luckily there are other browsers, that are more focused on your privacy.</p>
-        <p>My recommendations are the following:</p>
+        <p>
+          Fortunately, there are alternative browsers that are more focused on protecting your
+          privacy.
+        </p>
+        <p>Here are my recommendations:</p>
 
         <RecommendationOverview area="browsers" />
       </PageSection>
 
       <PageSection bg>
         <p>
-          <SectionTitle>Ad Blockers</SectionTitle> Can also protect your personal data online.
+          <SectionTitle>Ad Blockers</SectionTitle> can effectively protect your personal data
+          online.
         </p>
-        <p>Did you know that most ad blockers not only block ads, but also web tracking?</p>
+        <p>Did you know that most ad blockers not only block ads but also prevent web tracking?</p>
         <p>
-          This works with so called filter lists. These include many urls of known advertisers and
-          trackers.
+          They achieve this through the use of <strong>filter lists</strong>, which contain numerous
+          URLs of known advertisers and trackers.
         </p>
-        <p>Urls from this list are prevented from loading.</p>
+        <p>URLs from these lists are blocked from loading, helping to safeguard your privacy.</p>
         <p>
-          There are a lot of different ad blocker extensions. Some are free and some cost money.
+          There are many different ad blocker extensions available, some of which are free while
+          others require a subscription.
         </p>
-        <p>Luckily the best ones are for free:</p>
+        <p>Fortunately, some of the best options are completely free:</p>
 
         <RecommendationOverview area="adBlockers" bg />
       </PageSection>
 
       <PageSection id="vpn">
         <p>
-          <SectionTitle>Virtual Private Networks</SectionTitle> or VPNs are tools to make your
-          connection to the internet more secure.
+          <SectionTitle>Virtual Private Networks</SectionTitle> (VPNs) are tools that can make your
+          internet connection more secure.
         </p>
-        <p>Using a VPN can have multiple advantages:</p>
+        <p>Using a VPN offers several advantages:</p>
 
         <ol className="ml-4 list-decimal">
-          <li>Your Internet Service Provider (ISP) can not see what you are doing online.</li>
-          <li>Websites can not see your real IP address, which makes it harder to track you.</li>
+          <li>Your Internet Service Provider (ISP) cannot see your online activities.</li>
           <li>
-            You can pretend to be from another country and watch movies, that are not available
-            where you live.
+            Websites cannot access your real IP address, making it more difficult to track you.
           </li>
-          <li>Many VPN providers include the option to block tracking and advertising urls.</li>
+          <li>
+            You can appear to be located in another country, allowing you to access movies and
+            content that may not be available in your region.
+          </li>
+          <li>Many VPN providers offer features to block tracking and advertising URLs.</li>
         </ol>
         <p>
-          The only downside of using a VPN provider is, that you need to trust them to not track you
-          them self.
+          The only downside to using a VPN is that you must trust the provider not to track your
+          activities themselves.
         </p>
         <p>
-          I did some research on that and here are my two recommendations for VPN providers, that
-          don't save any data about you:
+          After doing some research, here are my two recommendations for VPN providers that do not
+          log any data about you:
         </p>
 
         <RecommendationOverview area="vpns" />
@@ -108,13 +120,14 @@ const Mitigation: React.FC = () => {
 
       <PageSection bg>
         <p>
-          <SectionTitle>Search Engines</SectionTitle> know a lot about you. Everything you search
-          for is stored and used to deliver you ads, that match your profile. Especially Google
-          knows a lot, as it is the most used search engine in the world.
+          <SectionTitle>Search Engines</SectionTitle> gather extensive information about you. Every
+          search you make is stored and utilized to deliver ads that align with your profile.{" "}
+          <strong>Google</strong>, in particular, knows a great deal about you, as it is the most
+          widely used search engine in the world.
         </p>
         <p>
-          But there are also search engines that protect you privacy and don't use your data for
-          advertisement. Two of them are:
+          However, there are search engines that prioritize your privacy and do not use your data
+          for advertising purposes. Two notable examples are:
         </p>
 
         <RecommendationOverview area="searchEngines" bg />
@@ -122,30 +135,36 @@ const Mitigation: React.FC = () => {
 
       <PageSection>
         <p>
-          Especially <SectionTitle>Fingerprint Protection</SectionTitle> can be hard. If you are
-          using a privacy focused browser like LibreWolff you are good.
+          <SectionTitle>Fingerprint Protection</SectionTitle> can be particularly challenging. If
+          you are using a privacy-focused browser like <strong>LibreWolf</strong>, you are on the
+          right track.
         </p>
-        <p>But what if you want to use a different browser?</p>
-        <p>The Canvas Blocker extension adds fingerprint protection also to other browsers:</p>
+        <p>But what if you prefer to use a different browser?</p>
+        <p>
+          The <strong>Canvas Blocker</strong> extension provides fingerprint protection also for
+          other browsers. (It is not available for iOS)
+        </p>
 
         <RecommendationOverview area="fingerprintProtection" />
       </PageSection>
 
       <PageSection bg>
-        <p>There is even more, that can be done!</p>
+        <p>There is even more you can do to enhance your online privacy!</p>
 
         <p>
-          <SectionTitle>Changing your online behavior</SectionTitle> can also help.
+          <SectionTitle>Changing Your Online Behavior</SectionTitle> can also make a significant
+          difference.
         </p>
         <p>
-          Not using the same browser for everything can also mitigate tracking, as tracking someone
-          across different browsers is more difficult. For example: using one browser for social
-          media and another for searching, can help keep contexts separated.
+          Avoiding the use of the same browser for all your activities can help mitigate tracking,
+          as it becomes more challenging to track someone across different browsers. For instance,
+          using one browser for social media and another for web searches can help keep your
+          contexts separate.
         </p>
 
         <p>
-          Now, that you know more about tracking and how to protect yourself, you can make the test!
-          How good are you protected?
+          Now that you have a better understanding of tracking and how to protect yourself, it's
+          time to take the test! How well are you protected?
         </p>
       </PageSection>
 
