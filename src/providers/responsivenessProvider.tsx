@@ -6,10 +6,12 @@ export const ResponsivenessContext = createContext<{
   isMobile: boolean;
   isMobileSize: boolean;
   browser?: string;
+  os?: string;
 }>({
   isMobile: false,
   isMobileSize: false,
   browser: undefined,
+  os: undefined,
 });
 
 type Props = {
@@ -20,14 +22,16 @@ const ResponsivenessProvider: React.FC<Props> = ({ children }) => {
   const [isMobileSize, setIsMobileSize] = useState(false);
 
   const [browser, setBrowser] = useState<string>();
+  const [os, setOs] = useState<string>();
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
   const detectBrowser = () => {
     const userAgentString = navigator.userAgent;
 
-    const { browser, device } = UAParser(userAgentString);
+    const { browser: b, device, os: o } = UAParser(userAgentString);
     setIsMobile(device.is("mobile"));
-    setBrowser(browser.name);
+    setBrowser(b.name);
+    setOs(o.name);
   };
 
   const handleResize = () => {
@@ -44,7 +48,7 @@ const ResponsivenessProvider: React.FC<Props> = ({ children }) => {
   }, []);
 
   return (
-    <ResponsivenessContext.Provider value={{ isMobile, isMobileSize, browser }}>
+    <ResponsivenessContext.Provider value={{ isMobile, isMobileSize, browser, os }}>
       {children}
     </ResponsivenessContext.Provider>
   );

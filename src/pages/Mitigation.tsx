@@ -1,9 +1,13 @@
+import { useContext } from "react";
 import { Link } from "wouter";
+import Card from "../components/Card";
 import ImgLink from "../components/ImgLink";
 import PageSection from "../components/PageSection";
 import SectionTitle from "../components/SectionTitle";
+import { ResponsivenessContext } from "../providers/responsivenessProvider";
 
 const Mitigation: React.FC = () => {
+  const { os, isMobile } = useContext(ResponsivenessContext);
   return (
     <>
       <PageSection>
@@ -15,6 +19,17 @@ const Mitigation: React.FC = () => {
           From choosing the right browser, using a privacy focused search engine, to installing ad
           blocking extensions, there are many things that can be done.
         </p>
+        <p>
+          Since it makes a difference which device you are using (phone or desktop — android or ios)
+          this guide shows you different suggestions based on your current environment. Go open this
+          page on another device to see the differences.
+        </p>
+        <Card className="mt-8 sm:mt-12">
+          <p className="text-center text-xl">Currently seeing content for:</p>
+          <h2 className="text-center text-2xl">
+            {isMobile ? "Mobile" : "Desktop"} ({os})
+          </h2>
+        </Card>
       </PageSection>
 
       <PageSection bg>

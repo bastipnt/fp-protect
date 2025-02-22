@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "wouter";
+import Card from "../components/Card";
 import PageSection from "../components/PageSection";
 import SectionTitle from "../components/SectionTitle";
-import TestCard from "../components/TestCard";
 import { useDetectAdblock } from "../hooks/useDetectAdBlock";
 import { useDetectCanvasBlock } from "../hooks/useDetectCanvasBlock";
 import { ResponsivenessContext } from "../providers/responsivenessProvider";
@@ -55,40 +55,44 @@ const Testing: React.FC = () => {
       <PageSection bg>
         <ul className="grid gap-4 sm:grid-cols-2">
           <li>
-            <TestCard
+            <Card
               title="Browser"
               danger={!testBrowser(browser)}
               result={testBrowser(browser) ? `Yes (${browser})` : `No (${browser})`}
+              bg
             >
               <p>Privacy focused browser:</p>
-            </TestCard>
+            </Card>
           </li>
           <li>
-            <TestCard
+            <Card
               title="Ad Blocker"
               danger={!adBlockDetected}
               result={adBlockDetected ? "Yes" : "No"}
+              bg
             >
               <p>Adblock detected:</p>
-            </TestCard>
+            </Card>
           </li>
           <li>
-            <TestCard
+            <Card
               title="Canvas"
               danger={!canvas2dBlocked}
               result={canvas2dBlocked ? "Yes" : "No"}
+              bg
             >
               <p>Canvas 2D faked or blocked:</p>
-            </TestCard>
+            </Card>
           </li>
           <li>
-            <TestCard
+            <Card
               title="Canvas WebGl"
               danger={!canvasWebGlBlocked}
               result={canvasWebGlBlocked ? "Yes" : "No"}
+              bg
             >
               <p>Canvas WebGl Blocked:</p>
-            </TestCard>
+            </Card>
           </li>
         </ul>
       </PageSection>
