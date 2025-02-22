@@ -1,4 +1,5 @@
 import { OFFSET } from "./iconSpecs";
+import { calcIsMobileSize } from "./responsiveHelper";
 
 export const getParentDimensions = (canvas: HTMLCanvasElement) => ({
   width: canvas.parentElement?.offsetWidth || window.innerWidth,
@@ -25,23 +26,9 @@ export const loadImage = async (src: string): Promise<HTMLImageElement> =>
     computerImg.src = src;
   });
 
-export const scaleImage = (img: HTMLImageElement, newSize: number, height = false) => {
-  const aspecRatio = getAspecRatioFromImg(img);
-
-  let imgNewWidth = newSize;
-  let imgNewHeight = aspecRatio * imgNewWidth;
-
-  if (height) {
-    console.log("using height", { imgNewWidth, imgNewHeight });
-
-    imgNewHeight = newSize;
-    imgNewWidth = imgNewHeight / aspecRatio;
-
-    console.log("using height after", { imgNewWidth, imgNewHeight });
-  }
-
-  img.width = imgNewWidth;
-  img.height = imgNewHeight;
+export const scaleImage = (img: HTMLImageElement, scale: number) => {
+  img.width *= scale;
+  img.height *= scale;
 };
 
 export const scaleImageFactor = (img: HTMLImageElement, factor: number) => {
@@ -49,16 +36,24 @@ export const scaleImageFactor = (img: HTMLImageElement, factor: number) => {
   img.height = img.height * factor;
 };
 
-export const drawImageCenter = (ctx: CanvasRenderingContext2D, img: HTMLImageElement) => {
-  const width = ctx.canvas.width;
-  const height = ctx.canvas.height;
+export const drawImage = (
+  ctx: CanvasRenderingContext2D,
+  img: HTMLImageElement,
+): [number, number] => {
+  const isMobileSize = calcIsMobileSize();
+  const { width, height } = ctx.canvas;
   const imgWidth = img.width;
   const imgHeight = img.height;
 
+  const offsetX = isMobileSize ? OFFSET : (width - imgWidth) / 2;
+  const offsetY = (height - imgHeight) / 2;
+
   ctx.save();
-  ctx.translate((width - imgWidth) / 2, (height - imgHeight) / 2);
+  ctx.translate(offsetX, offsetY);
   ctx.drawImage(img, 0, 0, imgWidth, imgHeight);
   ctx.restore();
+
+  return [offsetX, offsetY];
 };
 
 export const drawImageLeft = (ctx: CanvasRenderingContext2D, img: HTMLImageElement) => {

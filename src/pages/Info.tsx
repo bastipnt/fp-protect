@@ -5,16 +5,12 @@ import Reference from "../components/Reference";
 import SectionTitle from "../components/SectionTitle";
 import useCanvas from "../hooks/useCanvas";
 import { useReferences } from "../hooks/useReferences";
-import { drawComputer, drawComputerLines } from "../util/drawComputer";
+import { drawDeviceIcon } from "../util/drawDeviceIconHelper";
 import { getParentDimensions } from "../util/drawing";
-import { drawPhone, drawPhoneLines } from "../util/drawPhone";
-import { calcIsMobileSize } from "../util/responsiveHelper";
 
-export type Elements = {
-  ipTrackingEl: HTMLLIElement | null;
-  pixelTrackingEl: HTMLLIElement | null;
-  cookieTrackingEl: HTMLLIElement | null;
-  fpTrackingEl: HTMLLIElement | null;
+export type TrackingMethodElements = {
+  left: { el: HTMLLIElement | null }[];
+  right: { el: HTMLLIElement | null };
 };
 
 const Info: React.FC = () => {
@@ -40,26 +36,16 @@ const Info: React.FC = () => {
     const { width, height } = getParentDimensions(ctx.canvas);
     ctx.clearRect(0, 0, width, height);
 
-    if (calcIsMobileSize()) {
-      const phoneImg = await drawPhone(ctx);
+    const trackingMethodElements: TrackingMethodElements = {
+      left: [
+        { el: ipTrackingRef.current },
+        { el: pixelTrackingRef.current },
+        { el: cookieTrackingRef.current },
+      ],
+      right: { el: fpTrackingRef.current },
+    };
 
-      drawPhoneLines(ctx, phoneImg, {
-        ipTrackingEl: ipTrackingRef.current,
-        pixelTrackingEl: pixelTrackingRef.current,
-        cookieTrackingEl: cookieTrackingRef.current,
-        fpTrackingEl: fpTrackingRef.current,
-      });
-      return;
-    }
-
-    const computerImg = await drawComputer(ctx);
-
-    drawComputerLines(ctx, computerImg, {
-      ipTrackingEl: ipTrackingRef.current,
-      pixelTrackingEl: pixelTrackingRef.current,
-      cookieTrackingEl: cookieTrackingRef.current,
-      fpTrackingEl: fpTrackingRef.current,
-    });
+    await drawDeviceIcon(ctx, trackingMethodElements);
   };
 
   return (
@@ -96,35 +82,39 @@ const Info: React.FC = () => {
           <p>The most common ones are:</p>
         </div>
 
-        <div className="relative flex min-h-80 w-screen max-w-250 justify-items-stretch p-4 sm:p-8">
+        <div className="relative flex min-h-80 w-screen max-w-100 justify-items-stretch p-4 sm:max-w-250 sm:p-8">
           <canvas
             ref={canvasRef}
             className="pointer-events-none absolute top-0 left-0 h-full w-full"
           ></canvas>
-          <ul className="flex w-full flex-col items-end justify-between gap-4 sm:grid sm:grid-cols-3 sm:grid-rows-3 sm:justify-items-start">
+          <ul className="grid w-full grid-cols-2 items-center justify-between justify-items-end gap-4 sm:grid-cols-3 sm:grid-rows-3 sm:justify-items-start">
             <li
-              className="font-heading col-start-2 w-fit p-2 text-right sm:col-start-1 sm:row-start-1 sm:text-left sm:text-2xl"
+              className="font-heading col-start-2 w-fit p-2 text-left sm:col-start-1 sm:row-start-1 sm:text-right sm:text-xl"
               ref={ipTrackingRef}
             >
-              IP Tracking
+              IP&nbsp;Tracking
             </li>
             <li
-              className="font-heading col-start-2 w-fit p-2 text-right sm:col-start-1 sm:row-start-2 sm:text-left sm:text-2xl"
+              className="font-heading col-start-2 w-fit p-2 text-left sm:col-start-1 sm:row-start-2 sm:text-right sm:text-xl"
               ref={pixelTrackingRef}
             >
-              Tracking Pixels
+              Tracking
+              <br />
+              Pixels
             </li>
             <li
-              className="font-heading col-start-2 w-fit p-2 text-right sm:col-start-1 sm:row-start-3 sm:text-left sm:text-2xl"
+              className="font-heading col-start-2 w-fit p-2 text-left sm:col-start-1 sm:row-start-3 sm:text-right sm:text-xl"
               ref={cookieTrackingRef}
             >
               Cookies
             </li>
             <li
-              className="font-heading col-start-2 w-fit p-2 text-right sm:col-start-3 sm:row-start-2 sm:text-left sm:text-2xl"
+              className="font-heading col-start-2 w-fit p-2 text-left sm:col-start-3 sm:row-start-2 sm:text-xl"
               ref={fpTrackingRef}
             >
-              Device Fingerprinting
+              Device
+              <br />
+              Fingerprinting
             </li>
           </ul>
         </div>

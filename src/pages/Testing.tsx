@@ -1,22 +1,26 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "wouter";
 import PageSection from "../components/PageSection";
 import SectionTitle from "../components/SectionTitle";
 import TestCard from "../components/TestCard";
 import { useDetectAdblock } from "../hooks/useDetectAdBlock";
-import { Browsers, useDetectBrowser } from "../hooks/useDetectBrowser";
 import { useDetectCanvasBlock } from "../hooks/useDetectCanvasBlock";
+import { ResponsivenessContext } from "../providers/responsivenessProvider";
+
+const PREFERRED_BROWSER = /[Ff]irefox/;
 
 const Testing: React.FC = () => {
   const { adBlockDetected } = useDetectAdblock();
-  const { browser } = useDetectBrowser();
+  const { browser } = useContext(ResponsivenessContext);
   const { canvas2dBlocked, canvasWebGlBlocked, canvas2dRef, canvasWebGlRef } =
     useDetectCanvasBlock();
   const [scoreNum, setScoreNum] = useState<number>(0);
 
+  const testBrowser = (browser?: string): boolean => PREFERRED_BROWSER.test(browser || "");
+
   useEffect(() => {
     const requirements = [
-      browser === Browsers.FIREFOX,
+      testBrowser(browser),
       adBlockDetected,
       canvas2dBlocked,
       canvasWebGlBlocked,
@@ -28,14 +32,6 @@ const Testing: React.FC = () => {
       }, 0),
     );
   }, [browser, adBlockDetected, canvas2dBlocked, canvasWebGlBlocked]);
-
-  // const getTimeZone = (): string => {
-  //   const DateTimeFormat = window.Intl?.DateTimeFormat;
-  //   let timezone = "Unknown";
-  //   if (DateTimeFormat) timezone = new DateTimeFormat().resolvedOptions().timeZone || "Unknown";
-
-  //   return timezone;
-  // };
 
   return (
     <>
@@ -61,17 +57,12 @@ const Testing: React.FC = () => {
           <li>
             <TestCard
               title="Browser"
-              danger={browser !== Browsers.FIREFOX}
-              result={browser === Browsers.FIREFOX ? `Yes (${browser})` : `No (${browser})`}
+              danger={!testBrowser(browser)}
+              result={testBrowser(browser) ? `Yes (${browser})` : `No (${browser})`}
             >
               <p>Privacy focused browser:</p>
             </TestCard>
           </li>
-          {/* <li>
-            <TestCard title="Timezone" result={getTimeZone()}>
-              <p>Your current timezone:</p>
-            </TestCard>
-          </li> */}
           <li>
             <TestCard
               title="Ad Blocker"

@@ -1,98 +1,61 @@
-import { getScale } from "./drawing";
+import { detectIsMobile } from "./responsiveHelper";
 
-export const COMPUTER_WIDTH_SCALE = 0.17;
+type Size = [number, number];
+
+const COMPUTER_SCALE = 0.5;
 const PHONE_SCALE = 0.5;
+
 export const OFFSET = 16;
 
-export const computerIconSpecs = {
-  W: 83,
-  browserW: 36,
-  browserH: 24,
-  browserX: 29,
-  browserY: 12,
-  windowXRight: 8,
-  windowY: 5,
-  windowH: 38,
-  boxY: 53,
-  boxH: 23,
+const computerIconAnchors = {
+  browserLeftStart: [29, 12],
+  browserLeftEnd: [29, 36],
+
+  browserRightStart: [65, 12],
+  browserRightEnd: [65, 36],
+
+  screenRight: [75, 38],
+
+  computerRight: [83, 64],
 };
 
-export const phoneIconSpecs = {
-  w: 61,
-  h: 120,
-  cameraH: 8,
-  browserNavW: 52,
-  browserNavH: 15,
-  browserNavY: 102,
-  browserNavX: 4,
-  browserW: 52,
-  browserH: 114 - 17 - 8,
-  browserX: 4,
-  browserY: 3,
+const computerIconSize: Size = [83, 76];
+const phoneIconSize: Size = [62, 120];
+
+const phoneIconAnchors = {
+  browserLeftStart: [1, 8],
+  browserLeftEnd: [1, 112],
+
+  browserRightStart: [61, 8],
+  browserRightEnd: [61, 112],
 };
 
-const getPhoneAspecRatio = () => phoneIconSpecs.w / phoneIconSpecs.h;
-const getElAspecRatio = (canvas: HTMLCanvasElement) => canvas.offsetWidth / canvas.offsetHeight;
+export type IconAnchors = typeof computerIconAnchors | typeof phoneIconAnchors;
 
-export const getPhoneScale = (canvas: HTMLCanvasElement) => {
-  if (getPhoneAspecRatio() < getElAspecRatio(canvas)) {
-    const newHeight = canvas.offsetHeight * PHONE_SCALE;
-    return getScale(phoneIconSpecs.h, newHeight);
+export const getScaledIconAnchors = (scale: number, offset: [number, number]): IconAnchors => {
+  const isMobile = detectIsMobile();
+  const iconAnchors = isMobile ? phoneIconAnchors : computerIconAnchors;
+
+  return Object.entries(iconAnchors).reduce((scaledAnchors, [name, [x, y]]) => {
+    return { ...scaledAnchors, [name]: [x * scale + offset[0], y * scale + offset[1]] };
+  }, iconAnchors);
+};
+
+const calcAspectRatio = ([w, h]: Size) => w / h;
+
+export const calcScale = (canvas: HTMLCanvasElement) => {
+  const isMobile = detectIsMobile();
+  const iconSize = isMobile ? phoneIconSize : computerIconSize;
+  const baseScale = isMobile ? PHONE_SCALE : COMPUTER_SCALE;
+
+  const canvasAspectRatio = calcAspectRatio([canvas.width, canvas.height]);
+  const iconAspectRatio = calcAspectRatio(iconSize);
+
+  if (iconAspectRatio < canvasAspectRatio) {
+    const newHeight = canvas.height * baseScale;
+    return newHeight / iconSize[1];
   }
 
-  const newWidth = canvas.offsetWidth * PHONE_SCALE;
-  return getScale(phoneIconSpecs.w, newWidth);
+  const newWidth = canvas.width * baseScale;
+  return newWidth / iconSize[0];
 };
-
-// export const calculateMobileTop = () => {
-//   const scale = getPhoneScale();
-//   return (
-//     (window.innerHeight - phoneIconSpecs.h * scale) / 2 +
-//     phoneIconSpecs.browserY * scale +
-//     phoneIconSpecs.cameraH * scale
-//   );
-// };
-
-// export const calculateMobileLeft = () => {
-//   const scale = getPhoneScale();
-//   return (window.innerWidth - phoneIconSpecs.w * scale) / 2 + phoneIconSpecs.browserX * scale;
-// };
-
-// export const calculateMobileWidth = () => {
-//   const scale = getPhoneScale();
-//   return phoneIconSpecs.browserW * scale;
-// };
-
-// export const calculateMobileHeight = () => {
-//   const scale = getPhoneScale();
-//   return phoneIconSpecs.browserH * scale;
-// };
-
-// export const getPhoneBrowserDimensions = () => ({
-//   top: calculateMobileTop(),
-//   left: calculateMobileLeft(),
-//   width: calculateMobileWidth(),
-//   height: calculateMobileHeight(),
-// });
-
-// export const setPhoneBrowserDimensions = () => {
-//   document.documentElement.style.setProperty("--phone-browser-w", `${calculateMobileWidth()}px`);
-//   document.documentElement.style.setProperty("--phone-browser-h", `${calculateMobileHeight()}px`);
-//   document.documentElement.style.setProperty("--phone-browser-top", `${calculateMobileTop()}px`);
-//   document.documentElement.style.setProperty("--phone-browser-left", `${calculateMobileLeft()}px`);
-// };
-
-// export const setPhoneNavDimensions = () => {
-//   const { width, height } = getParentDimensions();
-//   const scale = getPhoneScale();
-
-//   const navTop = (height - phoneIconSpecs.h * scale) / 2 + phoneIconSpecs.browserNavY * scale;
-//   const navLeft = (width - phoneIconSpecs.w * scale) / 2 + phoneIconSpecs.browserNavX * scale;
-//   const navW = phoneIconSpecs.browserNavW * scale;
-//   const navH = phoneIconSpecs.browserNavH * scale;
-
-//   document.documentElement.style.setProperty("--phone-nav-w", `${navW}px`);
-//   document.documentElement.style.setProperty("--phone-nav-h", `${navH}px`);
-//   document.documentElement.style.setProperty("--phone-nav-top", `${navTop}px`);
-//   document.documentElement.style.setProperty("--phone-nav-left", `${navLeft}px`);
-// };

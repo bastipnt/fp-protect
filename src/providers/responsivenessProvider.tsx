@@ -1,12 +1,15 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
-import { calcIsMobileSize, detectMobileDevice } from "../util/responsiveHelper";
+import { UAParser } from "ua-parser-js";
+import { calcIsMobileSize } from "../util/responsiveHelper";
 
 export const ResponsivenessContext = createContext<{
   isMobile: boolean;
   isMobileSize: boolean;
+  browser?: string;
 }>({
   isMobile: false,
   isMobileSize: false,
+  browser: undefined,
 });
 
 type Props = {
@@ -14,28 +17,34 @@ type Props = {
 };
 
 const ResponsivenessProvider: React.FC<Props> = ({ children }) => {
-  const [isMobile, setIsMobile] = useState(false);
   const [isMobileSize, setIsMobileSize] = useState(false);
+
+  const [browser, setBrowser] = useState<string>();
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  const detectBrowser = () => {
+    const userAgentString = navigator.userAgent;
+
+    const { browser, device } = UAParser(userAgentString);
+    setIsMobile(device.is("mobile"));
+    setBrowser(browser.name);
+  };
 
   const handleResize = () => {
     setIsMobileSize(calcIsMobileSize());
-    // setPhoneBrowserDimensions();
-    // setPhoneNavDimensions();
   };
 
   useEffect(() => {
+    detectBrowser();
+
     window.addEventListener("resize", handleResize);
     handleResize();
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
-    setIsMobile(detectMobileDevice());
-  }, [isMobileSize]);
-
   return (
-    <ResponsivenessContext.Provider value={{ isMobile, isMobileSize }}>
+    <ResponsivenessContext.Provider value={{ isMobile, isMobileSize, browser }}>
       {children}
     </ResponsivenessContext.Provider>
   );
