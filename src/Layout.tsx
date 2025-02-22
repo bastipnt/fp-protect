@@ -22,7 +22,7 @@ const Layout: React.FC<Props> = ({ children }) => {
     <>
       <nav
         id="page-header"
-        className="bg-surface justify-left fixed top-0 left-0 z-50 flex w-screen flex-row gap-2 p-2 py-3 align-middle sm:gap-8 sm:px-8"
+        className="bg-surface justify-left fixed top-0 left-0 z-50 flex w-screen flex-row gap-2 p-2 py-3 align-middle sm:gap-4 sm:px-8"
       >
         <NavLink to="/">Web Tracking</NavLink>{" "}
         <NavLink to="/mitigation-strategies">Protect yourself</NavLink>{" "}
@@ -30,13 +30,15 @@ const Layout: React.FC<Props> = ({ children }) => {
         <a
           href="https://tracking-survey.bastipnt.de/?ref=test"
           target="_blank"
-          className="font-heading text-md text-default ml-auto hidden flex-col justify-center text-center sm:flex sm:text-xl"
+          className="font-heading text-default sm:text-md ml-auto hidden flex-col justify-center text-center sm:flex md:text-lg"
         >
           Survey
         </a>
       </nav>
 
-      <main className="box-border flex w-screen flex-col items-center gap-8 pt-20">{children}</main>
+      <main className="box-border flex w-screen flex-col items-center gap-8 pt-20 sm:pt-12">
+        {children}
+      </main>
 
       <footer className="text-stroke-light flex w-screen flex-row justify-end gap-2 p-4 text-sm sm:p-8 sm:text-lg">
         Contact:
