@@ -1,0 +1,128 @@
+{
+  "browsers": [
+    {
+      "id": "firefox",
+      "name": "Firefox",
+      "href": "https://www.mozilla.org/en-US/firefox/new/",
+      "icon": "/img/browsers/firefox.png",
+      "recommended": true,
+      "topRecommendation": ["ios", "android"],
+      "devices": ["desktop", "ios", "android"],
+      "refs": ["https://www.mozilla.org/en-US/firefox/new/"],
+      "specialHint": ""
+    },
+    {
+      "id": "librewolff",
+      "name": "LibreWolff",
+      "href": "https://librewolf.net/",
+      "icon": "/img/browsers/librewolff.png",
+      "recommended": true,
+      "topRecommendation": ["desktop"],
+      "devices": ["desktop"],
+      "refs": ["https://librewolf.net/"],
+      "specialHint": ""
+    }
+  ],
+  "adBlockers": [
+    {
+      "id": "ublockorigin",
+      "name": "uBlock Origin",
+      "href": "https://ublockorigin.com/",
+      "icon": "/img/adblockers/ublockorigin.png",
+      "recommended": true,
+      "topRecommendation": ["desktop", "android"],
+      "devices": ["desktop", "android"],
+      "refs": ["https://ublockorigin.com/"],
+      "specialHint": ""
+    },
+    {
+      "id": "privacybadger",
+      "name": "Privacy Badger",
+      "href": "https://privacybadger.org/",
+      "icon": "/img/adblockers/privacy-badger.png",
+      "recommended": true,
+      "topRecommendation": [],
+      "devices": ["desktop", "android"],
+      "refs": ["https://privacybadger.org/"],
+      "specialHint": ""
+    },
+    {
+      "id": "ghostery",
+      "name": "Ghostery",
+      "href": "https://www.ghostery.com/",
+      "icon": "/img/adblockers/ghostery.png",
+      "recommended": true,
+      "topRecommendation": ["ios"],
+      "devices": ["desktop", "android", "ios"],
+      "refs": [
+        "https://www.ghostery.com/",
+        "https://www.ghostery.com/blog/how-to-enhance-apple-privacy-with-ghostery"
+      ],
+      "specialHint": "On iOS devices Ghostery only works with Safari."
+    }
+  ],
+  "vpns": [
+    {
+      "id": "mullvad",
+      "name": "Mullvad VPN",
+      "href": "https://mullvad.net/",
+      "icon": "/img/vpns/mullvad-vpn.svg",
+      "recommended": true,
+      "topRecommendation": ["ios", "android", "desktop"],
+      "devices": ["desktop", "android", "ios"],
+      "refs": ["https://mullvad.net/"],
+      "specialHint": ""
+    },
+    {
+      "id": "proton",
+      "name": "Proton VPN",
+      "href": "https://protonvpn.com/",
+      "icon": "/img/vpns/proton-vpn.svg",
+      "recommended": true,
+      "topRecommendation": [],
+      "devices": ["desktop", "android", "ios"],
+      "refs": ["https://protonvpn.com/"],
+      "specialHint": ""
+    }
+  ],
+  "searchEngines": [
+    {
+      "id": "duckduckgo",
+      "name": "DuckDuckGo",
+      "href": "https://duckduckgo.com/",
+      "icon": "/img/searchEngines/duckduckgo.svg",
+      "recommended": true,
+      "topRecommendation": ["ios", "android", "desktop"],
+      "devices": ["desktop", "android", "ios"],
+      "refs": ["https://duckduckgo.com/"],
+      "specialHint": ""
+    },
+    {
+      "id": "startpage",
+      "name": "StartPage",
+      "href": "https://www.startpage.com/",
+      "icon": "/img/searchEngines/startpage.svg",
+      "recommended": true,
+      "topRecommendation": [],
+      "devices": ["desktop", "android", "ios"],
+      "refs": ["https://www.startpage.com/"],
+      "specialHint": ""
+    }
+  ],
+  "fingerprintProtection": [
+    {
+      "id": "canvasblocker",
+      "name": "CanvasBlocker",
+      "href": "https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/",
+      "icon": "/img/other/canvas-blocker.png",
+      "recommended": true,
+      "topRecommendation": ["desktop", "android"],
+      "devices": ["desktop", "android"],
+      "refs": [
+        "https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/",
+        "https://chromewebstore.google.com/detail/canvas-blocker-fingerprin/nomnklagbgmgghhjidfhnoelnjfndfpd"
+      ],
+      "specialHint": "You don't need this when using the LibreWolff browser. It already includes it's own protection."
+    }
+  ]
+}

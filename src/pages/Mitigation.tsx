@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { Link } from "wouter";
 import Card from "../components/Card";
-import ImgLink from "../components/ImgLink";
 import PageSection from "../components/PageSection";
+import RecommendationOverview from "../components/RecommendationOverview";
 import SectionTitle from "../components/SectionTitle";
 import { ResponsivenessContext } from "../providers/responsivenessProvider";
 
@@ -37,48 +37,7 @@ const Mitigation: React.FC = () => {
           <SectionTitle>tldr;</SectionTitle> these are my top recommendations:
         </p>
 
-        <ul className="mt-8 grid gap-4 sm:grid-cols-3">
-          <li>
-            <ImgLink
-              title="LibreWolff Browser"
-              href="https://librewolf.net/"
-              imgUrl="/img/browsers/librewolff.png"
-              bg
-            />
-          </li>
-          <li>
-            <ImgLink
-              title="uBlock Origin Ad Blocker"
-              href="https://ublockorigin.com/"
-              imgUrl="/img/adblockers/ublockorigin.png"
-              bg
-            />
-          </li>
-          <li>
-            <ImgLink
-              title="Mullvad VPN"
-              href="https://mullvad.net/"
-              imgUrl="/img/vpns/mullvad-vpn.svg"
-              bg
-            />
-          </li>
-          <li>
-            <ImgLink
-              title="DuckDuckGo Search Engine"
-              href="https://duckduckgo.com/"
-              imgUrl="/img/searchEngines/duckduckgo.svg"
-              bg
-            />
-          </li>
-          <li className="sm:col-span-2">
-            <ImgLink
-              title="CanvasBlocker Extension"
-              href="https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/"
-              imgUrl="/img/other/canvas-blocker.png"
-              bg
-            />
-          </li>
-        </ul>
+        <RecommendationOverview area="best" bg />
       </PageSection>
 
       <PageSection>
@@ -98,22 +57,7 @@ const Mitigation: React.FC = () => {
         <p>Luckily there are other browsers, that are more focused on your privacy.</p>
         <p>My recommendations are the following:</p>
 
-        <ul className="mt-8 grid grid-cols-2 gap-4">
-          <li>
-            <ImgLink
-              title="LibreWolff"
-              href="https://librewolf.net/"
-              imgUrl="/img/browsers/librewolff.png"
-            />
-          </li>
-          <li>
-            <ImgLink
-              title="Firefox"
-              href="https://www.mozilla.org/en-US/firefox/new/"
-              imgUrl="/img/browsers/firefox.png"
-            />
-          </li>
-        </ul>
+        <RecommendationOverview area="browsers" />
       </PageSection>
 
       <PageSection bg>
@@ -131,33 +75,7 @@ const Mitigation: React.FC = () => {
         </p>
         <p>Luckily the best ones are for free:</p>
 
-        <ul className="mt-8 grid gap-4 sm:grid-cols-3">
-          <li>
-            <ImgLink
-              title="
-              uBlock Origin"
-              href="https://ublockorigin.com/"
-              imgUrl="/img/adblockers/ublockorigin.png"
-              bg
-            />
-          </li>
-          <li>
-            <ImgLink
-              title="Privacy Badger"
-              href="https://privacybadger.org/"
-              imgUrl="/img/adblockers/privacy-badger.png"
-              bg
-            />
-          </li>
-          <li>
-            <ImgLink
-              title="Ghostery"
-              href="https://www.ghostery.com/"
-              imgUrl="/img/adblockers/ghostery.png"
-              bg
-            />
-          </li>
-        </ul>
+        <RecommendationOverview area="adBlockers" bg />
       </PageSection>
 
       <PageSection id="vpn">
@@ -185,22 +103,7 @@ const Mitigation: React.FC = () => {
           don't save any data about you:
         </p>
 
-        <ul className="mt-8 grid grid-cols-2 gap-4">
-          <li>
-            <ImgLink
-              title="Mullvad VPN"
-              href="https://mullvad.net/"
-              imgUrl="/img/vpns/mullvad-vpn.svg"
-            />
-          </li>
-          <li>
-            <ImgLink
-              title="Proton VPN"
-              href="https://protonvpn.com/"
-              imgUrl="/img/vpns/proton-vpn.svg"
-            />
-          </li>
-        </ul>
+        <RecommendationOverview area="vpns" />
       </PageSection>
 
       <PageSection bg>
@@ -214,24 +117,7 @@ const Mitigation: React.FC = () => {
           advertisement. Two of them are:
         </p>
 
-        <ul className="mt-8 grid grid-cols-2 gap-4">
-          <li>
-            <ImgLink
-              title="DuckDuckGo"
-              href="https://duckduckgo.com/"
-              imgUrl="/img/searchEngines/duckduckgo.svg"
-              bg
-            />
-          </li>
-          <li>
-            <ImgLink
-              title="StartPage"
-              href="https://www.startpage.com/"
-              imgUrl="/img/searchEngines/startpage.svg"
-              bg
-            />
-          </li>
-        </ul>
+        <RecommendationOverview area="searchEngines" bg />
       </PageSection>
 
       <PageSection>
@@ -242,22 +128,7 @@ const Mitigation: React.FC = () => {
         <p>But what if you want to use a different browser?</p>
         <p>The Canvas Blocker extension adds fingerprint protection also to other browsers:</p>
 
-        <ul className="mt-8 grid grid-cols-2 gap-4">
-          <li>
-            <ImgLink
-              title="CanvasBlocker (Firefox)"
-              href="https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/"
-              imgUrl="/img/other/canvas-blocker.png"
-            />
-          </li>
-          <li>
-            <ImgLink
-              title="CanvasBlocker (Chrome)"
-              href="https://chromewebstore.google.com/detail/canvas-blocker-fingerprin/nomnklagbgmgghhjidfhnoelnjfndfpd"
-              imgUrl="/img/other/canvas-blocker.png"
-            />
-          </li>
-        </ul>
+        <RecommendationOverview area="fingerprintProtection" />
       </PageSection>
 
       <PageSection bg>
