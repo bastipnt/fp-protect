@@ -46,13 +46,6 @@ const RecommendationOverview: React.FC<Props> = ({ area, bg, preview }) => {
   );
 
   const getRecommendationList = useCallback(() => {
-    let device = "desktop";
-
-    if (isMobile) {
-      if (os === "iOS") device = "iOS";
-      else device = "android";
-    }
-
     if (area === "best") {
       return Object.keys(recommendations)
         .map((currArea) => {
@@ -66,22 +59,10 @@ const RecommendationOverview: React.FC<Props> = ({ area, bg, preview }) => {
           }, areaRecommendations[0] || {});
         })
         .filter((recommendation) => recommendation?.id);
-
-      // return Object.values(recommendations).reduce(
-      //   (selectedRecommendations, areaRecommendations) => {
-      //     const recommendation = areaRecommendations.find(({ topRecommendation }) =>
-      //       topRecommendation.includes(device),
-      //     );
-      //     if (!recommendation) return selectedRecommendations;
-
-      //     return [...selectedRecommendations, recommendation];
-      //   },
-      //   [],
-      // );
     }
 
     return getRecommendationsForArea(area);
-  }, [area, os, isMobile, browser, getRecommendationsForArea]);
+  }, [area, getRecommendationsForArea]);
 
   return (
     <ul
