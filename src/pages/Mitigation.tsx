@@ -7,7 +7,7 @@ import SectionTitle from "../components/SectionTitle";
 import { ResponsivenessContext } from "../providers/responsivenessProvider";
 
 const Mitigation: React.FC = () => {
-  const { os, isMobile } = useContext(ResponsivenessContext);
+  const { os, browser } = useContext(ResponsivenessContext);
   return (
     <>
       <PageSection>
@@ -30,16 +30,17 @@ const Mitigation: React.FC = () => {
         </p>
 
         <Card className="mt-8 sm:mt-12">
-          <p className="text-center text-xl">Currently seeing content for:</p>
+          <p className="text-center text-xl">Currently seeing recommendations for:</p>
           <h2 className="text-center text-2xl">
-            {isMobile ? "Mobile" : "Desktop"} ({os})
+            <span>{os}</span> | <span>{browser}</span>
           </h2>
         </Card>
       </PageSection>
 
       <PageSection bg>
         <p>
-          <SectionTitle>tldr;</SectionTitle> these are my top recommendations:
+          <SectionTitle>tldr;</SectionTitle> these are the top recommendations for your current
+          device and browser:
         </p>
 
         <RecommendationOverview area="best" bg preview />

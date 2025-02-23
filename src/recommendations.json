@@ -8,6 +8,7 @@
       "ext": ".png",
       "recommended": true,
       "topRecommendation": ["iOS", "android"],
+      "recommendationWeight": 3,
       "devices": ["desktop", "iOS", "android"],
       "description": "A free open source web browser developed by the Mozilla Foundation."
     },
@@ -19,6 +20,7 @@
       "ext": ".png",
       "recommended": true,
       "topRecommendation": ["desktop"],
+      "recommendationWeight": 1,
       "devices": ["desktop"],
       "description": "A free open source web browser based on Firefox that has different privacy enhancing extensions installed by default and a special fingerprinting protection."
     },
@@ -30,6 +32,7 @@
       "ext": ".png",
       "recommended": true,
       "topRecommendation": [],
+      "recommendationWeight": 2,
       "devices": ["desktop"],
       "description": "A free open source web browser based on Firefox. This browser is so privacy focused, it always uses the incognito mode and has additional fingerprinting protection. Maybe it is not a browser for everyday, but for mor private matters."
     },
@@ -41,6 +44,7 @@
       "ext": ".png",
       "recommended": true,
       "topRecommendation": [],
+      "recommendationWeight": 4,
       "devices": ["desktop", "android"],
       "description": "This browser enables you to use the Tor Network, which allows you to browse the web with maximum anonymity."
     },
@@ -52,6 +56,7 @@
       "ext": ".png",
       "recommended": true,
       "topRecommendation": [],
+      "recommendationWeight": 5,
       "devices": ["desktop", "android", "iOS"],
       "description": "A chrome based browser with enhanced privacy features. It blocks trackers and most ads."
     }
@@ -65,6 +70,7 @@
       "ext": ".png",
       "recommended": true,
       "topRecommendation": ["desktop", "android"],
+      "recommendationWeight": 1,
       "devices": ["desktop", "android"],
       "links": {
         "firefox": "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/",
@@ -80,6 +86,7 @@
       "ext": ".png",
       "recommended": true,
       "topRecommendation": [],
+      "recommendationWeight": 2,
       "devices": ["desktop", "android"],
       "links": {
         "chrome": "https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh",
@@ -95,6 +102,7 @@
       "ext": ".png",
       "recommended": true,
       "topRecommendation": [],
+      "recommendationWeight": 3,
       "devices": ["desktop", "android"],
       "links": {
         "firefox": "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/",
@@ -112,6 +120,7 @@
       "ext": ".png",
       "recommended": true,
       "topRecommendation": ["iOS"],
+      "recommendationWeight": 4,
       "devices": ["desktop", "android", "iOS"],
       "links": {
         "firefox": "https://addons.mozilla.org/en-US/firefox/addon/ghostery/?utm_source=ghostery.com&utm_campaign=direct",
@@ -132,6 +141,7 @@
       "ext": ".svg",
       "recommended": true,
       "topRecommendation": ["iOS", "android", "desktop"],
+      "recommendationWeight": 1,
       "devices": ["desktop", "android", "iOS"],
       "description": "A VPN provider that doesn't has or saves any data about you. It even works without user accounts, so it also doesn't need your email."
     },
@@ -143,6 +153,7 @@
       "ext": ".svg",
       "recommended": true,
       "topRecommendation": [],
+      "recommendationWeight": 2,
       "devices": ["desktop", "android", "iOS"],
       "description": "This VPN provider doesn't log any of your browsing data. Second best recommendation after Mullvad VPN."
     }
@@ -156,6 +167,7 @@
       "ext": ".svg",
       "recommended": true,
       "topRecommendation": ["iOS", "android", "desktop"],
+      "recommendationWeight": 1,
       "devices": ["desktop", "android", "iOS"],
       "description": "Privacy focused Search Engine that doesn't track you. Has a lot of features, from maps to weather forecasts."
     },
@@ -167,6 +179,7 @@
       "ext": ".svg",
       "recommended": true,
       "topRecommendation": [],
+      "recommendationWeight": 2,
       "devices": ["desktop", "android", "iOS"],
       "description": "A privacy protecting search engine from the Netherlands."
     }
@@ -180,6 +193,7 @@
       "ext": ".png",
       "recommended": true,
       "topRecommendation": ["desktop", "android"],
+      "recommendationWeight": 1,
       "devices": ["desktop", "android"],
       "links": {
         "firefox": "https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/"
@@ -194,6 +208,7 @@
       "ext": ".png",
       "recommended": true,
       "topRecommendation": [],
+      "recommendationWeight": 2,
       "devices": ["desktop", "android"],
       "links": {
         "firefox": "https://addons.mozilla.org/en-US/firefox/addon/canvas-blocker-no-fingerprint/",

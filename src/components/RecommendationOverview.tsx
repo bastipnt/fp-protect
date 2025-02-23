@@ -14,7 +14,36 @@ type Props = {
 };
 
 const RecommendationOverview: React.FC<Props> = ({ area, bg, preview }) => {
-  const { os, isMobile } = useContext(ResponsivenessContext);
+  const { os, isMobile, browser } = useContext(ResponsivenessContext);
+
+  const getRecommendationsForArea = useCallback(
+    (currArea: Exclude<Area, "best">) => {
+      let device = "desktop";
+
+      if (isMobile) {
+        if (os === "iOS") device = "iOS";
+        else device = "android";
+      }
+
+      const deviceSpecificRecommendations = recommendations[currArea].filter(({ devices }) =>
+        devices.includes(device),
+      );
+
+      const browserSpecificRecommendations = deviceSpecificRecommendations.filter(
+        (recommendation) => {
+          if (!("links" in recommendation)) return true;
+          if (!browser) return true;
+
+          return Object.keys(recommendation.links as { [key: string]: string }).some(
+            (browserKey) => browser.toLowerCase().search(browserKey) !== -1,
+          );
+        },
+      );
+
+      return browserSpecificRecommendations;
+    },
+    [area, os, isMobile, browser],
+  );
 
   const getRecommendationList = useCallback(() => {
     let device = "desktop";
@@ -25,21 +54,34 @@ const RecommendationOverview: React.FC<Props> = ({ area, bg, preview }) => {
     }
 
     if (area === "best") {
-      return Object.values(recommendations).reduce(
-        (selectedRecommendations, areaRecommendations) => {
-          const recommendation = areaRecommendations.find(({ topRecommendation }) =>
-            topRecommendation.includes(device),
-          );
-          if (!recommendation) return selectedRecommendations;
+      return Object.keys(recommendations)
+        .map((currArea) => {
+          const areaRecommendations = getRecommendationsForArea(currArea as Exclude<Area, "best">);
 
-          return [...selectedRecommendations, recommendation];
-        },
-        [],
-      );
+          return areaRecommendations.reduce((topRecommendation, currRecommendation) => {
+            if (topRecommendation?.recommendationWeight > currRecommendation?.recommendationWeight)
+              return currRecommendation;
+
+            return topRecommendation;
+          }, areaRecommendations[0] || {});
+        })
+        .filter((recommendation) => recommendation?.id);
+
+      // return Object.values(recommendations).reduce(
+      //   (selectedRecommendations, areaRecommendations) => {
+      //     const recommendation = areaRecommendations.find(({ topRecommendation }) =>
+      //       topRecommendation.includes(device),
+      //     );
+      //     if (!recommendation) return selectedRecommendations;
+
+      //     return [...selectedRecommendations, recommendation];
+      //   },
+      //   [],
+      // );
     }
 
-    return recommendations[area].filter(({ devices }) => devices.includes(device));
-  }, [area, os, isMobile]);
+    return getRecommendationsForArea(area);
+  }, [area, os, isMobile, browser, getRecommendationsForArea]);
 
   return (
     <ul
