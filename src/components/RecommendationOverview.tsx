@@ -3,15 +3,17 @@ import { ResponsivenessContext } from "../providers/responsivenessProvider";
 import recommendations from "../recommendations.json";
 import Card from "./Card";
 import ImgLink from "./ImgLink";
+import RecommendationDetail from "./RecommendationDetail";
 
 export type Area = keyof typeof recommendations | "best";
 
 type Props = {
   area: Area;
   bg?: boolean;
+  preview?: boolean;
 };
 
-const RecommendationOverview: React.FC<Props> = ({ area, bg }) => {
+const RecommendationOverview: React.FC<Props> = ({ area, bg, preview }) => {
   const { os, isMobile } = useContext(ResponsivenessContext);
 
   const getRecommendationList = useCallback(() => {
@@ -40,10 +42,22 @@ const RecommendationOverview: React.FC<Props> = ({ area, bg }) => {
   }, [area, os, isMobile]);
 
   return (
-    <ul className="mt-8 grid w-full grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4">
-      {getRecommendationList().map(({ href, name, id, type, ext }) => (
+    <ul
+      className={`mt-8 grid w-full ${preview ? "grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4" : "grid-cols-1 gap-8"}`}
+    >
+      {getRecommendationList().map(({ href, name, id, type, ext, description }) => (
         <li key={id}>
-          <ImgLink title={name} href={href} imgUrl={`/img/${type}/${id}${ext}`} bg={bg} />
+          {preview ? (
+            <ImgLink title={name} href={href} imgUrl={`/img/${type}/${id}${ext}`} bg={bg} />
+          ) : (
+            <RecommendationDetail
+              title={name}
+              href={href}
+              imgUrl={`/img/${type}/${id}${ext}`}
+              bg={bg}
+              description={description}
+            />
+          )}
         </li>
       ))}
       {getRecommendationList().length === 0 && (

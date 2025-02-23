@@ -42,7 +42,7 @@ const Mitigation: React.FC = () => {
           <SectionTitle>tldr;</SectionTitle> these are my top recommendations:
         </p>
 
-        <RecommendationOverview area="best" bg />
+        <RecommendationOverview area="best" bg preview />
       </PageSection>
 
       <PageSection>
