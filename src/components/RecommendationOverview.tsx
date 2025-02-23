@@ -86,7 +86,7 @@ const RecommendationOverview: React.FC<Props> = ({ area, bg, preview }) => {
       {getRecommendationList().length === 0 && (
         <li>
           <Card bg={bg}>
-            <p>No recommendations found for your device.</p>
+            <p>No recommendations found for your device or browser.</p>
           </Card>
         </li>
       )}
