@@ -1,6 +1,10 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { UAParser } from "ua-parser-js";
-import { calcIsMobileSize } from "../util/responsiveHelper";
+import {
+  calcIsMobileSize,
+  detectIsBraveBrowser,
+  detectVivaldiBrowser,
+} from "../util/responsiveHelper";
 
 export const ResponsivenessContext = createContext<{
   isMobile: boolean;
@@ -25,13 +29,18 @@ const ResponsivenessProvider: React.FC<Props> = ({ children }) => {
   const [os, setOs] = useState<string>();
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
-  const detectBrowser = () => {
+  const detectBrowser = async () => {
     const userAgentString = navigator.userAgent;
-
+    const isBrave = detectIsBraveBrowser();
+    const isVivaldi = await detectVivaldiBrowser();
     const { browser: b, device, os: o } = UAParser(userAgentString);
+
     setIsMobile(device.is("mobile"));
-    setBrowser(b.name);
     setOs(o.name);
+
+    if (isBrave) setBrowser("Brave");
+    else if (isVivaldi) setBrowser("Vivaldi");
+    else setBrowser(b.name);
   };
 
   const handleResize = () => {

@@ -25,7 +25,7 @@
       "description": "A free open source web browser based on Firefox that has different privacy enhancing extensions installed by default and a special fingerprinting protection."
     },
     {
-      "id": "mullvadBrowser",
+      "id": "mullvad",
       "name": "Mullvad Browser",
       "type": "browser",
       "href": "https://mullvad.net/en/browser",
@@ -37,7 +37,7 @@
       "description": "A free open source web browser based on Firefox. This browser is so privacy focused, it always uses the incognito mode and has additional fingerprinting protection. Maybe it is not a browser for everyday, but for mor private matters."
     },
     {
-      "id": "torBrowser",
+      "id": "tor",
       "name": "Tor Browser",
       "type": "browser",
       "href": "https://www.torproject.org/download/",
@@ -49,7 +49,7 @@
       "description": "This browser enables you to use the Tor Network, which allows you to browse the web with maximum anonymity."
     },
     {
-      "id": "braveBrowser",
+      "id": "brave",
       "name": "Brave",
       "type": "browser",
       "href": "https://brave.com/download/",
