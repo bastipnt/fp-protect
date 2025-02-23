@@ -7,7 +7,7 @@ import { useDetectAdblock } from "../hooks/useDetectAdBlock";
 import { useDetectCanvasBlock } from "../hooks/useDetectCanvasBlock";
 import { ResponsivenessContext } from "../providers/responsivenessProvider";
 
-const PREFERRED_BROWSER = /[Ff]irefox/;
+const PREFERRED_BROWSERS = /firefox|DuckDuckGo/i;
 
 const Testing: React.FC = () => {
   const { adBlockDetected } = useDetectAdblock();
@@ -16,7 +16,7 @@ const Testing: React.FC = () => {
     useDetectCanvasBlock();
   const [scoreNum, setScoreNum] = useState<number>(0);
 
-  const testBrowser = (browser?: string): boolean => PREFERRED_BROWSER.test(browser || "");
+  const testBrowser = (browser?: string): boolean => PREFERRED_BROWSERS.test(browser || "");
 
   useEffect(() => {
     const requirements = [
