@@ -3,126 +3,204 @@
     {
       "id": "firefox",
       "name": "Firefox",
+      "type": "browser",
       "href": "https://www.mozilla.org/en-US/firefox/new/",
-      "icon": "/img/browsers/firefox.png",
+      "ext": ".png",
       "recommended": true,
-      "topRecommendation": ["ios", "android"],
-      "devices": ["desktop", "ios", "android"],
-      "refs": ["https://www.mozilla.org/en-US/firefox/new/"],
-      "specialHint": ""
+      "topRecommendation": ["iOS", "android"],
+      "devices": ["desktop", "iOS", "android"],
+      "description": "A free open source web browser developed by the Mozilla Foundation."
     },
     {
-      "id": "librewolff",
+      "id": "libreWolff",
       "name": "LibreWolff",
+      "type": "browser",
       "href": "https://librewolf.net/",
-      "icon": "/img/browsers/librewolff.png",
+      "ext": ".png",
       "recommended": true,
       "topRecommendation": ["desktop"],
       "devices": ["desktop"],
-      "refs": ["https://librewolf.net/"],
-      "specialHint": ""
+      "description": "A free open source web browser based on Firefox that has different privacy enhancing extensions installed by default and a special fingerprinting protection."
+    },
+    {
+      "id": "mullvadBrowser",
+      "name": "Mullvad Browser",
+      "type": "browser",
+      "href": "https://mullvad.net/en/browser",
+      "ext": ".png",
+      "recommended": true,
+      "topRecommendation": [],
+      "devices": ["desktop"],
+      "description": "A free open source web browser based on Firefox. This browser is so privacy focused, it always uses the incognito mode and has additional fingerprinting protection. Maybe it is not a browser for everyday, but for mor private matters."
+    },
+    {
+      "id": "torBrowser",
+      "name": "Tor Browser",
+      "type": "browser",
+      "href": "https://www.torproject.org/download/",
+      "ext": ".png",
+      "recommended": true,
+      "topRecommendation": [],
+      "devices": ["desktop", "android"],
+      "description": "This browser enables you to use the Tor Network, which allows you to browse the web with maximum anonymity."
+    },
+    {
+      "id": "braveBrowser",
+      "name": "Brave",
+      "type": "browser",
+      "href": "https://brave.com/download/",
+      "ext": ".png",
+      "recommended": true,
+      "topRecommendation": [],
+      "devices": ["desktop", "android", "iOS"],
+      "description": "A chrome based browser with enhanced privacy features. It blocks trackers and most ads."
     }
   ],
   "adBlockers": [
     {
-      "id": "ublockorigin",
+      "id": "uBlockOrigin",
       "name": "uBlock Origin",
+      "type": "adBlocker",
       "href": "https://ublockorigin.com/",
-      "icon": "/img/adblockers/ublockorigin.png",
+      "ext": ".png",
       "recommended": true,
       "topRecommendation": ["desktop", "android"],
       "devices": ["desktop", "android"],
-      "refs": ["https://ublockorigin.com/"],
-      "specialHint": ""
+      "links": {
+        "firefox": "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/",
+        "opera": "https://addons.opera.com/en/extensions/details/ublock/"
+      },
+      "description": "A free open source ad blocker, that blocks all ads and not just some. On top of that it speeds up your browser and blocks tracking."
     },
     {
-      "id": "privacybadger",
-      "name": "Privacy Badger",
-      "href": "https://privacybadger.org/",
-      "icon": "/img/adblockers/privacy-badger.png",
+      "id": "uBlockOriginLite",
+      "name": "uBlock Origin Lite",
+      "type": "adBlocker",
+      "href": "https://github.com/uBlockOrigin/uBOL-home",
+      "ext": ".png",
       "recommended": true,
       "topRecommendation": [],
       "devices": ["desktop", "android"],
-      "refs": ["https://privacybadger.org/"],
-      "specialHint": ""
+      "links": {
+        "chrome": "https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh",
+        "edge": "https://microsoftedge.microsoft.com/addons/detail/ublock-origin-lite/cimighlppcgcoapaliogpjjdehbnofhn"
+      },
+      "description": "A free open source ad blocker, that blocks all ads and not just some. On top of that it speeds up your browser and blocks tracking. (Lite version for Chrome and Edge)"
+    },
+    {
+      "id": "privacyBadger",
+      "name": "Privacy Badger",
+      "type": "trackingBlocker",
+      "href": "https://privacybadger.org/",
+      "ext": ".png",
+      "recommended": true,
+      "topRecommendation": [],
+      "devices": ["desktop", "android"],
+      "links": {
+        "firefox": "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/",
+        "chrome": "https://chromewebstore.google.com/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp",
+        "edge": "https://microsoftedge.microsoft.com/addons/detail/mkejgcgkdlddbggjhhflekkondicpnop",
+        "opera": "https://addons.opera.com/en/extensions/details/privacy-badger"
+      },
+      "description": "Browser extension that blocks web tracking by analyzing websites you visit."
     },
     {
       "id": "ghostery",
       "name": "Ghostery",
+      "type": "adBlocker",
       "href": "https://www.ghostery.com/",
-      "icon": "/img/adblockers/ghostery.png",
+      "ext": ".png",
       "recommended": true,
-      "topRecommendation": ["ios"],
-      "devices": ["desktop", "android", "ios"],
-      "refs": [
-        "https://www.ghostery.com/",
-        "https://www.ghostery.com/blog/how-to-enhance-apple-privacy-with-ghostery"
-      ],
-      "specialHint": "On iOS devices Ghostery only works with Safari."
+      "topRecommendation": ["iOS"],
+      "devices": ["desktop", "android", "iOS"],
+      "links": {
+        "firefox": "https://addons.mozilla.org/en-US/firefox/addon/ghostery/?utm_source=ghostery.com&utm_campaign=direct",
+        "chrome": "https://chromewebstore.google.com/detail/ghostery-tracker-ad-block/mlomiejdfkolichcflejclcbmpeaniij",
+        "edge": "https://microsoftedge.microsoft.com/addons/detail/ghostery-%E2%80%93-privacy-ad-blo/fclbdkbhjlgkbpfldjodgjncejkkjcme",
+        "opera": "https://addons.opera.com/en/extensions/details/ghostery/",
+        "safari": "https://apps.apple.com/us/app/ghostery-privacy-ad-blocker/id6504861501"
+      },
+      "description": "Ad blocker that works across all devices and gives you insights about who tracks you. Second best recommendation after uBlock Origin. On iOS devices Ghostery is the top recommendation, but there it only works with Safari."
     }
   ],
   "vpns": [
     {
-      "id": "mullvad",
+      "id": "mullvadVPN",
       "name": "Mullvad VPN",
+      "type": "vpn",
       "href": "https://mullvad.net/",
-      "icon": "/img/vpns/mullvad-vpn.svg",
+      "ext": ".svg",
       "recommended": true,
-      "topRecommendation": ["ios", "android", "desktop"],
-      "devices": ["desktop", "android", "ios"],
-      "refs": ["https://mullvad.net/"],
-      "specialHint": ""
+      "topRecommendation": ["iOS", "android", "desktop"],
+      "devices": ["desktop", "android", "iOS"],
+      "description": "A VPN provider that doesn't has or saves any data about you. It even works without user accounts, so it also doesn't need your email."
     },
     {
-      "id": "proton",
+      "id": "protonVPN",
       "name": "Proton VPN",
+      "type": "vpn",
       "href": "https://protonvpn.com/",
-      "icon": "/img/vpns/proton-vpn.svg",
+      "ext": ".svg",
       "recommended": true,
       "topRecommendation": [],
-      "devices": ["desktop", "android", "ios"],
-      "refs": ["https://protonvpn.com/"],
-      "specialHint": ""
+      "devices": ["desktop", "android", "iOS"],
+      "description": "This VPN provider doesn't log any of your browsing data. Second best recommendation after Mullvad VPN."
     }
   ],
   "searchEngines": [
     {
-      "id": "duckduckgo",
+      "id": "duckDuckGo",
       "name": "DuckDuckGo",
+      "type": "searchEngine",
       "href": "https://duckduckgo.com/",
-      "icon": "/img/searchEngines/duckduckgo.svg",
+      "ext": ".svg",
       "recommended": true,
-      "topRecommendation": ["ios", "android", "desktop"],
-      "devices": ["desktop", "android", "ios"],
-      "refs": ["https://duckduckgo.com/"],
-      "specialHint": ""
+      "topRecommendation": ["iOS", "android", "desktop"],
+      "devices": ["desktop", "android", "iOS"],
+      "description": "Privacy focused Search Engine that doesn't track you. Has a lot of features, from maps to weather forecasts."
     },
     {
       "id": "startpage",
       "name": "StartPage",
+      "type": "searchEngine",
       "href": "https://www.startpage.com/",
-      "icon": "/img/searchEngines/startpage.svg",
+      "ext": ".svg",
       "recommended": true,
       "topRecommendation": [],
-      "devices": ["desktop", "android", "ios"],
-      "refs": ["https://www.startpage.com/"],
-      "specialHint": ""
+      "devices": ["desktop", "android", "iOS"],
+      "description": "A privacy protecting search engine from the Netherlands."
     }
   ],
   "fingerprintProtection": [
     {
-      "id": "canvasblocker",
+      "id": "canvasBlocker",
       "name": "CanvasBlocker",
-      "href": "https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/",
-      "icon": "/img/other/canvas-blocker.png",
+      "type": "fingerprintProtection",
+      "href": "https://github.com/kkapsner/CanvasBlocker",
+      "ext": ".png",
       "recommended": true,
       "topRecommendation": ["desktop", "android"],
       "devices": ["desktop", "android"],
-      "refs": [
-        "https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/",
-        "https://chromewebstore.google.com/detail/canvas-blocker-fingerprin/nomnklagbgmgghhjidfhnoelnjfndfpd"
-      ],
-      "specialHint": "You don't need this when using the LibreWolff browser. It already includes it's own protection."
+      "links": {
+        "firefox": "https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/"
+      },
+      "description": "An effective fingerprint protection extension for Firefox based browsers. (You don't need this when using the LibreWolff, Mullvad or Tor browser, they already include their own fingerprint protection.)"
+    },
+    {
+      "id": "canvasBlockerFingerprintProtect",
+      "name": "Canvas Blocker (Fingerprint Protect)",
+      "type": "fingerprintProtection",
+      "href": "https://webextension.org/listing/canvas-fingerprint-blocker.html",
+      "ext": ".png",
+      "recommended": true,
+      "topRecommendation": [],
+      "devices": ["desktop", "android"],
+      "links": {
+        "firefox": "https://addons.mozilla.org/en-US/firefox/addon/canvas-blocker-no-fingerprint/",
+        "chrome": "https://chromewebstore.google.com/detail/canvas-blocker-fingerprin/nomnklagbgmgghhjidfhnoelnjfndfpd",
+        "edge": "https://microsoftedge.microsoft.com/addons/detail/canvas-blocker-fingerpr/ahiddppepedlomdleppkbljnmkchlmdc"
+      },
+      "description": "Fingerprint protection extension for all other browsers than Firefox, if you really need to use a browser that is not Firefox based. (Also works on Firefox, but the other Canvas Blocker extension is better when on Firefox)"
     }
   ]
 }

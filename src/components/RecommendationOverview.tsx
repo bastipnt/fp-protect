@@ -18,7 +18,7 @@ const RecommendationOverview: React.FC<Props> = ({ area, bg }) => {
     let device = "desktop";
 
     if (isMobile) {
-      if (os === "iOS") device = "ios";
+      if (os === "iOS") device = "iOS";
       else device = "android";
     }
 
@@ -41,9 +41,9 @@ const RecommendationOverview: React.FC<Props> = ({ area, bg }) => {
 
   return (
     <ul className="mt-8 grid w-full grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4">
-      {getRecommendationList().map(({ href, name, id, icon }) => (
+      {getRecommendationList().map(({ href, name, id, type, ext }) => (
         <li key={id}>
-          <ImgLink title={name} href={href} imgUrl={icon} bg={bg} />
+          <ImgLink title={name} href={href} imgUrl={`/img/${type}/${id}${ext}`} bg={bg} />
         </li>
       ))}
       {getRecommendationList().length === 0 && (
