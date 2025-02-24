@@ -41,17 +41,14 @@
 
 @font-face {
   font-family: Righteous;
-  src:
-    url("assets/fonts/righteous-font/Righteous-j7av.eot?#iefix") format("embedded-opentype"),
-    url("assets/fonts/righteous-font/Righteous-j7av.woff") format("woff"),
-    url("assets/fonts/righteous-font/Righteous-j7av.ttf") format("truetype");
+  src: url("/fonts/righteous-font/Righteous-j7av.ttf") format("truetype");
   font-style: normal;
   font-weight: normal;
 }
 
 /* @font-face {
   font-family: GamePaused;
-  src: url("assets/fonts/game-paused/Game-Paused.otf") format("opentype");
+  src: url("/fonts/game-paused/Game-Paused.otf") format("opentype");
   font-style: normal;
   font-weight: normal;
 } */
@@ -60,7 +57,7 @@
   font-family: "HomeVideo";
   src:
     local("HomeVideo-BLG6G"),
-    url("./assets/fonts/home-video/HomeVideo-BLG6G.ttf") format("truetype");
+    url("/fonts/home-video/HomeVideo-BLG6G.ttf") format("truetype");
   font-style: normal;
   font-weight: normal;
 }
