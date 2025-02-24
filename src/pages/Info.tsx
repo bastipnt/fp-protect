@@ -86,7 +86,7 @@ const Info: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <strong>survey</strong>
+            survey
           </a>{" "}
           for my master's thesis. Thank you for your support! 💜
         </p>

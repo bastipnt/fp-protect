@@ -5,6 +5,7 @@
 
   --color-stroke: #5e3135;
   --color-stroke-light: hsl(355 31 28 / 60%);
+  --color-stroke-darker: hsl(355 31 28 / 100%);
 
   --color-default: var(--color-stroke);
 
@@ -106,4 +107,8 @@ a.link {
   &.text-danger {
     color: var(--color-danger);
   }
+}
+
+strong {
+  color: var(--color-stroke-light);
 }
