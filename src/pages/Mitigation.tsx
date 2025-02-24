@@ -84,7 +84,10 @@ const Mitigation: React.FC = () => {
           There are many different ad blocker extensions available, some of which are free while
           others require a subscription.
         </p>
-        <p>Fortunately, some of the best options are completely free:</p>
+        <p>
+          Not every ad blocker blocks all ads by default, as they should. Thats why this list of
+          recommendations is pretty short.
+        </p>
 
         <RecommendationOverview area="adBlockers" bg />
       </PageSection>
@@ -112,8 +115,8 @@ const Mitigation: React.FC = () => {
           activities themselves.
         </p>
         <p>
-          After doing some research, here are my two recommendations for VPN providers that do not
-          log any data about you:
+          After doing some research, here are my two recommendations for VPN providers that are
+          trustworthy and do not log any data about you:
         </p>
 
         <RecommendationOverview area="vpns" />
@@ -136,15 +139,18 @@ const Mitigation: React.FC = () => {
 
       <PageSection>
         <p>
-          <SectionTitle>Fingerprint Protection</SectionTitle> can be particularly challenging. If
-          you are using a privacy-focused browser like <strong>LibreWolf</strong>, you are on the
-          right track.
+          <SectionTitle>Fingerprint Protection</SectionTitle> can be particularly challenging.
         </p>
-        <p>But what if you prefer to use a different browser?</p>
         <p>
-          The <strong>Canvas Blocker</strong> extension provides fingerprint protection also for
-          other browsers. (It is not available for iOS)
+          If you are using a privacy-focused browser like <strong>LibreWolf</strong>, you are on the
+          right track. But what if you prefer to use a different browser?
         </p>
+        <p>
+          There are some extensions aimed to tackle this problem. But they are not available for
+          every device or browser. If you are using an iOS device there is nothing you can do, other
+          than trust Apple, that their new privacy features do protect you.
+        </p>
+        <p>For other devices these are the recommendations:</p>
 
         <RecommendationOverview area="fingerprintProtection" />
       </PageSection>
@@ -162,7 +168,11 @@ const Mitigation: React.FC = () => {
           using one browser for social media and another for web searches can help keep your
           contexts separate.
         </p>
-
+        <p>
+          Not loading images by default in email programs is also recommended to protect you against
+          Tracking Pixels.
+        </p>
+        <p>Hopefully this guide could help you to experience a more private browsing experience!</p>
         <p>
           Now that you have a better understanding of tracking and how to protect yourself, it's
           time to take the test! How well are you protected?

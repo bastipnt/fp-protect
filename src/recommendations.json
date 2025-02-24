@@ -58,7 +58,7 @@
       "topRecommendation": [],
       "recommendationWeight": 5,
       "devices": ["desktop", "android", "iOS"],
-      "description": "A chrome based browser with enhanced privacy features. It blocks trackers and most ads."
+      "description": "A chrome based browser with enhanced privacy features. It blocks trackers and most ads. But in my test not the best option here."
     }
   ],
   "adBlockers": [
@@ -95,24 +95,6 @@
       "description": "A free open source ad blocker, that blocks all ads and not just some. On top of that it speeds up your browser and blocks tracking. (Lite version for Chrome and Edge)"
     },
     {
-      "id": "privacyBadger",
-      "name": "Privacy Badger",
-      "type": "trackingBlocker",
-      "href": "https://privacybadger.org/",
-      "ext": ".png",
-      "recommended": true,
-      "topRecommendation": [],
-      "recommendationWeight": 3,
-      "devices": ["desktop", "android"],
-      "links": {
-        "firefox": "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/",
-        "chrome": "https://chromewebstore.google.com/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp",
-        "edge": "https://microsoftedge.microsoft.com/addons/detail/mkejgcgkdlddbggjhhflekkondicpnop",
-        "opera": "https://addons.opera.com/en/extensions/details/privacy-badger"
-      },
-      "description": "Browser extension that blocks web tracking by analyzing websites you visit."
-    },
-    {
       "id": "ghostery",
       "name": "Ghostery",
       "type": "adBlocker",
@@ -130,6 +112,24 @@
         "safari": "https://apps.apple.com/us/app/ghostery-privacy-ad-blocker/id6504861501"
       },
       "description": "Ad blocker that works across all devices and gives you insights about who tracks you. Second best recommendation after uBlock Origin. On iOS devices Ghostery is the top recommendation, but there it only works with Safari."
+    },
+    {
+      "id": "privacyBadger",
+      "name": "Privacy Badger",
+      "type": "trackingBlocker",
+      "href": "https://privacybadger.org/",
+      "ext": ".png",
+      "recommended": true,
+      "topRecommendation": [],
+      "recommendationWeight": 3,
+      "devices": ["desktop", "android"],
+      "links": {
+        "firefox": "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/",
+        "chrome": "https://chromewebstore.google.com/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp",
+        "edge": "https://microsoftedge.microsoft.com/addons/detail/mkejgcgkdlddbggjhhflekkondicpnop",
+        "opera": "https://addons.opera.com/en/extensions/details/privacy-badger"
+      },
+      "description": "Actually not really an ad blocker. It is a browser extension that blocks web tracking by analyzing websites you visit, and by doing this also blocks ads, that track you."
     }
   ],
   "vpns": [
@@ -155,7 +155,7 @@
       "topRecommendation": [],
       "recommendationWeight": 2,
       "devices": ["desktop", "android", "iOS"],
-      "description": "This VPN provider doesn't log any of your browsing data. Second best recommendation after Mullvad VPN."
+      "description": "This VPN provider also doesn't log any of your browsing data. Second best recommendation after Mullvad VPN."
     }
   ],
   "searchEngines": [
