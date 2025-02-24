@@ -52,7 +52,7 @@ const Layout: React.FC<Props> = ({ children }) => {
           <li>
             <a
               className="cursor-pointer"
-              href="https://github.com/bastipnt"
+              href="https://github.com/bastipnt/fp-protect"
               target="_blank"
               referrerPolicy="no-referrer"
             >
