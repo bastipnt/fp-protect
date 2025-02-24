@@ -20,8 +20,10 @@ const Mitigation: React.FC = () => {
           privacy!
         </p>
         <p>
-          From selecting the right browser and using a privacy-focused search engine to installing
-          ad-blocking extensions, there are numerous steps you can take to protect yourself.
+          From selecting the right <strong>browser</strong> and using a{" "}
+          <strong>privacy-focused search engine</strong> to installing{" "}
+          <strong>ad-blocking extensions</strong>, there are numerous steps you can take to protect
+          yourself.
         </p>
         <p>
           Since the effectiveness of these measures can vary depending on the device you are using

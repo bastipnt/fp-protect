@@ -89,7 +89,7 @@ const Info: React.FC = () => {
             Some of these methods you may already be familiar with, while others might be new to
             you.
           </p>
-          <p>Here are the most common tracking methods:</p>
+          <p>The most common tracking methods are:</p>
         </div>
 
         <div className="relative flex min-h-80 w-screen max-w-100 justify-items-stretch p-4 sm:max-w-250 sm:p-8">
@@ -191,13 +191,10 @@ const Info: React.FC = () => {
           Cookies are commonly used to remember your preferences and login details, allowing you to
           avoid re-entering your username and password each time you revisit a site.
         </p>
+        <p>However, there are different types of cookies.</p>
         <p>
-          However, there are different types of cookies, including{" "}
-          <strong>Third-Party Cookies</strong>.
-        </p>
-        <p>
-          These cookies are primarily set by tracking companies and are used to monitor your
-          activity across the web, collecting data about the websites you visit.
+          <strong>Third-Party Cookies</strong> are primarily set by tracking companies and are used
+          to monitor your activity across the web, collecting data about the websites you visit.
         </p>
         <p>
           Regularly clearing the cookies stored in your browser can help enhance your privacy and
