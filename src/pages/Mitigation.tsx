@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import Card from "../components/Card";
 import PageSection from "../components/PageSection";
 import RecommendationOverview from "../components/RecommendationOverview";
+import Reference from "../components/Reference";
 import SectionTitle from "../components/SectionTitle";
 import { DeviceContext } from "../providers/deviceProvider";
 
@@ -46,15 +47,17 @@ const Mitigation: React.FC = () => {
         <RecommendationOverview area="best" bg preview />
       </PageSection>
 
-      <PageSection>
+      <PageSection referenceIds={["BrowserMarketShare2024", "GoogleSettlesLawsuit"]}>
         <p>
           <SectionTitle>Browsers</SectionTitle> can significantly impact your online tracking
           experience! Did you know that?
         </p>
         <p>Not all browsers prioritize your privacy equally.</p>
         <p>
-          While many people use <strong>Google Chrome</strong>, it is actually one of the least
-          privacy-friendly options available if you want to minimize tracking.
+          While many people use <strong>Google Chrome</strong>
+          <Reference referenceId="BrowserMarketShare2024" />, it is actually one of the least
+          privacy-friendly options available if you want to minimize tracking
+          <Reference referenceId={"GoogleSettlesLawsuit"} />.
         </p>
         <p>
           The reason for this is that Google generates billions of dollars each year from targeted
@@ -69,10 +72,10 @@ const Mitigation: React.FC = () => {
         <RecommendationOverview area="browsers" />
       </PageSection>
 
-      <PageSection bg>
+      <PageSection referenceIds={["madikeriAdBlockersOnline2024"]} bg>
         <p>
-          <SectionTitle>Ad Blockers</SectionTitle> can effectively protect your personal data
-          online.
+          <SectionTitle>Ad Blockers</SectionTitle> can effectively protect your personal data online
+          <Reference referenceId={"madikeriAdBlockersOnline2024"} />.
         </p>
         <p>Did you know that most ad blockers not only block ads but also prevent web tracking?</p>
         <p>
@@ -92,12 +95,15 @@ const Mitigation: React.FC = () => {
         <RecommendationOverview area="adBlockers" bg />
       </PageSection>
 
-      <PageSection id="vpn">
+      <PageSection id="vpn" referenceIds={["gilbertsonBestVPNsProtect2025"]}>
         <p>
           <SectionTitle>Virtual Private Networks</SectionTitle> (VPNs) are tools that can make your
           internet connection more secure.
         </p>
-        <p>Using a VPN offers several advantages:</p>
+        <p>
+          Using a VPN offers several advantages
+          <Reference referenceId={"gilbertsonBestVPNsProtect2025"} />:
+        </p>
 
         <ol className="ml-4 list-decimal">
           <li>Your Internet Service Provider (ISP) cannot see your online activities.</li>
@@ -122,16 +128,18 @@ const Mitigation: React.FC = () => {
         <RecommendationOverview area="vpns" />
       </PageSection>
 
-      <PageSection bg>
+      <PageSection bg referenceIds={["wesslerHowPrivateYour2013", "RecommendedSearchEngines2024"]}>
         <p>
           <SectionTitle>Search Engines</SectionTitle> gather extensive information about you. Every
-          search you make is stored and utilized to deliver ads that align with your profile.{" "}
-          <strong>Google</strong>, in particular, knows a great deal about you, as it is the most
-          widely used search engine in the world.
+          search you make is stored and utilized to deliver ads that align with your profile
+          <Reference referenceId={"wesslerHowPrivateYour2013"} />. <strong>Google</strong>, in
+          particular, knows a great deal about you, as it is the most widely used search engine in
+          the world.
         </p>
         <p>
           However, there are search engines that prioritize your privacy and do not use your data
-          for advertising purposes. Two notable examples are:
+          for advertising purposes. Two notable examples are
+          <Reference referenceId={"RecommendedSearchEngines2024"} />:
         </p>
 
         <RecommendationOverview area="searchEngines" bg />
@@ -155,7 +163,7 @@ const Mitigation: React.FC = () => {
         <RecommendationOverview area="fingerprintProtection" />
       </PageSection>
 
-      <PageSection bg>
+      <PageSection bg referenceIds={["teamWhatAreTracking"]}>
         <p>There is even more you can do to enhance your online privacy!</p>
 
         <p>
@@ -171,6 +179,11 @@ const Mitigation: React.FC = () => {
         <p>
           Not loading images by default in email programs is also recommended to protect you against
           Tracking Pixels.
+        </p>
+        <p>
+          Regularly clearing cookies and using browser extensions to manage them, also can prevent
+          long-term tracking
+          <Reference referenceId={"teamWhatAreTracking"} />
         </p>
         <p>Hopefully this guide could help you to experience a more private browsing experience!</p>
         <p>
