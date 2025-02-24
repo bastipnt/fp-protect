@@ -40,20 +40,29 @@ const Layout: React.FC<Props> = ({ children }) => {
         {children}
       </main>
 
-      <footer className="text-stroke-light flex w-screen flex-row justify-end gap-2 p-4 text-sm sm:p-8 sm:text-lg">
-        Contact:
-        <a className="curosor-pointer" href="mailto:gt46nevl0@mozmail.com">
-          Email
-        </a>
-        |
-        <a
-          className="curosor-pointer"
-          href="https://github.com/bastipnt"
-          target="_blank"
-          referrerPolicy="no-referrer"
-        >
-          Github
-        </a>
+      <footer className="text-stroke-light flex w-screen flex-col gap-4 p-4 text-sm sm:p-8 sm:text-lg">
+        <ul className="flex flex-row justify-end gap-2">
+          <li>Contact:</li>
+          <li>
+            <a className="cursor-pointer" href="mailto:gt46nevl0@mozmail.com">
+              Email
+            </a>
+          </li>
+          <li>|</li>
+          <li>
+            <a
+              className="cursor-pointer"
+              href="https://github.com/bastipnt"
+              target="_blank"
+              referrerPolicy="no-referrer"
+            >
+              Github
+            </a>
+          </li>
+        </ul>
+        <p className="text-center text-xs sm:text-right">
+          This website's content is based on information available as of February 2025.
+        </p>
       </footer>
     </>
   );
