@@ -1,21 +1,19 @@
 import { useCallback } from "react";
-import { ReferenceName, References } from "../hooks/useReferences";
+import { getIndex, type ReferenceId } from "../util/referenceHelper";
 
 type Props = {
-  referenceName: ReferenceName | ReferenceName[];
-  references: References;
+  referenceId: ReferenceId | ReferenceId[];
 };
 
-const Reference: React.FC<Props> = ({ referenceName, references }) => {
+const Reference: React.FC<Props> = ({ referenceId }) => {
   const getNumber = useCallback(() => {
-    const getIndex = (n: ReferenceName) => references.findIndex(({ name }) => name === n) + 1;
-
-    if (Array.isArray(referenceName)) {
-      const names = referenceName;
-      return names.map((refName) => getIndex(refName)).join(",");
+    if (Array.isArray(referenceId)) {
+      const ids = referenceId;
+      return ids.map((id) => getIndex(id)).join(",");
     }
-    return getIndex(referenceName);
-  }, [references, referenceName]);
+
+    return getIndex(referenceId);
+  }, [referenceId]);
 
   return <sup>{getNumber()}</sup>;
 };

@@ -1,15 +1,15 @@
 import { ReactNode } from "react";
-import { References } from "../hooks/useReferences";
+import { ReferenceId } from "../util/referenceHelper";
 import ReferenceList from "./ReferenceList";
 
 type Props = {
   children: ReactNode;
   bg?: boolean;
-  references?: References;
+  referenceIds?: ReferenceId[];
   id?: string;
 };
 
-const PageSection: React.FC<Props> = ({ children, bg, references, id }) => {
+const PageSection: React.FC<Props> = ({ children, bg, referenceIds, id }) => {
   return (
     <section
       id={id}
@@ -17,7 +17,7 @@ const PageSection: React.FC<Props> = ({ children, bg, references, id }) => {
     >
       <div className="flex w-150 max-w-screen flex-col gap-4 px-4 sm:px-8">
         {children}
-        {references && references.length > 0 && <ReferenceList references={references} />}
+        {referenceIds && referenceIds.length > 0 && <ReferenceList referenceIds={referenceIds} />}
       </div>
     </section>
   );

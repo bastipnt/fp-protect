@@ -4,7 +4,6 @@ import PageSection from "../components/PageSection";
 import Reference from "../components/Reference";
 import SectionTitle from "../components/SectionTitle";
 import useCanvas from "../hooks/useCanvas";
-import { useReferences } from "../hooks/useReferences";
 import { drawDeviceIcon } from "../util/drawDeviceIconHelper";
 import { getParentDimensions } from "../util/drawHelper";
 
@@ -19,18 +18,6 @@ const Info: React.FC = () => {
   const pixelTrackingRef = useRef<HTMLLIElement>(null);
   const cookieTrackingRef = useRef<HTMLLIElement>(null);
   const fpTrackingRef = useRef<HTMLLIElement>(null);
-
-  const { references, getReferencesForBlock } = useReferences();
-
-  references.current = [
-    { index: 1, name: "WebTrackingWikipedia", block: "1" },
-    { index: 2, name: "DigitalAdvertisingRevenue", block: "1" },
-    { index: 3, name: "fisherWhatPublicIP2022", block: "ip-tracking" },
-    { index: 4, name: "teamWhatAreTracking", block: "tracking-pixel" },
-    { index: 5, name: "kristolHTTPCookiesStandards2001", block: "cookies" },
-    { index: 6, name: "HTTPCookie2025", block: "cookies" },
-    { index: 7, name: "DeviceFingerprint2025", block: "fp" },
-  ];
 
   drawRef.current = async (ctx: CanvasRenderingContext2D) => {
     const { width, height } = getParentDimensions(ctx.canvas);
@@ -50,17 +37,17 @@ const Info: React.FC = () => {
 
   return (
     <>
-      <PageSection references={getReferencesForBlock("1")}>
+      <PageSection referenceIds={["WebTrackingWikipedia", "DigitalAdvertisingRevenue"]}>
         <p>
           <SectionTitle>Web Tracking</SectionTitle> is the practice of monitoring and recording your
           online activities, allowing companies to gather insights about your behavior online
-          <Reference referenceName="WebTrackingWikipedia" references={references.current} />.
+          <Reference referenceId="WebTrackingWikipedia" />.
         </p>
         <p>
           Major advertising firms, such as <strong>Google</strong> and <strong>Meta</strong>,
           generate billions in revenue by leveraging your data for{" "}
           <strong>targeted advertising</strong>
-          <Reference referenceName="DigitalAdvertisingRevenue" references={references.current} />.
+          <Reference referenceId="DigitalAdvertisingRevenue" />.
         </p>
         <p>
           Fortunately, there are effective measures you can take to safeguard your{" "}
@@ -143,14 +130,14 @@ const Info: React.FC = () => {
         </div>
       </section>
 
-      <PageSection references={getReferencesForBlock("ip-tracking")}>
+      <PageSection referenceIds={["fisherWhatPublicIP2022"]}>
         <p>
           <SectionTitle>IP Tracking</SectionTitle> functions as follows:
         </p>
         <p>
           Each time you visit a webpage, your <strong>IP address</strong> is transmitted, allowing
           the website's server to know where to send the requested content
-          <Reference referenceName="fisherWhatPublicIP2022" references={references.current} />.
+          <Reference referenceId="fisherWhatPublicIP2022" />.
         </p>
         <p>
           Your IP address can be utilized to determine your approximate <strong>geolocation</strong>
@@ -176,12 +163,12 @@ const Info: React.FC = () => {
         </p>
       </PageSection>
 
-      <PageSection bg references={getReferencesForBlock("tracking-pixel")}>
+      <PageSection referenceIds={["teamWhatAreTracking"]} bg>
         <p>
           <SectionTitle>Tracking Pixels</SectionTitle> are tiny images — often just a single pixel
           in size — that are embedded within a website
-          <Reference referenceName="teamWhatAreTracking" references={references.current} />. These
-          images are typically invisible to users.
+          <Reference referenceId="teamWhatAreTracking" />. These images are typically invisible to
+          users.
         </p>
         <p>
           The primary purpose of a tracking pixel is to load an image from a remote server. When
@@ -194,15 +181,11 @@ const Info: React.FC = () => {
         </p>
       </PageSection>
 
-      <PageSection references={getReferencesForBlock("cookies")}>
+      <PageSection referenceIds={["kristolHTTPCookiesStandards2001", "HTTPCookie2025"]}>
         <p>
           <SectionTitle>Cookies</SectionTitle> are small data files that are stored in your browser
           when you visit a website
-          <Reference
-            referenceName={["kristolHTTPCookiesStandards2001", "HTTPCookie2025"]}
-            references={references.current}
-          />
-          .
+          <Reference referenceId={["kristolHTTPCookiesStandards2001", "HTTPCookie2025"]} />.
         </p>
         <p>
           Cookies are commonly used to remember your preferences and login details, allowing you to
@@ -222,12 +205,12 @@ const Info: React.FC = () => {
         </p>
       </PageSection>
 
-      <PageSection bg references={getReferencesForBlock("fp")}>
+      <PageSection referenceIds={["DeviceFingerprint2025"]} bg>
         <p>
           <SectionTitle>Device Fingerprinting</SectionTitle> — also known as{" "}
           <strong>browser fingerprinting</strong> — is a technique that can identify you by
           combining various attributes from your browser and the device you are using
-          <Reference referenceName="DeviceFingerprint2025" references={references.current} />.
+          <Reference referenceId="DeviceFingerprint2025" />.
         </p>
         <p>
           This method works because different browsers and hardware configurations return different
