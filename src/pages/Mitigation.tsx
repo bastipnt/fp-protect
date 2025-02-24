@@ -25,9 +25,9 @@ const Mitigation: React.FC = () => {
         <p>
           Since the effectiveness of these measures can vary depending on the device you are using
           (whether it's a phone or desktop, Android or iOS), this guide offers tailored suggestions
-          based on your current environment. Feel free to open this page on another device to
-          explore the differences.
+          based on your current environment.
         </p>
+        <p>Feel free to open this page on another device to explore the differences.</p>
 
         <Card className="mt-8 sm:mt-12">
           <p className="text-center text-xl">Currently seeing recommendations for:</p>
