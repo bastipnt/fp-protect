@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { resizeCanvas } from "../util/drawing";
+import { resizeCanvas } from "../util/drawHelper";
 
 const useCanvas = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);

@@ -46,13 +46,6 @@
   font-weight: normal;
 }
 
-/* @font-face {
-  font-family: GamePaused;
-  src: url("/fonts/game-paused/Game-Paused.otf") format("opentype");
-  font-style: normal;
-  font-weight: normal;
-} */
-
 @font-face {
   font-family: "HomeVideo";
   src:
@@ -76,24 +69,6 @@ body {
   .h-screen {
     height: -webkit-fill-available;
   }
-}
-
-.glow:hover {
-  /* text-shadow:
-    0 0 7px var(--color-surface-darker),
-    0 0 10px var(--color-surface-darker),
-    0 0 21px var(--color-surface-darker); */
-
-  /* transform: scale(1.1); */
-  text-decoration: underline;
-}
-
-code {
-  font-family: var(--default-font-family);
-  font-weight: bold;
-  /* font-size: 85%; */
-  /* background-color: var(--color-surface-darker-half); */
-  /* padding: 0.05rem 0.2rem; */
 }
 
 a.link {

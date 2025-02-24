@@ -6,7 +6,7 @@ import SectionTitle from "../components/SectionTitle";
 import useCanvas from "../hooks/useCanvas";
 import { useReferences } from "../hooks/useReferences";
 import { drawDeviceIcon } from "../util/drawDeviceIconHelper";
-import { getParentDimensions } from "../util/drawing";
+import { getParentDimensions } from "../util/drawHelper";
 
 export type TrackingMethodElements = {
   left: { el: HTMLLIElement | null }[];

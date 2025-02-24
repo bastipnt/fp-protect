@@ -1,9 +1,9 @@
 import computerIcon from "../assets/illustrations/Computer-Icon.svg";
 import phoneIcon from "../assets/illustrations/Phone-Icon.svg";
 import { TrackingMethodElements } from "../pages/Info";
-import { drawImage, drawLineToElement, loadImage, scaleImage } from "./drawing";
-import { calcScale, getScaledIconAnchors } from "./iconSpecs";
-import { calcIsMobileSize, detectIsMobile } from "./responsiveHelper";
+import { calcIsMobileSize, detectIsMobile } from "./browserHelper";
+import { drawImage, drawLineToElement, loadImage, scaleImage } from "./drawHelper";
+import { calcScale, getScaledIconAnchors } from "./iconHelper";
 
 export const drawDeviceIcon = async (
   ctx: CanvasRenderingContext2D,

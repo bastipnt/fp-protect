@@ -4,9 +4,9 @@ import {
   calcIsMobileSize,
   detectIsBraveBrowser,
   detectVivaldiBrowser,
-} from "../util/responsiveHelper";
+} from "../util/browserHelper";
 
-export const ResponsivenessContext = createContext<{
+export const DeviceContext = createContext<{
   isMobile: boolean;
   isMobileSize: boolean;
   browser?: string;
@@ -22,7 +22,7 @@ type Props = {
   children: ReactNode;
 };
 
-const ResponsivenessProvider: React.FC<Props> = ({ children }) => {
+const DeviceProvider: React.FC<Props> = ({ children }) => {
   const [isMobileSize, setIsMobileSize] = useState(false);
 
   const [browser, setBrowser] = useState<string>();
@@ -57,10 +57,10 @@ const ResponsivenessProvider: React.FC<Props> = ({ children }) => {
   }, []);
 
   return (
-    <ResponsivenessContext.Provider value={{ isMobile, isMobileSize, browser, os }}>
+    <DeviceContext.Provider value={{ isMobile, isMobileSize, browser, os }}>
       {children}
-    </ResponsivenessContext.Provider>
+    </DeviceContext.Provider>
   );
 };
 
-export default ResponsivenessProvider;
+export default DeviceProvider;

@@ -1,5 +1,5 @@
 import { useCallback, useContext } from "react";
-import { ResponsivenessContext } from "../providers/responsivenessProvider";
+import { DeviceContext } from "../providers/deviceProvider";
 import recommendations from "../recommendations.json";
 import Card from "./Card";
 import ImgLink from "./ImgLink";
@@ -14,7 +14,7 @@ type Props = {
 };
 
 const RecommendationOverview: React.FC<Props> = ({ area, bg, preview }) => {
-  const { os, isMobile, browser } = useContext(ResponsivenessContext);
+  const { os, isMobile, browser } = useContext(DeviceContext);
 
   const getRecommendationsForArea = useCallback(
     (currArea: Exclude<Area, "best">) => {

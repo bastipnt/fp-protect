@@ -6,7 +6,7 @@ import PageSection from "../components/PageSection";
 import SectionTitle from "../components/SectionTitle";
 import { useDetectAdblock } from "../hooks/useDetectAdBlock";
 import { useDetectCanvasBlock } from "../hooks/useDetectCanvasBlock";
-import { ResponsivenessContext } from "../providers/responsivenessProvider";
+import { DeviceContext } from "../providers/deviceProvider";
 import recommendations from "../recommendations.json";
 
 const browserList = [...recommendations.browsers.map(({ id }) => id), "DuckDuckGo"];
@@ -14,7 +14,7 @@ const browserRegex = new RegExp(browserList.join("|"), "i");
 
 const Testing: React.FC = () => {
   const { adBlockDetected } = useDetectAdblock();
-  const { browser } = useContext(ResponsivenessContext);
+  const { browser } = useContext(DeviceContext);
   const { canvas2dBlocked, canvasWebGlBlocked, canvas2dRef, canvasWebGlRef } =
     useDetectCanvasBlock();
   const [scoreNum, setScoreNum] = useState<number>(0);

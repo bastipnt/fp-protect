@@ -1,4 +1,4 @@
-import { detectIsMobile } from "./responsiveHelper";
+import { detectIsMobile } from "./browserHelper";
 
 type Size = [number, number];
 

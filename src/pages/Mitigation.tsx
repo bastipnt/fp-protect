@@ -4,10 +4,10 @@ import Card from "../components/Card";
 import PageSection from "../components/PageSection";
 import RecommendationOverview from "../components/RecommendationOverview";
 import SectionTitle from "../components/SectionTitle";
-import { ResponsivenessContext } from "../providers/responsivenessProvider";
+import { DeviceContext } from "../providers/deviceProvider";
 
 const Mitigation: React.FC = () => {
-  const { os, browser } = useContext(ResponsivenessContext);
+  const { os, browser } = useContext(DeviceContext);
   return (
     <>
       <PageSection>

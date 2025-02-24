@@ -1,12 +1,12 @@
 import { ReactNode } from "react";
-import ResponsivenessProvider from "./responsivenessProvider";
+import DeviceProvider from "./deviceProvider";
 
 type Props = {
   children: ReactNode;
 };
 
 const Provider: React.FC<Props> = ({ children }) => {
-  return <ResponsivenessProvider>{children}</ResponsivenessProvider>;
+  return <DeviceProvider>{children}</DeviceProvider>;
 };
 
 export default Provider;

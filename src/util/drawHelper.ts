@@ -1,16 +1,10 @@
-import { OFFSET } from "./iconSpecs";
-import { calcIsMobileSize } from "./responsiveHelper";
+import { calcIsMobileSize } from "./browserHelper";
+import { OFFSET } from "./iconHelper";
 
 export const getParentDimensions = (canvas: HTMLCanvasElement) => ({
   width: canvas.parentElement?.offsetWidth || window.innerWidth,
   height: canvas.parentElement?.offsetHeight || window.innerHeight,
 });
-
-export const getAspecRatioFromImg = (img: HTMLImageElement) => img.height / img.width;
-
-export const getAspecRatio = (w: number, h: number) => h / w;
-
-export const getScale = (origSize: number, newSize: number) => newSize / origSize;
 
 export const resizeCanvas = (canvasEl: HTMLCanvasElement | null) => {
   if (canvasEl === null) return;
@@ -31,11 +25,6 @@ export const scaleImage = (img: HTMLImageElement, scale: number) => {
   img.height *= scale;
 };
 
-export const scaleImageFactor = (img: HTMLImageElement, factor: number) => {
-  img.width = img.width * factor;
-  img.height = img.height * factor;
-};
-
 export const drawImage = (
   ctx: CanvasRenderingContext2D,
   img: HTMLImageElement,
@@ -54,17 +43,6 @@ export const drawImage = (
   ctx.restore();
 
   return [offsetX, offsetY];
-};
-
-export const drawImageLeft = (ctx: CanvasRenderingContext2D, img: HTMLImageElement) => {
-  const height = ctx.canvas.height;
-  const imgWidth = img.width;
-  const imgHeight = img.height;
-
-  ctx.save();
-  ctx.translate(OFFSET, (height - imgHeight) / 2);
-  ctx.drawImage(img, 0, 0, imgWidth, imgHeight);
-  ctx.restore();
 };
 
 export const drawLineToElement = (
