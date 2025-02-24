@@ -1,0 +1,29 @@
+[
+  {
+    "id": "amiunique",
+    "name": "Am I Unique",
+    "type": "fingerprintTest",
+    "href": "https://amiunique.org/",
+    "ext": ".svg",
+    "wide": false,
+    "description": "Website where you can test your device fingerprint and see how unique you are compared to others. It gives valuable insights in the components used to create such a device fingerprint"
+  },
+  {
+    "id": "browserLeaks",
+    "name": "BrowserLeaks",
+    "type": "fingerprintTest",
+    "href": "https://browserleaks.com/",
+    "ext": ".png",
+    "wide": true,
+    "description": "Privacy evaluation suite that offers various tools to test the security and privacy of your web browser."
+  },
+  {
+    "id": "coverYourTracks",
+    "name": "Cover Your Tracks",
+    "type": "fingerprintTest",
+    "href": "https://coveryourtracks.eff.org/",
+    "ext": ".svg",
+    "wide": false,
+    "description": "Test to see how well your browser is protected against device fingerprinting. Here you can get an overview of how identifying each fingerprinting characteristic is."
+  }
+]

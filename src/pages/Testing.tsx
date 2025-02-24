@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "wouter";
 import Card from "../components/Card";
+import ExtRefOverview from "../components/ExtRefOverview";
 import PageSection from "../components/PageSection";
 import SectionTitle from "../components/SectionTitle";
 import { useDetectAdblock } from "../hooks/useDetectAdBlock";
@@ -44,10 +45,10 @@ const Testing: React.FC = () => {
       ></canvas>
 
       <PageSection>
-        <p>
-          This <SectionTitle>Browser Privacy Evaluation</SectionTitle> tests, how well your browser
-          protects your data when navigating the web.
-        </p>
+        <h1>
+          <SectionTitle>Browser Privacy Test</SectionTitle>
+        </h1>
+        <p>This test indicates how well your browser protects your data when navigating the web.</p>
         <div className="bg-surface-darker-half mt-8 flex flex-col rounded-2xl border-2 border-dashed px-4 py-8">
           <h2 className="text-center text-3xl">Your score:</h2>
           <p className="text-center text-4xl">{scoreNum}/4</p>
@@ -97,6 +98,10 @@ const Testing: React.FC = () => {
             </Card>
           </li>
         </ul>
+        <p className="text-stroke-light">
+          This feature is experimental and does not always detect ad blocking or fingerprint
+          protection, as these are difficult to detect.
+        </p>
       </PageSection>
 
       <PageSection>
@@ -104,12 +109,20 @@ const Testing: React.FC = () => {
           <SectionTitle>Happy</SectionTitle> with the results?
         </p>
         <p>
-          If not then maybe follow the tips on{" "}
+          There are many things that can be done to enhance your online privacy. If you are not
+          satisfied with your test results, then maybe follow the tips on the{" "}
           <Link to="/mitigation-strategies" className="link">
-            this
+            Protect Yourself
           </Link>{" "}
           page.
         </p>
+
+        <p>
+          If you want to learn even more, here are some recommendations for further reading and
+          testing:
+        </p>
+
+        <ExtRefOverview />
       </PageSection>
 
       <PageSection bg>
