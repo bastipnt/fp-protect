@@ -136,15 +136,15 @@ const Testing: React.FC = () => {
           tracking.
         </p>
         <p>It is very short and will take you only ~2mins. Thanks! 💜✨</p>
-      </PageSection>
 
-      <a
-        href="https://tracking-survey.bastipnt.de/?ref=test"
-        target="_blank"
-        className="font-heading bg-surface-darker-half m-4 my-8 rounded-2xl border-2 border-dashed p-4 text-center text-2xl"
-      >
-        Take the Survey
-      </a>
+        <a
+          href="https://tracking-survey.bastipnt.de/?ref=test"
+          target="_blank"
+          className="font-heading bg-primary-lighter mt-4 rounded-2xl border-2 border-dashed p-4 text-center text-2xl sm:mt-8"
+        >
+          Take the Survey
+        </a>
+      </PageSection>
     </>
   );
 };
