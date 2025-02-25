@@ -19,6 +19,7 @@ const RecommendationOverview: React.FC<Props> = ({ area, bg, preview }) => {
   const getRecommendationsForArea = useCallback(
     (currArea: Exclude<Area, "best">) => {
       let device = "desktop";
+      const browserBase = browser?.toLocaleLowerCase() === "opera" ? "chrome" : browser;
 
       if (isMobile) {
         if (os === "iOS") device = "iOS";
@@ -32,10 +33,10 @@ const RecommendationOverview: React.FC<Props> = ({ area, bg, preview }) => {
       const browserSpecificRecommendations = deviceSpecificRecommendations.filter(
         (recommendation) => {
           if (!("links" in recommendation)) return true;
-          if (!browser) return true;
+          if (!browserBase) return true;
 
           return Object.keys(recommendation.links as { [key: string]: string }).some(
-            (browserKey) => browser.toLowerCase().search(browserKey) !== -1,
+            (browserKey) => browserBase.toLowerCase().search(browserKey) !== -1,
           );
         },
       );

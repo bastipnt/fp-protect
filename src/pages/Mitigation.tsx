@@ -160,7 +160,7 @@ const Mitigation: React.FC = () => {
           every device or browser. If you are using an iOS device there is nothing you can do, other
           than trust Apple, that their new privacy features do protect you.
         </p>
-        <p>For other devices these are the recommendations:</p>
+        {os !== "iOS" && <p>For other devices these are the recommendations:</p>}
 
         <RecommendationOverview area="fingerprintProtection" />
       </PageSection>

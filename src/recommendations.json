@@ -92,7 +92,7 @@
         "chrome": "https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh",
         "edge": "https://microsoftedge.microsoft.com/addons/detail/ublock-origin-lite/cimighlppcgcoapaliogpjjdehbnofhn"
       },
-      "description": "A free open source ad blocker, that blocks all ads and not just some. On top of that it speeds up your browser and blocks tracking. (Lite version for Chrome and Edge)"
+      "description": "A free open source ad blocker, that blocks all ads and not just some. On top of that it speeds up your browser and blocks tracking. For it to protect you better make sure to set the filtering mode to \"Optimal\" or \"Complete\" in the settings. (Lite version for Chrome and Edge)"
     },
     {
       "id": "ghostery",
@@ -216,6 +216,23 @@
         "edge": "https://microsoftedge.microsoft.com/addons/detail/canvas-blocker-fingerpr/ahiddppepedlomdleppkbljnmkchlmdc"
       },
       "description": "Fingerprint protection extension for all other browsers than Firefox, if you really need to use a browser that is not Firefox based. (Also works on Firefox, but the other Canvas Blocker extension is better when on Firefox)"
+    },
+    {
+      "id": "noScript",
+      "name": "NoScript",
+      "type": "fingerprintProtection",
+      "href": "https://noscript.net/",
+      "ext": ".svg",
+      "recommended": true,
+      "topRecommendation": [],
+      "recommendationWeight": 3,
+      "devices": ["desktop", "android"],
+      "links": {
+        "firefox": "https://addons.mozilla.org/addon/noscript/",
+        "chrome": "https://chromewebstore.google.com/detail/noscript/doojmbjmlfjjnbmnoijecmcbfeoakpjm",
+        "edge": "https://microsoftedge.microsoft.com/addons/detail/noscript/debdhlbmgmkkfjpcglcbjadbhhekgfjh"
+      },
+      "description": "This extension provides extra security to your browser. It can block scripts, videos, images, and most importantly WebGL. Since WebGl can be used for fingerprinting you only want to enable it on websites that use it for legitimate reasons. (This is maybe more for advanced users, as it can easily break some web pages)"
     }
   ]
 }
