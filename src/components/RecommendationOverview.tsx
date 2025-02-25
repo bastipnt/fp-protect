@@ -72,7 +72,13 @@ const RecommendationOverview: React.FC<Props> = ({ area, bg, preview }) => {
       {getRecommendationList().map(({ href, name, id, type, ext, description }) => (
         <li key={id}>
           {preview ? (
-            <ImgLink title={name} href={href} imgUrl={`/img/${type}/${id}${ext}`} bg={bg} />
+            <ImgLink
+              title={name}
+              href={href}
+              type={type}
+              imgUrl={`/img/${type}/${id}${ext}`}
+              bg={bg}
+            />
           ) : (
             <RecommendationDetail
               title={name}
