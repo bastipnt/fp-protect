@@ -13,8 +13,8 @@
       "description": "A free open source web browser developed by the Mozilla Foundation."
     },
     {
-      "id": "libreWolff",
-      "name": "LibreWolff",
+      "id": "LibreWolf",
+      "name": "LibreWolf",
       "type": "browser",
       "href": "https://librewolf.net/",
       "ext": ".png",
@@ -198,7 +198,7 @@
       "links": {
         "firefox": "https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/"
       },
-      "description": "An effective fingerprint protection extension for Firefox based browsers. (You don't need this when using the LibreWolff, Mullvad or Tor browser, they already include their own fingerprint protection.)"
+      "description": "An effective fingerprint protection extension for Firefox based browsers. (You don't need this when using the LibreWolf, Mullvad or Tor browser, they already include their own fingerprint protection.)"
     },
     {
       "id": "canvasBlockerFingerprintProtect",
