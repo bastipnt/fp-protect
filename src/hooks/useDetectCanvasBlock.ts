@@ -29,18 +29,9 @@ export const useDetectCanvasBlock = () => {
     canvas.height = size;
     ctx.fillStyle = "#FFFFFF";
     ctx.fillRect(0, 0, size, size);
-
-    for (let i = 0; i < size; i++) {
-      for (let j = 0; j < size; j++) {
-        const imgData = ctx.getImageData(i, j, i + 1, j + 1).data;
-
-        const notWhite = imgData.find((val) => {
-          return val > 2 && val < 253;
-        });
-
-        if (notWhite !== undefined) setCanvas2dBlocked(true);
-      }
-    }
+    const imgData = ctx.getImageData(0, 0, size, size);
+    const notWhite = imgData.data.find((val) => val !== 255);
+    if (notWhite !== undefined) setCanvas2dBlocked(true);
   };
 
   const checkCanvasWebGlBlocked = (canvas: HTMLCanvasElement) => {
