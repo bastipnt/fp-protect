@@ -79,7 +79,7 @@ const Info: React.FC = () => {
         </p>
       </PageSection>
 
-      <section className="bg-primary flex w-full flex-col items-center gap-8 border-y-4 border-dashed py-8 sm:gap-12 sm:py-12">
+      <section className="bg-primary flex w-full flex-col items-center gap-8 py-8 sm:gap-12 sm:py-12">
         <div className="flex w-150 max-w-screen flex-col gap-2 px-4 sm:px-8">
           <p>
             There are several <SectionTitle>Tracking Methods</SectionTitle> employed by companies to
