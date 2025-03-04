@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 type Props = {
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 const SectionTitle: React.FC<Props> = ({ children }) => {
