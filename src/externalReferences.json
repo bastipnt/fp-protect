@@ -6,7 +6,10 @@
     "href": "https://amiunique.org/",
     "ext": ".svg",
     "wide": false,
-    "description": "Website where you can test your device fingerprint and see how unique you are compared to others. It gives valuable insights in the components used to create such a device fingerprint"
+    "description": {
+      "en": "Website where you can test your device fingerprint and see how unique you are compared to others. It gives valuable insights in the components used to create such a device fingerprint.",
+      "de": "Website, auf der Sie Ihren Gerätefingerabdruck testen und sehen können, wie einzigartig Sie im Vergleich zu anderen sind. Sie bietet wertvolle Einblicke in die Komponenten, die zur Erstellung eines solchen Gerätefingerabdrucks verwendet werden."
+    }
   },
   {
     "id": "browserLeaks",
@@ -15,7 +18,10 @@
     "href": "https://browserleaks.com/",
     "ext": ".png",
     "wide": true,
-    "description": "Privacy evaluation suite that offers various tools to test the security and privacy of your web browser."
+    "description": {
+      "en": "Privacy evaluation suite that offers various tools to test the security and privacy of your web browser.",
+      "de": "Datenschutzbewertungssuite, die verschiedene Tools bietet, um die Sicherheit und den Datenschutz Ihres Webbrowsers zu testen."
+    }
   },
   {
     "id": "coverYourTracks",
@@ -24,6 +30,9 @@
     "href": "https://coveryourtracks.eff.org/",
     "ext": ".svg",
     "wide": false,
-    "description": "Test to see how well your browser is protected against device fingerprinting. Here you can get an overview of how identifying each fingerprinting characteristic is."
+    "description": {
+      "en": "Test to see how well your browser is protected against device fingerprinting. Here you can get an overview of how identifying each fingerprinting characteristic is.",
+      "de": "Test, um zu sehen, wie gut Ihr Browser gegen Gerätefingerabdrücke geschützt ist. Hier können Sie einen Überblick darüber erhalten, wie identifizierbar jede Fingerabdruckmerkmale ist."
+    }
   }
 ]
