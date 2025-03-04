@@ -1,4 +1,14 @@
 {
+  "nav": {
+    "web-tracking": "Web Tracking",
+    "protect": "Protect yourself",
+    "test": "Test your browser",
+    "survey": "Survey"
+  },
+  "foot": {
+    "contact": "Contact:",
+    "content": "This website's content is based on information available as of February 2025."
+  },
   "info": {
     "web-tracking": "<0>Web Tracking</0> is the practice of monitoring and recording your online activities, allowing companies to gather insights about your behavior online",
     "advertising-firms": "Major advertising firms, such as <1>Google</1> and <3>Meta</3>, generate billions in revenue by leveraging your data for <6>targeted advertising</6>",

@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "format": "prettier --write .",
-    "extract-translations": "i18next 'src/pages/*.tsx' -c i18next-parser.config.ts"
+    "extract-translations": "i18next 'src/**/*.tsx' -c i18next-parser.config.ts"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.7",
