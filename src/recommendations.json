@@ -57,7 +57,7 @@
       "devices": ["desktop", "android"],
       "description": {
         "en": "This browser enables you to use the Tor Network, which allows you to browse the web with maximum anonymity.",
-        "de": "Dieser Browser ermöglicht es Ihnen, das Tor-Netzwerk zu nutzen, das es Ihnen ermöglicht, das Web mit maximaler Anonymität zu durchsuchen."
+        "de": "Dieser Browser ermöglicht dir, das Tor-Netzwerk zu nutzen, mit dem du dich im Internet mit maximaler Anonymität bewegen kannst."
       }
     },
     {
@@ -93,7 +93,7 @@
       },
       "description": {
         "en": "A free open source ad blocker, that blocks all ads and not just some. On top of that it speeds up your browser and blocks tracking.",
-        "de": "Ein kostenloser Open-Source-Werbeblocker, der alle Anzeigen blockiert und nicht nur einige. Darüber hinaus beschleunigt er Ihren Browser und blockiert das Tracking."
+        "de": "Ein kostenloser Open-Source-Werbeblocker, der alle Anzeigen blockiert und nicht nur einige. Darüber hinaus beschleunigt er deinen Browser und blockiert Tracking."
       }
     },
     {
@@ -112,7 +112,7 @@
       },
       "description": {
         "en": "A free open source ad blocker, that blocks all ads and not just some. On top of that it speeds up your browser and blocks tracking. For it to protect you better make sure to set the filtering mode to \"Optimal\" or \"Complete\" in the settings. (Lite version for Chrome and Edge)",
-        "de": "Ein kostenloser Open-Source-Werbeblocker, der alle Anzeigen blockiert und nicht nur einige. Darüber hinaus beschleunigt er Ihren Browser und blockiert das Tracking. Damit er Sie besser schützt, stellen Sie sicher, dass Sie den Filtermodus in den Einstellungen auf \"Optimal\" oder \"Vollständig\" einstellen. (Lite-Version für Chrome und Edge)"
+        "de": "Ein kostenloser Open-Source-Werbeblocker, der alle Anzeigen blockiert und nicht nur einige. Darüber hinaus beschleunigt er deinen Browser und blockiert das Tracking. Damit er dich besser schützt, setze den Filtermodus in den Einstellungen auf \"Optimal\" oder \"Vollständig\". (Lite-Version für Chrome und Edge)"
       }
     },
     {
@@ -134,7 +134,7 @@
       },
       "description": {
         "en": "Ad blocker that works across all devices and gives you insights about who tracks you. Second best recommendation after uBlock Origin. On iOS devices Ghostery is the top recommendation, but there it only works with Safari.",
-        "de": "Ein Werbeblocker, der auf allen Geräten funktioniert und Ihnen Einblicke darüber gibt, wer Sie verfolgt. Zweitbeste Empfehlung nach uBlock Origin. Auf iOS-Geräten ist Ghostery die beste Empfehlung, funktioniert dort jedoch nur mit Safari."
+        "de": "Ein Werbeblocker, der auf allen Geräten funktioniert und dir Einblicke darüber gibt, wer dich trackt. Zweitbeste Empfehlung nach uBlock Origin. Auf iOS-Geräten ist Ghostery die beste Empfehlung, funktioniert dort jedoch nur mit Safari."
       }
     },
     {
@@ -155,7 +155,7 @@
       },
       "description": {
         "en": "Actually not really an ad blocker. It is a browser extension that blocks web tracking by analyzing websites you visit, and by doing this also blocks ads, that track you.",
-        "de": "Eigentlich ist es kein richtiger Werbeblocker. Es handelt sich um eine Browsererweiterung, die das Web-Tracking blockiert, indem sie die von Ihnen besuchten Websites analysiert, und dadurch auch Anzeigen blockiert, die Sie verfolgen."
+        "de": "Eigentlich ist es kein richtiger Werbeblocker. Es handelt sich um eine Browsererweiterung, die das Web-Tracking blockiert, indem sie die von dir besuchten Websites analysiert, und dadurch auch Anzeigen blockiert, die dich verfolgen."
       }
     }
   ],
@@ -172,7 +172,7 @@
       "devices": ["desktop", "android", "iOS"],
       "description": {
         "en": "A VPN provider that doesn't has or saves any data about you. It even works without user accounts, so it also doesn't need your email.",
-        "de": "Ein VPN-Anbieter, der keine Daten über Sie hat oder speichert. Es funktioniert sogar ohne Benutzerkonten, sodass es auch keine E-Mail benötigt."
+        "de": "Ein VPN-Anbieter, der keine Daten über dich hat oder speichert. Für diesen VPN brauchst du noch nichtmal eine Email."
       }
     },
     {
@@ -187,7 +187,7 @@
       "devices": ["desktop", "android", "iOS"],
       "description": {
         "en": "This VPN provider also doesn't log any of your browsing data. Second best recommendation after Mullvad VPN.",
-        "de": "Dieser VPN-Anbieter protokolliert ebenfalls keine Ihrer Surf-Daten. Zweitbeste Empfehlung nach Mullvad VPN."
+        "de": "Dieser VPN-Anbieter protokolliert ebenfalls keine deiner Surf-Daten. Zweitbeste Empfehlung nach Mullvad VPN."
       }
     }
   ],
@@ -219,7 +219,7 @@
       "devices": ["desktop", "android", "iOS"],
       "description": {
         "en": "A privacy protecting search engine from the Netherlands.",
-        "de": "Eine datenschutzschützende Suchmaschine aus den Niederlanden."
+        "de": "Eine datenschutz freundliche Suchmaschine aus den Niederlanden."
       }
     }
   ],
@@ -239,7 +239,7 @@
       },
       "description": {
         "en": "An effective fingerprint protection extension for Firefox based browsers. (You don't need this when using the LibreWolf, Mullvad or Tor browser, they already include their own fingerprint protection.)",
-        "de": "Eine effektive Fingerabdruckschutz-Erweiterung für Firefox-basierte Browser. (Sie benötigen dies nicht, wenn Sie den LibreWolf, Mullvad oder Tor-Browser verwenden, da diese bereits ihren eigenen Fingerabdruckschutz enthalten.)"
+        "de": "Eine effektive Fingerabdruckschutz-Erweiterung für Firefox-basierte Browser. (Du bauchst diese nicht, wenn du den LibreWolf, Mullvad oder Tor-Browser verwendest, da diese Browser bereits ihren eigenen Fingerabdruckschutz enthalten.)"
       }
     },
     {
@@ -259,7 +259,7 @@
       },
       "description": {
         "en": "Fingerprint protection extension for all other browsers than Firefox, if you really need to use a browser that is not Firefox based. (Also works on Firefox, but the other Canvas Blocker extension is better when on Firefox)",
-        "de": "Fingerabdruckschutz-Erweiterung für alle anderen Browser außer Firefox, falls Sie wirklich einen Browser verwenden müssen, der nicht auf Firefox basiert. (Funktioniert auch auf Firefox, aber die andere Canvas Blocker-Erweiterung ist besser für Firefox.)"
+        "de": "Fingerabdruckschutz-Erweiterung für alle anderen Browser außer Firefox, falls du wirklich einen Browser verwenden musst, der nicht auf Firefox basiert. (Funktioniert auch auf Firefox, aber die andere Canvas Blocker-Erweiterung ist besser für Firefox.)"
       }
     },
     {
@@ -279,7 +279,7 @@
       },
       "description": {
         "en": "This extension provides extra security to your browser. It can block scripts, videos, images, and most importantly WebGL. Since WebGL can be used for fingerprinting you only want to enable it on websites that use it for legitimate reasons. (This is maybe more for advanced users, as it can easily break some web pages)",
-        "de": "Diese Erweiterung bietet zusätzliche Sicherheit für Ihren Browser. Sie kann Skripte, Videos, Bilder und vor allem WebGL blockieren. Da WebGL für Fingerabdrücke verwendet werden kann, sollten Sie es nur auf Websites aktivieren, die es aus legitimen Gründen verwenden. (Dies ist vielleicht eher für fortgeschrittene Benutzer, da es leicht einige Webseiten beschädigen kann.)"
+        "de": "Diese Erweiterung bietet zusätzliche Sicherheit für deinen Browser. Sie kann Skripte, Videos, Bilder und vor allem WebGL blockieren. Da WebGL für Fingerabdrücke verwendet werden kann, solltest du es nur auf Websites aktivieren, die es aus legitimen Gründen verwenden. (Dies ist vielleicht eher für fortgeschrittene Benutzer, da es leicht einige Webseiten beschädigen kann.)"
       }
     }
   ]
