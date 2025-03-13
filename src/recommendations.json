@@ -42,7 +42,7 @@
       "devices": ["desktop"],
       "description": {
         "en": "A free open source web browser based on Firefox. This browser is so privacy focused, it always uses the incognito mode and has additional fingerprinting protection. Maybe it is not a browser for everyday, but for more private matters.",
-        "de": "Ein kostenloser Open-Source-Webbrowser, der auf Firefox basiert. Dieser Browser ist so datenschutzorientiert, dass er immer den Inkognito-Modus verwendet und zusätzlichen Schutz gegen Fingerabdrücke bietet. Vielleicht ist es kein Browser für den Alltag, sondern für privatere Angelegenheiten."
+        "de": "Ein kostenloser Open-Source-Webbrowser, der auf Firefox basiert. Dieser Browser ist so datenschutzorientiert, dass er immer den Inkognito-Modus verwendet und zusätzlichen Schutz gegen Fingerabdrücke bietet. Vielleicht ist es kein Browser für den Alltag, aber für privatere Angelegenheiten."
       }
     },
     {
@@ -279,7 +279,7 @@
       },
       "description": {
         "en": "This extension provides extra security to your browser. It can block scripts, videos, images, and most importantly WebGL. Since WebGL can be used for fingerprinting you only want to enable it on websites that use it for legitimate reasons. (This is maybe more for advanced users, as it can easily break some web pages)",
-        "de": "Diese Erweiterung bietet zusätzliche Sicherheit für deinen Browser. Sie kann Skripte, Videos, Bilder und vor allem WebGL blockieren. Da WebGL für Fingerabdrücke verwendet werden kann, solltest du es nur auf Websites aktivieren, die es aus legitimen Gründen verwenden. (Dies ist vielleicht eher für fortgeschrittene Benutzer, da es leicht einige Webseiten beschädigen kann.)"
+        "de": "Diese Erweiterung bietet zusätzliche Sicherheit für deinen Browser. Sie kann Skripte, Videos, Bilder und vor allem WebGL blockieren. Da WebGL für Fingerabdrücke verwendet werden kann, solltest du es nur auf Websites aktivieren, die es aus legitimen Gründen verwenden. (Dies ist vielleicht eher für fortgeschrittene Benutzer, da es die korrekte Anzeige einiger Webseiten behindern kann.)"
       }
     }
   ]

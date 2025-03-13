@@ -11,6 +11,9 @@
   },
   "info": {
     "web-tracking": "<0>Web Tracking</0> is the practice of monitoring and recording your online activities, allowing companies to gather insights about your behavior online",
+    "web-tracking-2": "Originally designed to enhance user experiences and provide businesses with audience insights, web tracking has increasingly been misused, raising significant privacy concerns<1></1>.",
+    "web-tracking-3": "Thereby extensive user data is collected, such as habits, interests, and locations <1></1>, often without explicit consent<3></3>.",
+    "web-tracking-4": "This data is frequently sold or shared with third-party advertisers and data brokers, enabling targeted advertising and surveillance<1></1>.",
     "advertising-firms": "Major advertising firms, such as <1>Google</1> and <3>Meta</3>, generate billions in revenue by leveraging your data for <6>targeted advertising</6>",
     "affective-measures": "Fortunately, there are effective measures you can take to safeguard your <2>personal information</2>.",
     "empower-knowledge": "This website is designed to empower you with knowledge about <2>web tracking</2> and provide strategies to mitigate its impact.",
@@ -100,5 +103,13 @@
     "survey-3": "If you liked it (or not), it would help me to take my survey on targeted ads and web tracking.",
     "survey-4": "It is very short and will take you only ~2mins. Thanks! 💜✨",
     "survey-link": "Take the Survey"
+  },
+  "yes": {
+    "browser": "Yes ({{browser}})",
+    "simple": "Yes"
+  },
+  "no": {
+    "browser": "No ({{browser}})",
+    "simple": "No"
   }
 }

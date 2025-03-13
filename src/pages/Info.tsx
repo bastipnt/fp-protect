@@ -38,13 +38,57 @@ const Info: React.FC = () => {
 
   return (
     <>
-      <PageSection referenceIds={["WebTrackingWikipedia", "DigitalAdvertisingRevenue"]}>
+      <PageSection
+        referenceIds={[
+          "WebTrackingWikipedia",
+          "sanchez-rolaWebWatchingYou2017",
+          "simCombatingWebTracking2024",
+          "dambraWhenSallyMet2022",
+          "sarContextualIntegritysDecision2014",
+          "twetmanDataBrokersSecurity2021",
+          "DigitalAdvertisingRevenue",
+        ]}
+      >
         <p>
           <Trans i18nKey="info.web-tracking">
             <SectionTitle>Web Tracking</SectionTitle> is the practice of monitoring and recording
             your online activities, allowing companies to gather insights about your behavior online
           </Trans>
           <Reference referenceId="WebTrackingWikipedia" />.
+        </p>
+        <p>
+          <Trans i18nKey="info.web-tracking-2">
+            Originally designed to enhance user experiences and provide businesses with audience
+            insights, web tracking has increasingly been misused, raising significant privacy
+            concerns
+            <Reference
+              referenceId={["sanchez-rolaWebWatchingYou2017", "simCombatingWebTracking2024"]}
+            />
+            .
+          </Trans>
+        </p>
+        <p>
+          <Trans i18nKey="info.web-tracking-3">
+            These tracking methods collect extensive user data, such as habits, interests, and
+            locations <Reference referenceId="dambraWhenSallyMet2022" />, often without explicit
+            consent
+            <Reference
+              referenceId={[
+                "simCombatingWebTracking2024",
+                "sarContextualIntegritysDecision2014",
+                "sanchez-rolaWebWatchingYou2017",
+              ]}
+            />
+            .
+          </Trans>
+        </p>
+        <p>
+          <Trans i18nKey="info.web-tracking-4">
+            This data is frequently sold or shared with third-party advertisers and data brokers,
+            enabling targeted advertising and surveillance
+            <Reference referenceId={["dambraWhenSallyMet2022", "twetmanDataBrokersSecurity2021"]} />
+            .
+          </Trans>
         </p>
         <p>
           <Trans i18nKey="info.advertising-firms">

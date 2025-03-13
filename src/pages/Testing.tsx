@@ -65,12 +65,23 @@ const Testing: React.FC = () => {
       </PageSection>
 
       <PageSection bg>
-        <ul className="grid gap-4 sm:grid-cols-2">
+        <ul className="grid items-stretch gap-4 sm:grid-cols-2">
           <li>
             <Card
               title="Browser"
               danger={!testBrowser(browser)}
-              result={testBrowser(browser) ? `Yes (${browser})` : `No (${browser})`}
+              className="h-full"
+              result={
+                testBrowser(browser) ? (
+                  <Trans i18nKey="yes.browser" browser={browser}>
+                    Yes ({{ browser }})
+                  </Trans>
+                ) : (
+                  <Trans i18nKey="no.browser" browser={browser}>
+                    No ({{ browser }})
+                  </Trans>
+                )
+              }
               bg
             >
               <p>
@@ -82,7 +93,14 @@ const Testing: React.FC = () => {
             <Card
               title="Ad Blocker"
               danger={!adBlockDetected}
-              result={adBlockDetected ? "Yes" : "No"}
+              className="h-full"
+              result={
+                adBlockDetected ? (
+                  <Trans i18nKey="yes.simple">Yes</Trans>
+                ) : (
+                  <Trans i18nKey="no.simple">No</Trans>
+                )
+              }
               bg
             >
               <p>
@@ -94,7 +112,14 @@ const Testing: React.FC = () => {
             <Card
               title="Canvas"
               danger={!canvas2dBlocked}
-              result={canvas2dBlocked ? "Yes" : "No"}
+              className="h-full"
+              result={
+                canvas2dBlocked ? (
+                  <Trans i18nKey="yes.simple">Yes</Trans>
+                ) : (
+                  <Trans i18nKey="no.simple">No</Trans>
+                )
+              }
               bg
             >
               <p>
@@ -106,7 +131,14 @@ const Testing: React.FC = () => {
             <Card
               title="Canvas WebGl"
               danger={!canvasWebGlBlocked}
-              result={canvasWebGlBlocked ? "Yes" : "No"}
+              className="h-full"
+              result={
+                canvasWebGlBlocked ? (
+                  <Trans i18nKey="yes.simple">Yes</Trans>
+                ) : (
+                  <Trans i18nKey="no.simple">No</Trans>
+                )
+              }
               bg
             >
               <p>
