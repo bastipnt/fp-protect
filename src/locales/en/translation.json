@@ -70,7 +70,7 @@
     "vpn-ol": "<0><0>Your Internet Service Provider (ISP) cannot see your online activities.</0><1>Websites cannot access your real IP address, making it more difficult to track you.</1><2>You can appear to be located in another country, allowing you to access movies and content that may not be available in your region.</2><3>Many VPN providers offer features to block tracking and advertising URLs.</3></0>",
     "vpn-2": "The only downside to using a VPN is that you must trust the provider not to track your activities themselves.",
     "vpn-3": "After doing some research, here are my two recommendations for VPN providers that are trustworthy and do not log any data about you:",
-    "search-engines": "<0>Search Engines</0> gather extensive information about you. Every search you make is stored and utilized to deliver ads that align with your profile<2></2>. <4>Google</4>, in particular, knows a great deal about you, as it is the most widely used search engine in the world.",
+    "search-engines": "<0>Search Engines</0> gather extensive information about you. Every search you make is stored and utilized to deliver ads that align with your profile<2></2>. <4>Google</4>, in particular, knows a lot, as it is the most widely used search engine in the world.",
     "search-engines-1": "However, there are search engines that prioritize your privacy and do not use your data for advertising purposes. Two notable examples are",
     "fp-protection": "<0>Fingerprint Protection</0> can be particularly challenging.",
     "fp-protection-1": "If you are using a privacy-focused browser like <1>LibreWolf</1>, you are on the right track. But what if you prefer to use a different browser?",

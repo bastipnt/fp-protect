@@ -72,7 +72,7 @@
       "devices": ["desktop", "android", "iOS"],
       "description": {
         "en": "A chrome based browser with enhanced privacy features. It blocks trackers and most ads. But in my test not the best option here.",
-        "de": "Ein auf Chrome basierender Browser mit erweiterten Datenschutzfunktionen. Er blockiert Tracker und die meisten Anzeigen. Aber in meinem Test war es hier nicht die beste Option."
+        "de": "Ein auf Chrome basierender Browser mit erweiterten Datenschutzfunktionen. Er blockiert Tracker und die meisten Anzeigen. Aber ist in meinem Test nicht die beste Option."
       }
     }
   ],
@@ -155,7 +155,7 @@
       },
       "description": {
         "en": "Actually not really an ad blocker. It is a browser extension that blocks web tracking by analyzing websites you visit, and by doing this also blocks ads, that track you.",
-        "de": "Eigentlich ist es kein richtiger Werbeblocker. Es handelt sich um eine Browsererweiterung, die das Web-Tracking blockiert, indem sie die von dir besuchten Websites analysiert, und dadurch auch Anzeigen blockiert, die dich verfolgen."
+        "de": "Eigentlich ist es kein richtiger Werbeblocker. Es handelt sich um eine Browsererweiterung, die das Web-Tracking blockiert, indem sie die von dir besuchten Webseiten analysiert, und dadurch auch Anzeigen blockiert, die dich verfolgen."
       }
     }
   ],
@@ -204,7 +204,7 @@
       "devices": ["desktop", "android", "iOS"],
       "description": {
         "en": "Privacy focused Search Engine that doesn't track you. Has a lot of features, from maps to weather forecasts.",
-        "de": "Eine datenschutzorientierte Suchmaschine, die Sie nicht verfolgt. Sie bietet viele Funktionen, von Karten bis hin zu Wettervorhersagen."
+        "de": "Eine datenschutzorientierte Suchmaschine, die dich nicht verfolgt. Sie bietet viele Funktionen, von Karten bis hin zu Wettervorhersagen."
       }
     },
     {
@@ -279,7 +279,7 @@
       },
       "description": {
         "en": "This extension provides extra security to your browser. It can block scripts, videos, images, and most importantly WebGL. Since WebGL can be used for fingerprinting you only want to enable it on websites that use it for legitimate reasons. (This is maybe more for advanced users, as it can easily break some web pages)",
-        "de": "Diese Erweiterung bietet zusätzliche Sicherheit für deinen Browser. Sie kann Skripte, Videos, Bilder und vor allem WebGL blockieren. Da WebGL für Fingerabdrücke verwendet werden kann, solltest du es nur auf Websites aktivieren, die es aus legitimen Gründen verwenden. (Dies ist vielleicht eher für fortgeschrittene Benutzer, da es die korrekte Anzeige einiger Webseiten behindern kann.)"
+        "de": "Diese Erweiterung bietet zusätzliche Sicherheit für deinen Browser. Sie kann Skripte, Videos, Bilder und vor allem WebGL blockieren. Da WebGL für Fingerabdrücke verwendet werden kann, solltest du es nur auf Webseiten aktivieren, die es aus legitimen Gründen verwenden. (Dies ist vielleicht eher für fortgeschrittene Benutzer, da es die korrekte Anzeige einiger Webseiten behindern kann.)"
       }
     }
   ]
