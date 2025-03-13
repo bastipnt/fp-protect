@@ -1,5 +1,5 @@
-import { useEffect, type ReactNode } from "react";
-import { Trans } from "react-i18next";
+import { useCallback, useEffect, type ReactNode } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import { useLocation } from "wouter";
 import { useHashLocation } from "wouter/use-hash-location";
 import NavLink from "./components/NavLink";
@@ -13,17 +13,25 @@ const Layout: React.FC<Props> = ({ children }) => {
   const [location] = useLocation();
   const [hashLocation] = useHashLocation();
 
+  const { i18n } = useTranslation();
+
   useEffect(() => {
     const hash = hashLocation.substring(1);
 
     scrollTopOrHash(hash);
   }, [location, hashLocation]);
 
+  const toggleLanguage = useCallback(() => {
+    i18n.changeLanguage(i18n.resolvedLanguage === "de" ? "en" : "de");
+    // needs to be done because Trans component will not be effected otherwise (no easy way)
+    window.location.reload();
+  }, [i18n.resolvedLanguage]);
+
   return (
     <>
       <nav
         id="page-header"
-        className="bg-surface font-heading text-default sm:text-md justify-left fixed top-0 left-0 z-50 flex w-screen flex-row gap-4 p-2 py-3 align-middle sm:gap-10 sm:px-8"
+        className="bg-surface font-heading text-default sm:text-md justify-left fixed top-0 left-0 z-50 grid w-screen grid-cols-[repeat(3,1fr)] flex-row gap-4 p-2 py-3 align-middle sm:flex sm:gap-10 sm:px-8"
       >
         <NavLink to="/">
           <Trans i18nKey="nav.web-tracking">Web Tracking</Trans>
@@ -34,13 +42,31 @@ const Layout: React.FC<Props> = ({ children }) => {
         <NavLink to="/test">
           <Trans i18nKey="nav.test">Test your browser</Trans>
         </NavLink>
-        <a
-          href="https://tracking-survey.bastipnt.de/?ref=test"
-          target="_blank"
-          className="ml-auto hidden flex-col justify-center text-center sm:flex"
-        >
-          <Trans i18nKey="nav.survey">Survey</Trans>
-        </a>
+        <div className="col-span-3 flex flex-row justify-end gap-4 px-2 sm:ml-auto">
+          <a
+            href="https://tracking-survey.bastipnt.de/?ref=test"
+            target="_blank"
+            className="flex flex-col justify-center text-center"
+          >
+            <Trans i18nKey="nav.survey">Survey</Trans>
+          </a>
+          <button
+            className="flex-col justify-center text-center whitespace-nowrap"
+            onClick={toggleLanguage}
+          >
+            <span
+              className={`${i18n.resolvedLanguage === "en" ? "text-default" : "text-stroke-light"}`}
+            >
+              EN
+            </span>
+            |
+            <span
+              className={`${i18n.resolvedLanguage === "de" ? "text-default" : "text-stroke-light"}`}
+            >
+              DE
+            </span>
+          </button>
+        </div>
       </nav>
 
       <main className="box-border flex w-screen flex-col items-center gap-8 pt-20 sm:pt-12">

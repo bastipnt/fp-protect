@@ -11,7 +11,7 @@ const NavLink: React.FC<Props> = ({ children, to }) => {
     <Link
       to={to}
       className={(active) =>
-        `${active ? "text-lg sm:text-xl" : "sm:text-md"} font-heading text-default flex flex-col justify-center text-center`
+        `${active ? "border-2" : ""} text-default sm:text-md font-heading flex flex-col justify-center border-dashed p-1 text-center sm:p-2`
       }
     >
       {children}
