@@ -51,7 +51,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             <Trans i18nKey="nav.survey">Survey</Trans>
           </a>
           <button
-            className="flex-col justify-center text-center whitespace-nowrap"
+            className="cursor-pointer flex-col justify-center text-center whitespace-nowrap"
             onClick={toggleLanguage}
           >
             <span
