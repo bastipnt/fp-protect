@@ -42,7 +42,7 @@ const Layout: React.FC<Props> = ({ children }) => {
         <NavLink to="/test">
           <Trans i18nKey="nav.test">Test your browser</Trans>
         </NavLink>
-        <div className="col-span-3 flex flex-row justify-end gap-4 px-2 sm:ml-auto">
+        <div className="col-span-3 flex flex-row justify-end gap-4 px-2 text-sm sm:ml-auto sm:text-base">
           <a
             href="https://tracking-survey.bastipnt.de/?ref=test"
             target="_blank"
@@ -69,7 +69,7 @@ const Layout: React.FC<Props> = ({ children }) => {
         </div>
       </nav>
 
-      <main className="box-border flex w-screen flex-col items-center gap-8 pt-20 sm:pt-12">
+      <main className="box-border flex w-screen flex-col items-center gap-8 pt-28 sm:pt-12">
         {children}
       </main>
 

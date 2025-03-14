@@ -9,7 +9,10 @@ const ReferenceList: React.FC<Props> = ({ referenceIds }) => {
   return (
     <>
       {referenceIds.length > 0 && (
-        <ol className="text-stroke-light mt-4 grid grid-cols-[auto_1fr] overflow-y-scroll text-xs sm:ml-0">
+        <ol
+          className="text-stroke-light mt-4 grid grid-cols-[auto_1fr] overflow-hidden text-xs sm:ml-0"
+          style={{ overflowWrap: "anywhere" }} // fix for safari
+        >
           {referenceIds.map((referenceId) => {
             const { url } = references[referenceId];
             const index = getIndex(referenceId);
