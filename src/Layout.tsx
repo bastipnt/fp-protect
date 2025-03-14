@@ -42,7 +42,7 @@ const Layout: React.FC<Props> = ({ children }) => {
         <NavLink to="/test">
           <Trans i18nKey="nav.test">Test your browser</Trans>
         </NavLink>
-        <div className="col-span-3 flex flex-row justify-end gap-4 px-2 text-sm sm:ml-auto sm:text-base">
+        <div className="col-span-3 flex flex-row items-center justify-end gap-4 px-2 text-sm sm:ml-auto sm:text-base md:gap-8">
           <a
             href="https://tracking-survey.bastipnt.de/?ref=test"
             target="_blank"
