@@ -91,7 +91,7 @@
     "score": "Your score:",
     "browser": "Privacy focused browser:",
     "ad-block": "Adblock detected:",
-    "canvas": "Fingerprint faked::",
+    "canvas": "Fingerprint faked:",
     "webgl": "Canvas WebGl Blocked:",
     "experimental-info": "This feature is experimental and does not always detect ad blocking or fingerprint protection, as these are difficult to detect.",
     "conclusion": "<0>Happy</0> with the results?",
