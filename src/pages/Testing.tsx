@@ -16,26 +16,20 @@ const browserRegex = new RegExp(browserList.join("|"), "i");
 const Testing: React.FC = () => {
   const { adBlockDetected } = useDetectAdblock();
   const { browser } = useContext(DeviceContext);
-  const { canvas2dBlocked, canvasWebGlBlocked, canvas2dRef, canvasWebGlRef } =
-    useDetectCanvasBlock();
+  const { canvas2dBlocked, canvas2dRef, canvasWebGlRef } = useDetectCanvasBlock();
   const [scoreNum, setScoreNum] = useState<number>(0);
 
   const testBrowser = (browser?: string): boolean => browserRegex.test(browser || "");
 
   useEffect(() => {
-    const requirements = [
-      testBrowser(browser),
-      adBlockDetected,
-      canvas2dBlocked,
-      canvasWebGlBlocked,
-    ];
+    const requirements = [testBrowser(browser), adBlockDetected, canvas2dBlocked];
 
     setScoreNum(
       requirements.reduce((num, requirementVal) => {
         return num + (requirementVal ? 1 : 0);
       }, 0),
     );
-  }, [browser, adBlockDetected, canvas2dBlocked, canvasWebGlBlocked]);
+  }, [browser, adBlockDetected, canvas2dBlocked]);
 
   return (
     <>
@@ -60,7 +54,7 @@ const Testing: React.FC = () => {
           <h2 className="text-center text-3xl">
             <Trans i18nKey="test.score">Your score:</Trans>
           </h2>
-          <p className="text-center text-4xl">{scoreNum}/4</p>
+          <p className="text-center text-4xl">{scoreNum}/3</p>
         </div>
       </PageSection>
 
