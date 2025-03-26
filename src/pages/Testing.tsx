@@ -108,9 +108,9 @@ const Testing: React.FC = () => {
               </p>
             </Card>
           </li>
-          <li>
+          <li className="sm:col-span-2">
             <Card
-              title="Canvas"
+              title="Fingerprint Protection"
               danger={!canvas2dBlocked}
               className="h-full"
               result={
@@ -123,11 +123,11 @@ const Testing: React.FC = () => {
               bg
             >
               <p>
-                <Trans i18nKey="test.canvas">Canvas 2D faked or blocked:</Trans>
+                <Trans i18nKey="test.canvas">Fingerprint faked:</Trans>
               </p>
             </Card>
           </li>
-          <li>
+          {/* <li>
             <Card
               title="Canvas WebGl"
               danger={!canvasWebGlBlocked}
@@ -145,7 +145,7 @@ const Testing: React.FC = () => {
                 <Trans i18nKey="test.webgl">Canvas WebGl Blocked:</Trans>
               </p>
             </Card>
-          </li>
+          </li> */}
         </ul>
         <p className="text-stroke-light">
           <Trans i18nKey="test.experimental-info">

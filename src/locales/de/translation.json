@@ -91,7 +91,7 @@
     "score": "Dein Ergebnis:",
     "browser": "Datenschutzorientierter Browser:",
     "ad-block": "Werbeblocker erkannt:",
-    "canvas": "Canvas 2D gefälscht oder blockiert:",
+    "canvas": "Fingerabdruck gefälscht:",
     "webgl": "Canvas WebGL blockiert:",
     "experimental-info": "Diese Funktion ist experimentell und erkennt nicht immer, ob Werbung blockiert oder vor Fingerprinting geschützt wird, da dies schwer zu erkennen ist.",
     "conclusion": "<0>Happy</0> mit den Ergebnissen?",
